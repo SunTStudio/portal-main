@@ -39,11 +39,11 @@ Route::get('/users', [UsersManages::class, 'users'])->middleware('auth')->name('
 Route::get('/users/data', [UsersManages::class, 'usersData'])->middleware('auth')->name('users.data');
 Route::get('/users/create', [UsersManages::class, 'create'])->middleware('auth')->name('users.create');
 Route::post('/users/store', [UsersManages::class, 'store'])->middleware('auth')->name('users.store');
-Route::get('/users/edit', [UsersManages::class, 'edit'])->middleware('auth')->name('users.edit');
+Route::get('/users/edit/{id}', [UsersManages::class, 'edit'])->middleware('auth')->name('users.edit');
 Route::post('/users/update', [UsersManages::class, 'update'])->middleware('auth')->name('users.update');
 Route::get('/users/delete', [UsersManages::class, 'delete'])->middleware('auth')->name('users.delete');
 Route::get('/users/detail/{id}', [UsersManages::class, 'detail'])->middleware('auth')->name('users.detail');
-
+Route::get('/users/role-permission/{id}', [UsersManages::class, 'rolePermission'])->middleware('auth')->name('users.role.permission');
 
 
 Route::get('/roles', [RoleManages::class, 'roles'])->middleware('auth')->name('roles');

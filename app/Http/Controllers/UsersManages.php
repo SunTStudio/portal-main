@@ -51,5 +51,20 @@ class UsersManages extends Controller
         $user = User::find($id);
         return view('access-control.users.detail',compact('user'));
     }
+
+    public function edit(Request $request,$id)
+    {
+        $oldData  = User::find($id);
+        $departments = Department::all();
+        $detail_departements =  Detail_departement::all();
+        $positions = Position::all();
+        return view('access-control.users.edit',compact('oldData','departments','detail_departements','positions'));
+    }
+
+    public function rolePermission(Request $request,$id){
+        $user  = User::find($id);
+
+        return view('access-control.users.rolePermission');
+    }
 }
 
