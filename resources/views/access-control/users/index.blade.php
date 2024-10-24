@@ -75,7 +75,7 @@
                                                 <div class="d-flex align-items-center">
 
                                                             <form action="{{ url('/users/delete') }}/${data}" method="POST"
-                                                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus Model ini?');">
+                                                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus User ini?');">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <!-- Ini menandakan bahwa request ini adalah DELETE method -->

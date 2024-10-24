@@ -18,9 +18,8 @@
             </div>
 
             <div class="container mt-4">
-                <form method="POST" action="{{ route('users.update', $oldData->id) }}">
+                <form method="POST" action="{{ route('users.update', ['id' => $oldData->id]) }}">
                     @csrf
-                    @method('PUT')  <!-- Menambahkan metode PUT untuk update -->
                     <div class="row">
 
                         <div class="mb-3 col-lg-6 col-10">

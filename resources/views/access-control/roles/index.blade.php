@@ -9,7 +9,7 @@
                     <h3>Manage your roles here</h3>
                 </div>
                 <div id="addUsers">
-                    <a href="{{ url('users/create') }}" class="btn btn-secondary">Tambah Roles</a>
+                    <a href="{{ url('roles/create') }}" class="btn btn-secondary">Tambah Roles</a>
                 </div>
             </div>
             <div id="tableUsers" class="">
@@ -66,16 +66,16 @@
                         render: function(data, type, row) {
                             return `
                                 <div class="d-flex justify-content-center">
-                                    <a href="{{ url('/users/detail') }}/${data}/part" class="btn btn-sm btn-primary m-1">
+                                    <a href="{{ url('/roles/detail') }}/${data}" class="btn btn-sm btn-primary m-1">
                                         See Detail
                                     </a>
-                                                <a href="{{ url('/users/edit') }}/${data}" class="btn btn-sm btn-warning m-1">
+                                                <a href="{{ url('/roles/edit') }}/${data}" class="btn btn-sm btn-warning m-1">
                                                     Edit
                                                 </a>
                                                 <div class="d-flex align-items-center">
 
-                                                            <form action="{{ url('/users/delete') }}/${data}" method="POST"
-                                                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus Model ini?');">
+                                                            <form action="{{ url('/roles/delete') }}/${data}" method="POST"
+                                                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus Role ini?');">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <!-- Ini menandakan bahwa request ini adalah DELETE method -->

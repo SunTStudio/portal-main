@@ -40,25 +40,34 @@ Route::get('/users/data', [UsersManages::class, 'usersData'])->middleware('auth'
 Route::get('/users/create', [UsersManages::class, 'create'])->middleware('auth')->name('users.create');
 Route::post('/users/store', [UsersManages::class, 'store'])->middleware('auth')->name('users.store');
 Route::get('/users/edit/{id}', [UsersManages::class, 'edit'])->middleware('auth')->name('users.edit');
-Route::post('/users/update', [UsersManages::class, 'update'])->middleware('auth')->name('users.update');
-Route::get('/users/delete', [UsersManages::class, 'delete'])->middleware('auth')->name('users.delete');
+Route::post('/users/update/{id}', [UsersManages::class, 'update'])->middleware('auth')->name('users.update');
+Route::delete('/users/delete/{id}', [UsersManages::class, 'destroy'])->middleware('auth')->name('users.delete');
 Route::get('/users/detail/{id}', [UsersManages::class, 'detail'])->middleware('auth')->name('users.detail');
-Route::get('/users/role-permission/{id}', [UsersManages::class, 'rolePermission'])->middleware('auth')->name('users.role.permission');
+Route::get('/users/roles/{id}', [UsersManages::class, 'userRoles'])->middleware('auth')->name('users.roles');
+Route::get('/users/permissions/{id}', [UsersManages::class, 'userPermissions'])->middleware('auth')->name('users.permissions');
 
 
 Route::get('/roles', [RoleManages::class, 'roles'])->middleware('auth')->name('roles');
 Route::get('/roles/data', [RoleManages::class, 'rolesData'])->middleware('auth')->name('roles.data');
-Route::get('/roles/create', [RoleManages::class, 'rolesData'])->middleware('auth')->name('roles.data');
-Route::get('/roles/edit', [RoleManages::class, 'rolesData'])->middleware('auth')->name('roles.data');
-Route::get('/roles/delete', [RoleManages::class, 'rolesData'])->middleware('auth')->name('roles.data');
-Route::get('/roles/detail', [RoleManages::class, 'rolesData'])->middleware('auth')->name('roles.data');
+Route::get('/roles/create', [RoleManages::class, 'create'])->middleware('auth')->name('roles.create');
+Route::post('/roles/store', [RoleManages::class, 'store'])->middleware('auth')->name('roles.store');
+Route::get('/roles/edit/{id}', [RoleManages::class, 'edit'])->middleware('auth')->name('roles.edit');
+Route::post('/roles/update/{id}', [RoleManages::class, 'update'])->middleware('auth')->name('roles.update');
+Route::delete('/roles/delete/{id}', [RoleManages::class, 'destroy'])->middleware('auth')->name('roles.delete');
+Route::get('/roles/detail/{id}', [RoleManages::class, 'detail'])->middleware('auth')->name('roles.detail');
+Route::get('/roles/data-dont-have-permission/{role}', [RoleManages::class, 'rolesDontHavePermission'])->middleware('auth')->name('roles.data.dontHavePermissions');
+Route::get('/roles/data-has-permission/{role}', [RoleManages::class, 'rolesHasPermission'])->middleware('auth')->name('roles.data.hasPermissions');
 
 Route::get('/permissions', [PermissionsManages::class, 'permissions'])->middleware('auth')->name('permissions');
 Route::get('/permissions/data', [PermissionsManages::class, 'permissionsData'])->middleware('auth')->name('permissions.data');
-Route::get('/permissions/create', [PermissionsManages::class, 'permissionsData'])->middleware('auth')->name('permissions.data');
-Route::get('/permissions/edit', [PermissionsManages::class, 'permissionsData'])->middleware('auth')->name('permissions.data');
-Route::get('/permissions/delete', [PermissionsManages::class, 'permissionsData'])->middleware('auth')->name('permissions.data');
-Route::get('/permissions/detail', [PermissionsManages::class, 'permissionsData'])->middleware('auth')->name('permissions.data');
+Route::get('/permissions/create', [PermissionsManages::class, 'create'])->middleware('auth')->name('permissions.create');
+Route::post('/permissions/store', [PermissionsManages::class, 'store'])->middleware('auth')->name('permissions.store');
+Route::get('/permissions/edit/{id}', [PermissionsManages::class, 'edit'])->middleware('auth')->name('permissions.edit');
+Route::post('/permissions/update/{id}', [PermissionsManages::class, 'update'])->middleware('auth')->name('permissions.update');
+Route::delete('/permissions/delete/{id}', [PermissionsManages::class, 'destroy'])->middleware('auth')->name('permissions.delete');
+Route::get('/permissions/detail/{id}', [PermissionsManages::class, 'detail'])->middleware('auth')->name('permissions.detail');
+Route::get('/permissions/data-dont-have-roles/{permission}', [PermissionsManages::class, 'permissionDontHaveRoles'])->middleware('auth')->name('permissions.data.dontHaveRoles');
+Route::get('/permissions/data-has-roles/{permission}', [PermissionsManages::class, 'permissionHasRoles'])->middleware('auth')->name('permissions.data.hasRoles');
 
 // routes/web.php
 Route::get('roles/{role}/assign-permissions', [RoleController::class, 'showAssignPermissionsForm'])->name('roles.assignPermissionsForm');

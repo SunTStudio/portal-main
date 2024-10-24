@@ -22,7 +22,8 @@
 
         </div>
         <div class="mt-4">
-            <a href="{{ route('users.role.permission',['id' => $user->id]) }}" class="btn btn-info">Role & Permission</a>
+            <a href="{{ route('users.roles',['id' => $user->id]) }}" class="btn btn-info">Roles </a>
+            <a href="{{ route('users.permissions',['id' => $user->id]) }}" class="btn btn-info">Permissions</a>
             <a href="{{ route('users.edit',['id' => $user->id]) }}" class="btn btn-warning">Edit</a>
             <a href="{{ route('users') }}" class="btn btn-default">Back</a>
         </div>
