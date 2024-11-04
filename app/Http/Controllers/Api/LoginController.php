@@ -20,6 +20,18 @@ class LoginController extends Controller
         // Cek apakah kredensial valid
         if (Auth::attempt(['username' => $request->username, 'password' => $request->password])) {
             $user = Auth::user()->load('department','roles');
+            // Cek jika pengguna sudah login di perangkat lain
+            if ($user->is_logged_in) {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'You are already logged in on another device.'
+                ], 403); // Kode status 403 untuk forbidden
+            }
+
+            // Set status is_logged_in menjadi true
+            $user->is_logged_in = true;
+            $user->save();
+
             return response()->json([
                 'status' => 'success',
                 'user' => $user,

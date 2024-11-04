@@ -62,6 +62,7 @@
                 responsive: true,
                 processing: true,
                 serverSide: true,
+                paging: false,
                 ajax: "{{ route('permissions.data') }}",
                 columns: [{
                         data: 'id',

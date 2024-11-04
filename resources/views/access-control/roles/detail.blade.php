@@ -21,6 +21,7 @@
                             <h3>Name : {{ $roleData->name }}</h3>
                             <h3>Guard : {{ $roleData->guard_name }}</h3>
                         </div>
+                        <a href="{{ route('roles.insert.roleToUsers',['role' => $roleData->name ]) }}" class="btn btn-success">Tambah Role ke Users</a>
                         <div class="hr-line-dashed"></div>
                         <div class="mb-3  ">
                             <p> <strong> Assign Permissions </strong></p>

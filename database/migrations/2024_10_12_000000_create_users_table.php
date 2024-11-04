@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->string('golongan')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->boolean('is_logged_in')->default(false);
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

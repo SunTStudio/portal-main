@@ -28,7 +28,7 @@
                                 name="name" placeholder="Name" required>
                             <div class="submit mt-3">
                                 <button type="submit" class="btn btn-primary">Update Permission</button>
-                                <a href="{{ url('/roles') }}" class="btn btn-default">Back</a>
+                                <a href="{{ url('/permissions') }}" class="btn btn-default">Back</a>
                             </div>
                         </div>
                         <hr>
@@ -60,20 +60,23 @@
                 responsive: true,
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('permissions.data.dontHaveRoles',['permission' => $oldData->name]) }}",
-                columns: [
-                    {
+                paging: false,
+                ajax: "{{ route('permissions.data.dontHaveRoles', ['permission' => $oldData->name]) }}",
+                columns: [{
                         data: 'name',
                         className: 'text-center',
                         orderable: false,
                         render: function(data, type, row, meta) {
+                            // Tambahkan logika untuk mencentang checkbox jika `has_permission` bernilai true
+                            let checked = row.has_permission ? 'checked' : '';
                             return `
-                            <input type="checkbox"
-                                name="roles[]"
-                                value="${data}"
-                                class="role-checkbox"
-                            >
-                            `;
+                <input type="checkbox"
+                    name="roles[]"
+                    value="${row.id}"
+                    class="role-checkbox"
+                    ${checked}
+                >
+                `;
                         }
                     },
                     {

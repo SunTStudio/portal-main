@@ -77,13 +77,13 @@
                                         <div class="col-sm-10"><input type="text" class="form-control" placeholder="Nama" value="{{ Auth::user()->name }}" disabled></div>
                                     </div>
                                     <div class="form-group row"><label class="col-sm-2 col-form-label">NPK</label>
-                                        <div class="col-sm-10"><input type="text" class="form-control" placeholder="NPK" value="{{ Auth::user()->npk }}" disabled></div>
+                                        <div class="col-sm-10"><input type="text" class="form-control" placeholder="NPK" value="{{ Auth::user()->npk ?? '-' }}" disabled></div>
                                     </div>
                                     <div class="form-group row"><label class="col-sm-2 col-form-label">Departement</label>
-                                        <div class="col-sm-10"><input type="text" class="form-control" placeholder="Departement" value="{{ Auth::user()->department->name }}" disabled></div>
+                                        <div class="col-sm-10"><input type="text" class="form-control" placeholder="Departement" value="{{ Auth::user()->department->name ?? '-' }}" disabled></div>
                                     </div>
                                     <div class="form-group row"><label class="col-sm-2 col-form-label">Detail Departement</label>
-                                        <div class="col-sm-10"><input type="text" class="form-control" placeholder="Detail_Departement" value="{{ Auth::user()->detailDepartment->name }}" disabled></div>
+                                        <div class="col-sm-10"><input type="text" class="form-control" placeholder="Detail_Departement" value="{{ Auth::user()->detailDepartment->name ?? '-' }}" disabled></div>
                                     </div>
                                     <div class="form-group row"><label class="col-sm-2 col-form-label">Position</label>
                                         <div class="col-sm-10">

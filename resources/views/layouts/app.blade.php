@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css"
         href="https://cdn.datatables.net/fixedheader/3.2.3/css/fixedHeader.bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap.min.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/responsive/2.4.0/css/responsive.bootstrap.min.css">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     @yield('css')
@@ -38,20 +39,24 @@
                             </a>
                         </div>
                         <div class="logo-element">
-                            LS
+                            AJI
                         </div>
                     </li>
                     <li class="{{ Request::is('/*') ? 'active' : '' }}">
                         <a href="{{ url('/') }}"><i class="fa fa-dashboard"></i><span
                                 class="nav-label">Dashboard</span></a>
                     </li>
-                    {{-- <li class="{{ Request::is('profile*') ? 'active' : '' }}">
+                    @if (!Auth::user()->hasRole('Admin'))
+                    <li class="{{ Request::is('profile*') ? 'active' : '' }}">
                         <a href="{{ url('/profile') }}"><i class="fa fa-user-o"></i><span
                                 class="nav-label">Profile</span></a>
-                    </li> --}}
+                    </li>
+                    @endif
+
+                    @if (Auth::user()->hasRole('Admin'))
                     <li class="{{ Request::is('*management-akun') ? 'active' : '' }}">
-                        <a href="#"><i class="fa fa-user-o"></i> <span class="nav-label">Access Control</span><span
-                                class="fa arrow"></span></a>
+                        <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Access
+                                Control</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
                             <li class="{{ Request::is('Akun') ? 'active' : '' }}"><a
                                     href="{{ route('users') }}">Users</a></li>
@@ -62,39 +67,20 @@
                             {{-- <li><a href="carousel.html">Dilaporkan</a></li> --}}
                         </ul>
                     </li>
-                    {{-- <li id="managementMenu">
-                        <a href="#"><i class="fa fa-th-large"></i><span class="nav-label">Manajemen Perpus</span><span class="fa arrow"></span></a>
+                    <li class="{{ Request::is('*struktur-management') ? 'active' : '' }}">
+                        <a href="#"><i class="fa fa-cubes"></i> <span class="nav-label">Struktur Manajemen</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse">
-                            <li class="{{ Request::is('books*') ? 'active' : '' }}">
-                                <a href="{{ url('/books') }}">
-                                    <i class="fa fa-book"></i> Daftar Buku
-                                </a>
-                            </li>
-                            <li class="{{ Request::is('members*') ? 'active' : '' }}">
-                                <a href="{{ url('/members') }}">
-                                    <i class="fa fa-address-card"></i> Anggota
-                                </a>
-                            </li>
-                            <li class="{{ Request::is('loans*') ? 'active' : '' }}">
-                                <a href="{{ url('/loans') }}">
-                                    <i class="fa fa-toggle-up"></i> Peminjaman & Pengembalian
-                                </a>
-                            </li>
-                            <li class="{{ Request::is('reservations*') ? 'active' : '' }}">
-                                <a href="{{ url('/reservations') }}">
-                                    <i class="fa fa-slideshare"></i> Reservasi
-                                </a>
-                            </li>
-                            <li class="{{ Request::is('lost-books*') ? 'active' : '' }}">
-                                <a href="{{ url('/lost-books') }}">
-                                    <i class="fa fa-recycle"></i> Kerusakan Buku
-                                </a>
-                            </li>
+                            <li class="{{ Request::is('*department') ? 'active' : '' }}"><a
+                                    href="{{ route('department') }}">Departement</a></li>
+                            <li class="{{ Request::is('detail-department') ? 'active' : '' }}"><a
+                                    href="{{ route('detail.department') }}">Detail Departement</a></li>
+                            <li class="{{ Request::is('position') ? 'active' : '' }}"><a
+                                    href="{{ route('position') }}">Position</a></li>
+                            {{-- <li><a href="carousel.html">Dilaporkan</a></li> --}}
                         </ul>
-                    </li> --}}
-                    {{-- <li>
-                        <a href=""><i class="fa fa-users"></i> <span class="nav-label">Manajemen Staff</span></a>
-                    </li> --}}
+                    </li>
+                    @endif
+
                 </ul>
             </div>
         </nav>
@@ -141,7 +127,7 @@
             </div>
             <div class="footer">
                 <div class="float-right">
-                    <strong>Limit Sample</strong>
+                    <strong>AJI Portal</strong>
                 </div>
                 <div>
                     <strong>Copyright</strong> Portal Astra Juoku Indonesia. &copy; 2024
@@ -161,9 +147,9 @@
     <script>
         const body = document.getElementById('body');
         if (window.matchMedia("(max-width: 768px)").matches) {
-            body.setAttribute('class','pace-done');
-        }else{
-            body.setAttribute('class','pace-done mini-navbar');
+            body.setAttribute('class', 'pace-done');
+        } else {
+            body.setAttribute('class', 'pace-done mini-navbar');
         }
     </script>
     <!-- SUMMERNOTE -->

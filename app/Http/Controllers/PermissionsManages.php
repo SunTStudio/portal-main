@@ -28,10 +28,14 @@ class PermissionsManages extends Controller
     }
 
     public function store(Request $request){
+        $roles = $request->input('roles');
         $validateData = $request->validate([
-            'name' => 'required'
+            'name' => 'required|unique:permissions,name',
         ]);
-        Permission::create(['name' => $validateData['name']]);
+        $newPermission = Permission::create(['name' => $validateData['name']]);
+        if($roles != null){
+            $newPermission->syncRoles($roles);
+        }
         return redirect()->route('permissions');
     }
 
@@ -41,16 +45,16 @@ class PermissionsManages extends Controller
     }
 
     public function update(Request $request,$id){
-        $roles = $request->input('roles');
         $oldData = Permission::find($id);
+        $roles = $request->input('roles');
         $validateData = $request->validate([
             'name' => 'required'
         ]);
         $oldData->update($validateData);
         if($roles != null){
-            $oldData->assignRole($roles);
+            $oldData->syncRoles($roles);
         }
-        return redirect()->route('permissions.edit',['id' => $oldData->id]);
+        return redirect()->route('permissions.detail',['id' => $oldData->id]);
     }
 
     public function destroy($id){
@@ -61,13 +65,19 @@ class PermissionsManages extends Controller
 
     public function permissionDontHaveRoles(Request $request,$permission)
     {
-        // Ambil permission yang dimaksud
-        $permissionData = Permission::findByName($permission);
-        // Ambil semua role yang tidak memiliki permission tersebut
-        $rolesWithoutPermission = Role::whereDoesntHave('permissions', function ($query) use ($permissionData) {
-            $query->where('id', $permissionData->id);
-        })->get();
-        return DataTables::of($rolesWithoutPermission)->make(true);
+         // Ambil permission berdasarkan nama
+        $permissions = Permission::where('name', $permission)->first();
+
+        // Ambil semua role
+        $roles = Role::all();
+
+        // Tambahkan informasi jika role sudah memiliki permission ini
+        $roles = $roles->map(function ($role) use ($permissions) {
+            $role->has_permission = $role->hasPermissionTo($permissions->name);
+            return $role;
+        });
+
+        return datatables()->of($roles)->make(true);
     }
 
     public function permissionHasRoles(Request $request,$permission)

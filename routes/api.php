@@ -3,6 +3,7 @@
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\RoleController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    $user = Auth::user()->load('department','roles');
+    $user = Auth::user()->load('department','roles')->makeVisible('password');
     return response()->json([
         'status' => 'success',
         'user' => $user
@@ -61,3 +62,4 @@ Route::post('/store-route', [RouteController::class, 'storeRoute']);
 Route::middleware('auth:sanctum')->get('/user-permissions', [RoleController::class, 'getUserPermissions']);
 
 Route::get('/users', [App\Http\Controllers\API\UserController::class, 'index']);
+Route::get('/handleError', [App\Http\Controllers\API\UserController::class, 'handleError']);

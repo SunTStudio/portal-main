@@ -62,17 +62,20 @@
                 responsive: true,
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('roles.data.dontHavePermissions',['role' => $oldData->name]) }}",
+                paging: false,
+                ajax: "{{ route('roles.data.dontHavePermissions', ['role' => $oldData->name]) }}",
                 columns: [{
                         data: 'id',
                         className: 'text-center',
                         orderable: false,
                         render: function(data, type, row, meta) {
+                            let checked = row.has_roles ? 'checked' : '';
                             return `
                             <input type="checkbox"
                                 name="permissions[]"
                                 value="${row.name}"
                                 class='permission-checkbox'
+                                ${checked}
                                 >
                             `;
                         }

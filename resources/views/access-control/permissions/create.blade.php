@@ -24,8 +24,8 @@
 
                         <div class="mb-3 col-lg-6 col-10">
                             <label for="name" class="form-label">Name Permission</label>
-                            <input value="{{ old('name') }}" type="text" class="form-control"
-                                name="name" placeholder="Name" required>
+                            <input value="{{ old('name') }}" type="text" class="form-control" name="name"
+                                placeholder="Name" required>
                             <div class="submit mt-3">
                                 <button type="submit" class="btn btn-primary">Create Permission</button>
                                 <a href="{{ url('/permissions') }}" class="btn btn-default">Back</a>
@@ -37,7 +37,7 @@
                             <table id="assignRoles" class="cell-border compact stripe" width="100%">
                                 <thead>
                                     <tr>
-                                        <th><input type="checkbox" name="all_roles"></th>
+                                        <th><input type="checkbox" name="all_roles" id="allCheck"></th>
                                         <th>Name</th>
                                         <th>Guard</th>
                                     </tr>
@@ -61,6 +61,7 @@
             var table = $('#assignRoles').DataTable({
                 responsive: true,
                 processing: true,
+                paging: false,
                 serverSide: true,
                 ajax: "{{ route('roles.data') }}",
                 columns: [{
@@ -68,12 +69,14 @@
                         className: 'text-center',
                         orderable: false,
                         render: function(data, type, row, meta) {
+                            let checked = row.has_permission ? 'checked' : '';
                             return `
                             <input type="checkbox"
-                                name="permision${data}"
-                                value="${row.name}"
-                                class='permission'
-                                >
+                    name="roles[]"
+                    value="${row.id}"
+                    class="role-checkbox"
+                    ${checked}
+                >
                             `;
                         }
                     },
@@ -88,6 +91,13 @@
                         className: 'text-center'
                     },
                 ]
+            });
+            // Checkbox "Check All"
+            $('#allCheck').on('change', function() {
+                let checkboxes = document.querySelectorAll('.role-checkbox');
+                checkboxes.forEach(checkbox => {
+                    checkbox.checked = this.checked;
+                });
             });
             new $.fn.dataTable.FixedHeader(table);
         });

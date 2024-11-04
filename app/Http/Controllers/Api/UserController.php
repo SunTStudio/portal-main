@@ -31,4 +31,11 @@ class UserController extends Controller
             200,
         );
     }
+
+    public function handleError(Request $request){
+        dd([
+            'error_message' => $request['error_message'],
+            'error_code' => $request['error_code']
+        ]);
+    }
 }

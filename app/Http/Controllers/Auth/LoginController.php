@@ -26,6 +26,17 @@ class LoginController extends Controller
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             $user = Auth::user();
+            // Cek jika pengguna sudah login di perangkat lain
+            if ($user->is_logged_in) {
+                return back()->withErrors([
+                    'error' => 'Anda sedang Login di Perangkat lain,Harap Logout terlebih dahulu!',
+                ]); // Kode status 403 untuk forbidden
+            }
+
+            // Set status is_logged_in menjadi true
+            $user->is_logged_in = true;
+            $user->save();
+
             $token = $user->createToken('API Token')->plainTextToken;
             $request->session()->put('token', $token);
 
@@ -63,6 +74,8 @@ class LoginController extends Controller
         $tokenId = $tokenParts[0]; // Take the first part, which is "52"
         $user = Auth::user();
         $user->tokens()->where('id', $tokenId)->delete();
+        $user->is_logged_in = false;
+        $user->save();
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();

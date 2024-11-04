@@ -3,13 +3,38 @@
 @section('content')
     <div class="row pb-5 pl-5 pr-5 ">
         <div class="col bg-white p-3">
-            <div class="d-flex justify-content-between align-items-center">
-                <div id="heading">
+            <div class="d-flex row justify-content-between align-items-center">
+                <div id="heading" class="mb-2 col-lg-6 col-12">
                     <h1>Permissions</h1>
                     <h3>Manage your permissions here.</h3>
-                </div>
-                <div id="addUsers">
                     <a href="{{ url('permissions/create') }}" class="btn btn-secondary">Tambah Permissions</a>
+                </div>
+                <div class=" col-lg-4 col-12 ">
+                    <div class="row">
+                        <div class="col-lg-3 col-12 text-center m-1">
+                            <a href="{{ route('file.download', ['filename' => 'template-permissions.xlsx']) }}"
+                                class="btn btn-primary"><i class="fa fa-download"></i> Template</a>
+                        </div>
+                        <div class="col-lg-8 col-12 text-center m-1">
+                            <form action="{{ route('permissions.import') }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="fileinput fileinput-new border border-secondary rounded "
+                                    data-provides="fileinput">
+                                    <span class="btn btn-default btn-file">
+                                        <span class="fileinput-new">Import by file Excel</span>
+                                        <span class="fileinput-exists">Change</span>
+                                        <input type="file" name="file" required />
+                                    </span>
+                                    <span class="fileinput-filename"></span>
+                                    <a href="#" class="close fileinput-exists" data-dismiss="fileinput"
+                                        style="float: none">×</a>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Import</button>
+                            </form>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
             <div id="tableUsers" class="">
@@ -18,7 +43,7 @@
                         <tr>
                             <th>#</th>
                             <th>Name</th>
-                            <th>Username</th>
+                            <th>Guard</th>
                             <th>Opsi</th>
                         </tr>
                     </thead>
@@ -29,7 +54,6 @@
 @endsection
 
 @section('script')
-
     <script>
         $(document).ready(function() {
             var table = $('#permissionsDatatables').DataTable({

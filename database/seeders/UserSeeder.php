@@ -16,64 +16,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        // $users = Role::where('name', 'user')->first();
-        // $guests = Role::where('name', 'guest')->first();
-        // $admins = Role::where('name', 'admin')->first();
-
-        // $user = User::create([
-        //     'name' => 'John Doe',
-        //     'email' => 'johndoe@example.com',
-        //     'password' => bcrypt('12345678'),
-        // ]);
-        // $user->assignRole($users);
-        // $guest = User::create([
-        //     'name' => 'Jane Doe',
-        //     'email' => 'janedoe@example.com',
-        //     'password' => bcrypt('12345678'),
-        // ]);
-        // $guest->assignRole($guests);
-
-        // $admin = User::create([
-        //     'name' => 'Iqbal',
-        //     'email' => 'iqbal@gmail.com',
-        //     'password' => bcrypt('12345678'),
-        // ]);
-        // $admin->assignRole($admins);
-
-        $AdminRole = Role::create([
-            'name' => 'Admin',
-        ]);
-
         $AdminLSRole = Role::create([
             'name' => 'AdminLS',
-        ]);
-
-        $BODRole = Role::create([
-            'name' => 'Board of Directors',
-        ]);
-
-        $DeptHeadRole = Role::create([
-            'name' => 'Department Head',
-        ]);
-
-        $SPVRole = Role::create([
-            'name' => 'Supervisor',
-        ]);
-
-        $EHSRole = Role::create([
-            'name' => 'EHS',
-        ]);
-
-        $StaffRole = Role::create([
-            'name' => 'Staff',
-        ]);
-
-        $ForemanRole = Role::create([
-            'name' => 'Foreman',
-        ]);
-
-        $LeaderRole = Role::create([
-            'name' => 'Leader',
         ]);
 
         $PICRole = Role::create([
@@ -88,16 +32,43 @@ class UserSeeder extends Seeder
             'name' => 'Departement Head EHS',
         ]);
 
+        $AdminRole = Role::create([
+            'name' => 'Admin',
+        ]);
+
+        $BODRole = Role::create([
+            'name' => 'Board of Directors',
+        ]);
+
+        $DeptHeadRole = Role::create([
+            'name' => 'Department Head',
+        ]);
+
+        $SPVRole = Role::create([
+            'name' => 'Supervisor',
+        ]);
+
+        $StaffRole = Role::create([
+            'name' => 'Staff',
+        ]);
+
+        $ForemanRole = Role::create([
+            'name' => 'Foreman',
+        ]);
+
+        $LeaderRole = Role::create([
+            'name' => 'Leader',
+        ]);
+
         $MemberRole = Role::create([
             'name' => 'Member',
         ]);
-
 
         $Admin = User::create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
             'username' => 'admin',
-            'npk' => '',
+            'npk' => '0000',
             'gender' => 'Perempuan',
             'dept_id' => null,
             'detail_dept_id' => null,
@@ -113,7 +84,7 @@ class UserSeeder extends Seeder
                 'name' => 'Wu Chi Chen',
                 'email' => 'wu@gmail.com',
                 'username' => 'wu.c',
-                'npk' => '810',
+                'npk' => '0810',
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2022-05-07',
                 'tgl_lahir' => '1979-05-31',
@@ -1057,8 +1028,8 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1983-05-12',
-                'dept_id' => 9,
-                'detail_dept_id' => 20,
+                'dept_id' => 4,
+                'detail_dept_id' => 21,
                 'position_id' => 6,
                 'golongan' => 6,
                 'password' => bcrypt('makhfud123')
@@ -1071,8 +1042,8 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1982-02-18',
-                'dept_id' => 9,
-                'detail_dept_id' => 20,
+                'dept_id' => 4,
+                'detail_dept_id' => 21,
                 'position_id' => 6,
                 'golongan' => 6,
                 'password' => bcrypt('endang123')
@@ -1085,8 +1056,8 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2014-01-13',
                 'tgl_lahir' => '1990-09-22',
-                'dept_id' => 9,
-                'detail_dept_id' => 20,
+                'dept_id' => 4,
+                'detail_dept_id' => 15,
                 'position_id' => 6,
                 'golongan' => 6,
                 'password' => bcrypt('wasito123')
@@ -1099,8 +1070,8 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-06-14',
                 'tgl_lahir' => '1996-03-25',
-                'dept_id' => 9,
-                'detail_dept_id' => 20,
+                'dept_id' => 4,
+                'detail_dept_id' => 15,
                 'position_id' => 6,
                 'golongan' => 6,
                 'password' => bcrypt('herma123'),
@@ -1118,7 +1089,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1988-11-21',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 7,
                 'golongan' => 7,
@@ -1132,7 +1103,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1990-10-28',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 17,
                 'position_id' => 7,
                 'golongan' => 7,
@@ -1146,7 +1117,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2014-08-15',
                 'tgl_lahir' => '1991-02-04',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 7,
                 'golongan' => 7,
@@ -1160,7 +1131,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2014-12-04',
                 'tgl_lahir' => '1993-09-05',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 17,
                 'position_id' => 7,
                 'golongan' => 7,
@@ -1174,7 +1145,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2015-02-24',
                 'tgl_lahir' => '1993-10-21',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 7,
                 'golongan' => 7,
@@ -1188,7 +1159,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2015-04-30',
                 'tgl_lahir' => '1996-09-10',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 17,
                 'position_id' => 7,
                 'golongan' => 7,
@@ -1202,7 +1173,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2016-06-16',
                 'tgl_lahir' => '1994-08-28',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 17,
                 'position_id' => 7,
                 'golongan' => 7,
@@ -1216,7 +1187,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2017-05-26',
                 'tgl_lahir' => '1995-02-16',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 7,
                 'golongan' => 7,
@@ -1234,7 +1205,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-06-18',
                 'tgl_lahir' => '2001-06-08',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1248,7 +1219,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-06-18',
                 'tgl_lahir' => '2001-12-17',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1262,7 +1233,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-06-18',
                 'tgl_lahir' => '1997-02-14',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1276,7 +1247,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-06-18',
                 'tgl_lahir' => '1994-05-04',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1290,7 +1261,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-06-18',
                 'tgl_lahir' => '1999-04-22',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1304,7 +1275,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-06-24',
                 'tgl_lahir' => '2002-07-14',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1318,7 +1289,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-06-24',
                 'tgl_lahir' => '2003-08-01',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1332,7 +1303,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '2003-03-25',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1346,7 +1317,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-07-01',
                 'tgl_lahir' => '1995-08-04',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1360,7 +1331,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-07-01',
                 'tgl_lahir' => '1996-01-19',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1374,7 +1345,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-07-01',
                 'tgl_lahir' => '1994-05-14',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1388,7 +1359,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-07-01',
                 'tgl_lahir' => '1993-08-29',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1402,7 +1373,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-07-02',
                 'tgl_lahir' => '1997-04-20',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1416,7 +1387,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-07-02',
                 'tgl_lahir' => '1996-11-17',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1430,7 +1401,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '1995-01-03',
                 'tgl_lahir' => '1970-08-01',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1444,7 +1415,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1989-04-13',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1458,7 +1429,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1990-11-03',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1472,7 +1443,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1992-04-09',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1486,7 +1457,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1988-05-11',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1500,7 +1471,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2013-02-01',
                 'tgl_lahir' => '1990-06-21',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1514,7 +1485,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2013-09-02',
                 'tgl_lahir' => '1985-04-28',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1528,7 +1499,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2017-10-19',
                 'tgl_lahir' => '1991-03-24',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1542,7 +1513,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-01-06',
                 'tgl_lahir' => '2000-10-25',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1556,7 +1527,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-01-11',
                 'tgl_lahir' => '2001-05-11',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1570,7 +1541,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-01-11',
                 'tgl_lahir' => '2002-06-09',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1584,7 +1555,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-01-18',
                 'tgl_lahir' => '1998-07-28',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1598,7 +1569,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-01-18',
                 'tgl_lahir' => '1997-04-17',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1612,7 +1583,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-01-25',
                 'tgl_lahir' => '1996-06-05',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1626,7 +1597,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-02-09',
                 'tgl_lahir' => '2002-09-04',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1640,7 +1611,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-02-22',
                 'tgl_lahir' => '2002-07-25',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1654,7 +1625,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-02-24',
                 'tgl_lahir' => '2002-06-24',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1668,7 +1639,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-02-24',
                 'tgl_lahir' => '2001-05-19',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1682,7 +1653,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-03-03',
                 'tgl_lahir' => '2002-02-21',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1696,7 +1667,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-03-03',
                 'tgl_lahir' => '2002-05-14',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1710,7 +1681,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-03-10',
                 'tgl_lahir' => '2001-10-25',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1724,7 +1695,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-03-15',
                 'tgl_lahir' => '2001-10-27',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1738,7 +1709,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-03-15',
                 'tgl_lahir' => '1998-08-14',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1752,7 +1723,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-03-15',
                 'tgl_lahir' => '2000-11-01',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1766,7 +1737,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-03-16',
                 'tgl_lahir' => '2002-01-10',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1780,7 +1751,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-03-16',
                 'tgl_lahir' => '2002-11-22',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1794,7 +1765,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-03-16',
                 'tgl_lahir' => '2002-01-17',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1808,7 +1779,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-03-16',
                 'tgl_lahir' => '2002-02-25',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1822,7 +1793,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-03-16',
                 'tgl_lahir' => '2002-02-03',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1836,7 +1807,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-03-16',
                 'tgl_lahir' => '2002-05-09',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1850,7 +1821,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-03-23',
                 'tgl_lahir' => '2002-04-01',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1864,7 +1835,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-04-22',
                 'tgl_lahir' => '2001-01-18',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1878,7 +1849,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-06-10',
                 'tgl_lahir' => '2002-09-02',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1892,7 +1863,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-06-11',
                 'tgl_lahir' => '2003-02-04',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1906,7 +1877,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-07-02',
                 'tgl_lahir' => '1993-07-26',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1920,7 +1891,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-07-02',
                 'tgl_lahir' => '1995-01-18',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1934,7 +1905,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1993-11-18',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1948,7 +1919,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1994-05-19',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1962,7 +1933,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1992-01-27',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1976,7 +1947,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1995-04-14',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1990,7 +1961,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1997-11-20',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -2004,7 +1975,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1996-08-11',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -2018,7 +1989,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1991-02-08',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -2032,7 +2003,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1996-12-12',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -2046,7 +2017,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1993-11-21',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -2060,7 +2031,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-07-05',
                 'tgl_lahir' => '1994-12-23',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -2074,7 +2045,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-07-06',
                 'tgl_lahir' => '2002-06-19',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -2088,7 +2059,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-07-06',
                 'tgl_lahir' => '2002-01-02',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -2102,7 +2073,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-07-06',
                 'tgl_lahir' => '2002-02-21',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -2116,7 +2087,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-07-06',
                 'tgl_lahir' => '2001-03-22',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -2130,7 +2101,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-09-20',
                 'tgl_lahir' => '2003-04-22',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -2144,7 +2115,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-09-20',
                 'tgl_lahir' => '2003-05-18',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -2158,7 +2129,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-09-20',
                 'tgl_lahir' => '2003-02-24',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -2172,7 +2143,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-09-27',
                 'tgl_lahir' => '1995-07-12',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -2186,7 +2157,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-09-29',
                 'tgl_lahir' => '2003-01-25',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -2200,7 +2171,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-09-29',
                 'tgl_lahir' => '2003-03-27',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2214,7 +2185,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-10-13',
                 'tgl_lahir' => '2002-04-06',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2228,7 +2199,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-10-13',
                 'tgl_lahir' => '2002-11-23',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2242,7 +2213,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-10-13',
                 'tgl_lahir' => '2002-12-13',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2256,7 +2227,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-10-26',
                 'tgl_lahir' => '1997-08-15',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2270,7 +2241,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-10-27',
                 'tgl_lahir' => '1995-12-15',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2284,7 +2255,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-01',
                 'tgl_lahir' => '1995-06-04',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2298,7 +2269,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-01',
                 'tgl_lahir' => '1994-01-10',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2312,7 +2283,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-01',
                 'tgl_lahir' => '1994-02-21',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2326,7 +2297,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-11-05',
                 'tgl_lahir' => '2003-02-27',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2340,7 +2311,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-09',
                 'tgl_lahir' => '1998-07-28',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2354,7 +2325,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-09',
                 'tgl_lahir' => '1998-01-02',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2368,7 +2339,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-11',
                 'tgl_lahir' => '1998-03-23',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2382,7 +2353,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-12',
                 'tgl_lahir' => '1995-11-27',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2396,7 +2367,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-17',
                 'tgl_lahir' => '2003-05-17',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2410,7 +2381,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-17',
                 'tgl_lahir' => '2003-08-07',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2424,7 +2395,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-17',
                 'tgl_lahir' => '1996-03-08',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2438,7 +2409,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-22',
                 'tgl_lahir' => '1997-01-10',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2452,7 +2423,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-22',
                 'tgl_lahir' => '1998-08-19',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2466,7 +2437,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-23',
                 'tgl_lahir' => '1996-08-11',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2480,7 +2451,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-26',
                 'tgl_lahir' => '2003-04-15',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2494,7 +2465,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-26',
                 'tgl_lahir' => '2003-07-02',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2508,7 +2479,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-26',
                 'tgl_lahir' => '2003-06-02',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2522,7 +2493,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-29',
                 'tgl_lahir' => '1999-03-09',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2536,7 +2507,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-11-30',
                 'tgl_lahir' => '1996-08-21',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2550,7 +2521,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-12-06',
                 'tgl_lahir' => '2003-10-03',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2564,7 +2535,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-12-08',
                 'tgl_lahir' => '1997-03-04',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2578,7 +2549,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-12-24',
                 'tgl_lahir' => '2001-06-25',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2592,7 +2563,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-12-28',
                 'tgl_lahir' => '2002-04-26',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2606,7 +2577,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-12-28',
                 'tgl_lahir' => '1995-10-11',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2620,7 +2591,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-12-28',
                 'tgl_lahir' => '1998-10-03',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2634,7 +2605,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-12-28',
                 'tgl_lahir' => '1997-05-08',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2648,7 +2619,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-12-28',
                 'tgl_lahir' => '1994-04-16',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2662,7 +2633,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-12-29',
                 'tgl_lahir' => '2000-06-26',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2676,7 +2647,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2022-03-07',
                 'tgl_lahir' => '2001-07-29',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2690,7 +2661,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2022-03-07',
                 'tgl_lahir' => '2003-02-11',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2704,7 +2675,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2022-09-01',
                 'tgl_lahir' => '2003-05-05',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2718,7 +2689,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2022-09-01',
                 'tgl_lahir' => '1998-03-17',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2732,7 +2703,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2022-09-01',
                 'tgl_lahir' => '1998-09-23',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2746,7 +2717,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2022-09-01',
                 'tgl_lahir' => '1995-05-30',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2760,7 +2731,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2022-09-01',
                 'tgl_lahir' => '1999-07-25',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2774,7 +2745,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2022-09-01',
                 'tgl_lahir' => '2003-03-20',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2788,7 +2759,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2023-09-01',
                 'tgl_lahir' => '2001-09-27',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2802,7 +2773,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2024-07-01',
                 'tgl_lahir' => '2000-06-10',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -2816,7 +2787,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-07-06',
                 'tgl_lahir' => '2002-09-04',
-                'dept_id' => null,
+                'dept_id' => 4,
                 'detail_dept_id' => null,
                 'position_id' => null,
                 'golongan' => null,
@@ -3707,389 +3678,9 @@ class UserSeeder extends Seeder
             ],
         ];
 
-        // QA End
-
-        // SPV
-
-        // $SPVPEQA = User::create([
-        //     'name' => '[Supervisor PEQA]',
-        //     'email' => 'spvPeQa@gmail.com',
-        //     'username' => 'spvPeQa',
-        //     'npk' => '10010',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 13,
-        //     'detail_dept_id' => 2,
-        //     'position_id' => 2,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('spv123'),
-        // ]);
-
-        // $SPVPPM = User::create([
-        //     'name' => '[Supervisor PRODPPICME]',
-        //     'email' => 'spvPPM@gmail.com',
-        //     'username' => 'spvPPM',
-        //     'npk' => '10012',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 12,
-        //     'detail_dept_id' => 5,
-        //     'position_id' => 2,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('spv123'),
-        // ]);
-
-        // HRGAEI
-
-        // $SPVHRGAEI = User::create([
-        //     'name' => 'Pandu Azaria G',
-        //     'email' => 'pandu@gmail.com',
-        //     'username' => 'spv.pandu.a',
-        //     'npk' => '10013',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 5,
-        //     'detail_dept_id' => 9,
-        //     'position_id' => 2,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('spv123'),
-        // ]);
-        // HRGAEI End
-
-        // $SPVPUR = User::create([
-        //     'name' => '[Supervisor Purchasing]',
-        //     'email' => 'spvPUR@gmail.com',
-        //     'username' => 'spvPUR',
-        //     'npk' => '10014',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 6,
-        //     'detail_dept_id' => 13,
-        //     'position_id' => 2,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('spv123'),
-        // ]);
-
-        // SPV END
-
-        // Staff
-        // $StaffFM = User::create([
-        //     'name' => '[StaffFM]',
-        //     'email' => 'stafffm@gmail.com',
-        //     'username' => 'stafffm',
-        //     'npk' => '32232333225',
-        //     'gender' => 'Perempuan',
-        //     'dept_id' => 5,
-        //     'detail_dept_id' => 10,
-        //     'position_id' => 3,
-        //     'golongan' => '4',
-        //     'password' => bcrypt('123'),
-        // ]);
-
-        // $StaffPEQA = User::create([
-        //     'name' => '[Staff PEQA]',
-        //     'email' => 'staffPeQa@gmail.com',
-        //     'username' => 'staffPeQa',
-        //     'npk' => '10017',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 13,
-        //     'detail_dept_id' => 2,
-        //     'position_id' => 3,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('staff123'),
-        // ]);
-        // $StaffPPM = User::create([
-        //     'name' => '[Staff PRODPPICME]',
-        //     'email' => 'staffPPM@gmail.com',
-        //     'username' => 'staffPPM',
-        //     'npk' => '10019',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 12,
-        //     'detail_dept_id' => 5,
-        //     'position_id' => 3,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('staff123'),
-        // ]);
-
-        // Staff HRGAEI
-
-        // Staff End
-
-        // Foreman
-        // $ForemanMKT = User::create([
-        //     'name' => '[Foreman Marketing]',
-        //     'email' => 'foremanMkt@gmail.com',
-        //     'username' => 'foremanMkt',
-        //     'npk' => '10023',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 1,
-        //     'detail_dept_id' => 1,
-        //     'position_id' => 7,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('foreman123'),
-        // ]);
-        // $ForemanPEQA = User::create([
-        //     'name' => '[Foreman PEQA]',
-        //     'email' => 'foremanPeQa@gmail.com',
-        //     'username' => 'foremanPeQa',
-        //     'npk' => '10024',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 13,
-        //     'detail_dept_id' => 2,
-        //     'position_id' => 7,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('foreman123'),
-        // ]);
-        // $ForemanPRODENG = User::create([
-        //     'name' => '[Foreman Product Engineering]',
-        //     'email' => 'foremanPRODENG@gmail.com',
-        //     'username' => 'foremanPRODENG',
-        //     'npk' => '10025',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 3,
-        //     'detail_dept_id' => 3,
-        //     'position_id' => 7,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('foreman123'),
-        // ]);
-        // $ForemanPPM = User::create([
-        //     'name' => '[Foreman PRODPPICME]',
-        //     'email' => 'foremanPPM@gmail.com',
-        //     'username' => 'foremanPPM',
-        //     'npk' => '10026',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 12,
-        //     'detail_dept_id' => 5,
-        //     'position_id' => 7,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('foreman123'),
-        // ]);
-        // $ForemanHRGAEI = User::create([
-        //     'name' => '[Foreman HRGA EHS IT]',
-        //     'email' => 'foremanHRGAEI@gmail.com',
-        //     'username' => 'foremanHRGAEI',
-        //     'npk' => '10027',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 5,
-        //     'detail_dept_id' => 7,
-        //     'position_id' => 7,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('foreman123'),
-        // ]);
-        // $ForemanPUR = User::create([
-        //     'name' => '[Foreman Purchasing]',
-        //     'email' => 'foremanPUR@gmail.com',
-        //     'username' => 'foremanPUR',
-        //     'npk' => '10028',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 6,
-        //     'detail_dept_id' => 13,
-        //     'position_id' => 7,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('foreman123'),
-        // ]);
-        // $ForemanFA = User::create([
-        //     'name' => '[Foreman Finance]',
-        //     'email' => 'foremanFA@gmail.com',
-        //     'username' => 'foremanFA',
-        //     'npk' => '10029',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 7,
-        //     'detail_dept_id' => 14,
-        //     'position_id' => 7,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('foreman123'),
-        // ]);
-        // Foreman End
-
-        // Leader
-        // $Leader = User::create([
-        //     'name' => '[Leader]',
-        //     'email' => 'leader@gmail.com',
-        //     'username' => 'leader',
-        //     'npk' => '32232333226',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 5,
-        //     'detail_dept_id' => 10,
-        //     'position_id' => 7,
-        //     'golongan' => '2',
-        //     'password' => bcrypt('123'),
-        // ]);
-
-        // $LeaderMKT = User::create([
-        //     'name' => '[Leader Marketing]',
-        //     'email' => 'leaderMkt@gmail.com',
-        //     'username' => 'leaderMkt',
-        //     'npk' => '10030',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 1,
-        //     'detail_dept_id' => 1,
-        //     'position_id' => 6,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('leader123'),
-        // ]);
-        // $LeaderPEQA = User::create([
-        //     'name' => '[Leader PEQA]',
-        //     'email' => 'leaderPeQa@gmail.com',
-        //     'username' => 'leaderPeQa',
-        //     'npk' => '10031',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 13,
-        //     'detail_dept_id' => 2,
-        //     'position_id' => 6,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('leader123'),
-        // ]);
-        // $LeaderPRODENG = User::create([
-        //     'name' => '[Leader Product Engineering]',
-        //     'email' => 'leaderPRODENG@gmail.com',
-        //     'username' => 'leaderPRODENG',
-        //     'npk' => '10032',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 3,
-        //     'detail_dept_id' => 3,
-        //     'position_id' => 6,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('leader123'),
-        // ]);
-        // $LeaderPPM = User::create([
-        //     'name' => '[Leader PRODPPICME]',
-        //     'email' => 'leaderPPM@gmail.com',
-        //     'username' => 'leaderPPM',
-        //     'npk' => '10033',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 12,
-        //     'detail_dept_id' => 5,
-        //     'position_id' => 6,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('leader123'),
-        // ]);
-        // $LeaderHRGAEI = User::create([
-        //     'name' => '[Leader HRGA EHS IT]',
-        //     'email' => 'leaderHRGAEI@gmail.com',
-        //     'username' => 'leaderHRGAEI',
-        //     'npk' => '10034',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 5,
-        //     'detail_dept_id' => 7,
-        //     'position_id' => 6,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('leader123'),
-        // ]);
-        // $LeaderPUR = User::create([
-        //     'name' => '[Leader Purchasing]',
-        //     'email' => 'leaderPUR@gmail.com',
-        //     'username' => 'leaderPUR',
-        //     'npk' => '10035',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 6,
-        //     'detail_dept_id' => 13,
-        //     'position_id' => 6,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('leader123'),
-        // ]);
-        // $LeaderFA = User::create([
-        //     'name' => '[Leader Finance]',
-        //     'email' => 'leaderFA@gmail.com',
-        //     'username' => 'leaderFA',
-        //     'npk' => '10036',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 7,
-        //     'detail_dept_id' => 14,
-        //     'position_id' => 6,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('leader123'),
-        // ]);
-        // Leader End
-
-        // Member
-        // $Member = User::create([
-        //     'name' => '[Member]',
-        //     'email' => 'member@gmail.com',
-        //     'username' => 'member',
-        //     'npk' => '3223233027',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 2,
-        //     'detail_dept_id' => 2,
-        //     'position_id' => 4,
-        //     'golongan' => '1',
-        //     'password' => bcrypt('123'),
-        // ]);
-
-        // $MemberMKT = User::create([
-        //     'name' => '[Member Marketing]',
-        //     'email' => 'memberMkt@gmail.com',
-        //     'username' => 'memberMkt',
-        //     'npk' => '10037',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 1,
-        //     'detail_dept_id' => 1,
-        //     'position_id' => 8,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('member123'),
-        // ]);
-        // $MemberPEQA = User::create([
-        //     'name' => '[Member PEQA]',
-        //     'email' => 'memberPeQa@gmail.com',
-        //     'username' => 'memberPeQa',
-        //     'npk' => '10038',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 13,
-        //     'detail_dept_id' => 2,
-        //     'position_id' => 8,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('member123'),
-        // ]);
-        // $MemberPRODENG = User::create([
-        //     'name' => '[Member Product Engineering]',
-        //     'email' => 'memberPRODENG@gmail.com',
-        //     'username' => 'memberPRODENG',
-        //     'npk' => '10039',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 3,
-        //     'detail_dept_id' => 3,
-        //     'position_id' => 8,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('member123'),
-        // ]);
-        // $MemberPPM = User::create([
-        //     'name' => '[Member PRODPPICME]',
-        //     'email' => 'memberPPM@gmail.com',
-        //     'username' => 'memberPPM',
-        //     'npk' => '10040',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 12,
-        //     'detail_dept_id' => 5,
-        //     'position_id' => 8,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('member123'),
-        // ]);
-        // $MemberHRGAEI = User::create([
-        //     'name' => '[Member HRGA EHS IT]',
-        //     'email' => 'memberHRGAEI@gmail.com',
-        //     'username' => 'memberHRGAEI',
-        //     'npk' => '10041',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 5,
-        //     'detail_dept_id' => 7,
-        //     'position_id' => 8,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('member123'),
-        // ]);
-        // $MemberPUR = User::create([
-        //     'name' => '[Member Purchasing]',
-        //     'email' => 'memberPUR@gmail.com',
-        //     'username' => 'memberPUR',
-        //     'npk' => '10042',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 6,
-        //     'detail_dept_id' => 13,
-        //     'position_id' => 8,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('member123'),
-        // ]);
-
         // Member End
 
         $Admin->assignRole($AdminRole);
-
-
         // Loop untuk menyimpan setiap pengguna
         foreach ($BOD as $bod) {
             $user = User::create($bod);
@@ -4152,8 +3743,7 @@ class UserSeeder extends Seeder
             $user = User::create($userData);
             $user->assignRole($StaffRole); // Assign the 'Staff' role after user creation
         }
-        // $StaffPEQA->assignRole($StaffRole);
-        // $StaffPPM->assignRole($StaffRole);
+
         // Staff PE
         foreach ($staffusersPE as $userData) {
             $user = User::create($userData);
@@ -4175,13 +3765,6 @@ class UserSeeder extends Seeder
             $user->assignRole($StaffRole);
         }
 
-        // $ForemanFA->assignRole($ForemanRole);
-        // $ForemanHRGAEI->assignRole($ForemanRole);
-        // $ForemanMKT->assignRole($ForemanRole);
-        // $ForemanPEQA->assignRole($ForemanRole);
-        // $ForemanPPM->assignRole($ForemanRole);
-        // $ForemanPRODENG->assignRole($ForemanRole);
-        // $ForemanPUR->assignRole($ForemanRole);
         // Foreman PPIC
         foreach ($foremanPPIC as $userData) {
             $user = User::create($userData);
@@ -4203,13 +3786,6 @@ class UserSeeder extends Seeder
             $user->assignRole($ForemanRole);
         }
 
-        // $LeaderFA->assignRole($LeaderRole);
-        // $LeaderHRGAEI->assignRole($LeaderRole);
-        // $LeaderMKT->assignRole($LeaderRole);
-        // $LeaderPEQA->assignRole($LeaderRole);
-        // $LeaderPPM->assignRole($LeaderRole);
-        // $LeaderPRODENG->assignRole($LeaderRole);
-        // $LeaderPUR->assignRole($LeaderRole);
         // Leader Prod
         foreach ($leaderProd as $userData) {
             $user = User::create($userData);
@@ -4220,13 +3796,6 @@ class UserSeeder extends Seeder
             $user = User::create($userData);
             $user->assignRole($LeaderRole);
         }
-
-        // $MemberHRGAEI->assignRole($MemberRole);
-        // $MemberMKT->assignRole($MemberRole);
-        // $MemberPEQA->assignRole($MemberRole);
-        // $MemberPPM->assignRole($MemberRole);
-        // $MemberPRODENG->assignRole($MemberRole);
-        // $MemberPUR->assignRole($MemberRole);
 
         // Member FA
         $MemberFA->assignRole($MemberRole);
@@ -4251,25 +3820,5 @@ class UserSeeder extends Seeder
             $user->assignRole($MemberRole);
         }
 
-        //assign admin Limit Sample role
-        $AdminLS = User::where('name' , $foremanQA[0]['name'])->first();
-        $AdminLS->assignRole($AdminLSRole);
-        $EHS = User::where('name' , $staffUsersHRGAEI[1]['name'])->first();
-        $EHS->assignRole($EHSRole);
-        $PIC = User::where('name' , $spvPPIC[1]['name'])->first();
-        $PIC->assignRole($PICRole);
-
-        // $LeaderPEQA->assignRole($LeaderRole);
-        // $LeaderPPM->assignRole($LeaderRole);
-        // $LeaderPRODENG->assignRole($LeaderRole);
-        // $LeaderPUR->assignRole($LeaderRole);
-
-        // $MemberFA->assignRole($MemberRole);
-        // $MemberHRGAEI->assignRole($MemberRole);
-        // $MemberMKT->assignRole($MemberRole);
-        // $MemberPEQA->assignRole($MemberRole);
-        // $MemberPPM->assignRole($MemberRole);
-        // $MemberPRODENG->assignRole($MemberRole);
-        // $MemberPUR->assignRole($MemberRole);
     }
 }

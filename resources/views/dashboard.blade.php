@@ -1,141 +1,105 @@
 @extends('layouts.app')
+@section('css')
+<style>
+    #tombolSubWebsite{
+        display: flex;
+    }
+@media (max-width: 767px) {
+    /* .tombolSubWebsite{
+        font-size: 0.5rem;
+    } */
 
+    #tombolSubWebsite{
+        display: block;
+    }
+    #tombolSubWebsite .tombolSubWebsite{
+        margin: 0.1rem;
+    }
+}
+</style>
+@endsection
 @section('content')
+@if (request()->has('error'))
+            <div class="alert alert-danger">
+                {{ request()->get('error') }}
+            </div>
+@endif
     <div class="row bg-white">
         <div class="col-12  text-center p-3">
             <img src="{{ asset('logo aji.png') }}" width="8%" alt="img-fluid">
             <p class="h5 p-2"><strong> PORTAL ASTRA JUOKU INDONESIA </strong></p>
+            @if (auth()->user()->hasRole('Admin'))
+            <a href="{{ url('sub-website/create') }}" class="btn btn-secondary">Tambah Sub Website</a>
+            <a href="{{ url('sub-website/updateData') }}" class="btn btn-secondary">Update Data</a>
+            @endif
         </div>
         <div class="col-12">
             <div class="row justify-content-center">
-                <div class="col-lg-3 col-6">
-                    <div class="ibox">
-                        <div class="ibox-content product-box">
-                            <div class="product-imitation p-3">
-                                <img src="{{ asset('img/logoWeb/LogoLimitSampleWeb.png') }}" wi class="img-fluid"
-                                    alt="">
-                            </div>
-                            <div class="product-desc text-center">
-                                <div class="text-center">
-                                    <button type="button" class="btn btn-success mb-1 btn-xs">Quality</button>
+                @foreach ($subWebsites as $subWebsite)
+                    <div class="col-lg-3 col-6">
+                        <div class="ibox">
+                            <div class="ibox-content product-box">
+                                <div class="product-imitation p-3">
+                                    <img src="{{ asset("img/subWebsite/$subWebsite->sampul") }}" class="img-fluid"
+                                        alt="">
                                 </div>
-                                <a href="#" class="product-name">Limit Sample (Lokal)</a>
-                                <div class="m-t">
+                                <div class="product-desc text-center">
                                     <div class="text-center">
-                                        {{-- <a href="{{ route('loginToExternalSite') }}" class="btn btn-secondary" onclick="">Masuk</a> --}}
-                                        {{-- <form action="{{ url('http://10.14.143.89/limit-sample/public/directToExternalSite') }}" method="POST"> --}}
-                                        <form id="limit-sample-local" action="{{ url('http://10.14.179.250:1111/directToExternalSite') }}"
-                                            method="POST">
-                                            <button type="submit" class="btn btn-primary" onclick="ExternalSite(event,'limit-sample-local')">Masuk</button>
-                                        </form>
+                                        {{-- <button type="button" class="btn btn-success mb-1 btn-xs">HR</button> --}}
+                                    </div>
+                                    <p class="product-name">{{ $subWebsite->name }}</p>
+                                    <div class="m-t">
 
+                                        <div class="text-center  justify-content-center"  id="tombolSubWebsite">
+                                            @if ((((in_array((auth()->user()->position->position ?? '-'), json_decode($subWebsite->positions)) || in_array('semua', json_decode($subWebsite->positions))) && (in_array((auth()->user()->department->name ?? '-'), json_decode($subWebsite->departments)) || in_array('semua', json_decode($subWebsite->departments))) && (in_array((auth()->user()->detailDepartment->name ?? '-'), json_decode($subWebsite->detail_departements)) || in_array('semua', json_decode($subWebsite->detail_departements)))) && (($subWebsite->role == null || auth()->user()->roles->contains('name', $subWebsite->role)) && !in_array('tidak', json_decode($subWebsite->users))
+                                            )) || auth()->user()->hasRole('Admin') )
+                                                {{-- <a href="{{ route('loginToExternalSite') }}" class="btn btn-secondary" onclick="">Masuk</a> --}}
+                                                <form id="{{ $subWebsite->id }}" action="{{ url($subWebsite->link) }}/loginPortalAJI"
+                                                    method="POST">
+                                                    <button type="submit" class="btn btn-primary tombolSubWebsite" onclick="ExternalSite(event,{{ $subWebsite->id }})">Masuk</button>
+                                                </form>
+                                            @else
+                                            <button type="button" class="btn btn-primary tombolSubWebsite"
+                                                        disabled>Tidak Memiliki Akses</button>
+                                            @endif
+
+                                            @hasrole('Admin')
+                                                <a href="{{ route('subWebsite.edit',['id' => $subWebsite->id]) }}" class="btn btn-warning ml-2 mr-2 tombolSubWebsite">Edit</a>
+                                                <form action="{{ route('subWebsite.delete',['id' => $subWebsite->id]) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger tombolSubWebsite">Hapus</button>
+                                                </form>
+                                            @endhasrole
+
+                                        </div>
 
                                     </div>
-
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-6">
-                    <div class="ibox">
-                        <div class="ibox-content product-box">
-                            <div class="product-imitation p-3">
-                                <img src="{{ asset('img/logoWeb/LogoLimitSampleWeb.png') }}" wi class="img-fluid"
-                                    alt="">
-                            </div>
-                            <div class="product-desc text-center">
-                                <div class="text-center">
-                                    <button type="button" class="btn btn-success mb-1 btn-xs">Quality</button>
-                                </div>
-                                <a href="#" class="product-name">Limit Sample (Server)</a>
-                                <div class="m-t">
-                                    <div class="text-center">
-                                        {{-- <a href="{{ route('loginToExternalSite') }}" class="btn btn-secondary" onclick="">Masuk</a> --}}
-                                        <form id="limit-sample-server"
-                                            action="{{ url('http://10.14.143.89/limit-sample/public/directToExternalSite') }}"
-                                            method="POST">
-                                            {{-- <form action="{{ url('http://10.14.179.250:1111/directToExternalSite') }}" method="POST"> --}}
-                                            <button type="submit" class="btn btn-primary" onclick="ExternalSite(event,'limit-sample-server')">Masuk</button>
-                                        </form>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6">
-                    <div class="ibox">
-                        <div class="ibox-content product-box">
-                            <div class="product-imitation p-3">
-                                <img src="{{ asset('img/logoWeb/LogoEhsPatrolWeb.png') }}" wi class="img-fluid"
-                                    alt="">
-                            </div>
-                            <div class="product-desc text-center">
-                                <div class="text-center">
-                                    <button type="button" class="btn btn-success mb-1 btn-xs">EHS</button>
-                                </div>
-                                <a href="#" class="product-name">EHS Patrol (Local)</a>
-                                <div class="m-t">
-                                    <div class="text-center">
-                                        {{-- <a href="{{ route('loginToExternalSite') }}" class="btn btn-secondary" onclick="">Masuk</a> --}}
-                                        <form id="ehs-patrol" action="{{ url('http://10.14.179.250:3333/directToExternalSite') }}"
-                                            method="POST">
-                                            <button type="submit" class="btn btn-primary" onclick="ExternalSite(event,'ehs-patrol')">Masuk</button>
-                                        </form>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-6">
-                    <div class="ibox">
-                        <div class="ibox-content product-box">
-                            <div class="product-imitation p-3">
-                                <img src="{{ asset('img/logoWeb/LogoELearningWeb.png') }}" wi class="img-fluid"
-                                    alt="">
-                            </div>
-                            <div class="product-desc text-center">
-                                <div class="text-center">
-                                    <button type="button" class="btn btn-success mb-1 btn-xs">HR</button>
-                                </div>
-                                <a href="#" class="product-name">E-Learning (Local)</a>
-                                <div class="m-t">
-                                    <div class="text-center">
-                                        {{-- <a href="{{ route('loginToExternalSite') }}" class="btn btn-secondary" onclick="">Masuk</a> --}}
-                                        <form id="e-learning" action="{{ url('http://10.14.179.250:4444/directToExternalSite') }}"
-                                            method="POST">
-                                            <button type="submit" class="btn btn-primary" onclick="ExternalSite(event,'e-learning')">Masuk</button>
-                                        </form>
-
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
 @endsection
 
 @section('script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
     <script>
-        function ExternalSite(e,idForm) {
+
+        function ExternalSite(e, idForm) {
             e.preventDefault(); // Mencegah form dari pengiriman langsung
             const token = "{{ session('token') }}"; // Ambil token dari session
 
+            // Contoh menggunakan CryptoJS untuk mengenkripsi token
+            const encryptedToken = btoa(token);
             // Buat input hidden secara dinamis
             const hiddenInput = document.createElement('input');
             hiddenInput.type = 'hidden';
             hiddenInput.name = 'token';
-            hiddenInput.value = token;
+            hiddenInput.value = encryptedToken;
 
             // Tambahkan input ke form
             const form = document.getElementById(idForm);

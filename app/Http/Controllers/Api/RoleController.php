@@ -13,9 +13,10 @@ class RoleController extends Controller
     {
         $user = \App\Models\User::findOrFail($id);
         $roles = $user->roles->pluck('name'); // Ambil nama role
-
+        $roles_colection = $user->roles;
         return response()->json([
             'roles' => $roles,
+            'roles_colection' => $roles_colection,
         ]);
     }
 

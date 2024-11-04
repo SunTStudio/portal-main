@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SubWebsite;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,8 +15,9 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user()->load('department');
+        $subWebsites = SubWebsite::all();
 
-        return view('dashboard');
+        return view('dashboard',compact('subWebsites'));
     }
     public function dashboard()
     {
@@ -23,8 +25,8 @@ class UserController extends Controller
         // $permissions = Permission::all();
         // $role = Role::findOrFail($id);
         // return view('roles.assign-permissions', compact('user', 'role', 'permissions'));
-        return view('dashboard');
-
+        $subWebsites = SubWebsite::all();
+        return view('dashboard',compact('subWebsites'));
     }
 
     public function profile(){
