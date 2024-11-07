@@ -16,7 +16,7 @@
                                 class="btn btn-primary"><i class="fa fa-download"></i> Template</a>
                         </div>
                         <div class="col-lg-8 col-12 text-center m-1">
-                            <form action="{{ route('roles.import') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('position.import') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="fileinput fileinput-new border border-secondary rounded"
                                     data-provides="fileinput">
@@ -96,7 +96,7 @@
                                                 <div class="d-flex align-items-center">
 
                                                             <form action="{{ url('/position/delete') }}/${data}" method="POST"
-                                                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus Role ini?');">
+                                                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus position ini?');">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <!-- Ini menandakan bahwa request ini adalah DELETE method -->

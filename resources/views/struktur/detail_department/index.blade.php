@@ -7,7 +7,7 @@
                 <div id="heading" class="mb-2 col-lg-6 col-12">
                     <h1>Detail Department</h1>
                     <h3>Manage your Detail Department here</h3>
-                    <a href="{{ url('detail-department/create') }}" class="btn btn-secondary">Tambah Detail Department</a>
+                    <a href="{{ url('department-detail/create') }}" class="btn btn-secondary">Tambah Detail Department</a>
                 </div>
                 <div class="col-lg-4 col-12 ">
                     <div class="row">
@@ -16,7 +16,7 @@
                                 class="btn btn-primary"><i class="fa fa-download"></i> Template</a>
                         </div>
                         <div class="col-lg-8 col-12 text-center m-1">
-                            <form action="{{ route('roles.import') }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('detail.department.import') }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="fileinput fileinput-new border border-secondary rounded"
                                     data-provides="fileinput">
@@ -99,13 +99,13 @@
                             return `
                                 <div class="d-flex justify-content-center">
 
-                                                <a href="{{ url('/detail-department/edit') }}/${data}" class="btn btn-sm btn-warning m-1">
+                                                <a href="{{ url('/department-detail/edit') }}/${data}" class="btn btn-sm btn-warning m-1">
                                                     Edit
                                                 </a>
                                                 <div class="d-flex align-items-center">
 
-                                                            <form action="{{ url('/detail-department/delete') }}/${data}" method="POST"
-                                                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus Role ini?');">
+                                                            <form action="{{ url('/department-detail/delete') }}/${data}" method="POST"
+                                                                onsubmit="return confirm('Apakah Anda yakin ingin menghapus detail department ini?');">
                                                                 @csrf
                                                                 @method('DELETE')
                                                                 <!-- Ini menandakan bahwa request ini adalah DELETE method -->

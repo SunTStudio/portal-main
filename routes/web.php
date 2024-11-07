@@ -57,6 +57,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/users/permissions-data/update/{id}', [UsersManages::class, 'updatePermissionsUser'])->name('user.update.permissions.data');
     Route::post('/users/import', [ImportController::class, 'importUsers'])->name('users.import');
     Route::get('/users/filter-detail-dept/', [UsersManages::class, 'userFilterDetail'])->name('user.filter.index');
+    Route::get('users/sort-struktur', [DashboardController::class, 'sortStruktur'])->name('sort.struktur');
 
     // Rute roles
     Route::get('/roles', [RoleManages::class, 'roles'])->name('roles');
@@ -97,6 +98,7 @@ Route::middleware('auth')->group(function () {
     Route::post('sub-website/update/{id}', [DashboardController::class, 'update'])->name('subWebsite.update');
     Route::delete('sub-website/delete/{id}', [DashboardController::class, 'destroy'])->name('subWebsite.delete');
     Route::get('sub-website/updateData', [DashboardController::class, 'updateDataAll'])->name('subWebsite.updateDataAll');
+    Route::get('sub-website/updateDataSingle/{id}', [DashboardController::class, 'updateDataSingle'])->name('subWebsite.updateDataSingle');
 
     // Rute sort sub website
     Route::get('sub-website/sort-access', [DashboardController::class, 'sortAccess'])->name('sort.access');
@@ -112,16 +114,18 @@ Route::middleware('auth')->group(function () {
     Route::post('/department/update/{id}', [DepartmentController::class, 'update'])->name('department.update');
     Route::delete('/department/delete/{id}', [DepartmentController::class, 'destroy'])->name('department.delete');
     Route::get('/department/data', [DepartmentController::class, 'departmentData'])->name('department.data');
+    Route::post('department/import', [ImportController::class, 'importDepartment'])->name('department.import');
 
 
     //detail department
-    Route::get('/detail-department', [DetailDepartmentController::class, 'index'])->name('detail.department');
-    Route::get('/detail-department/create', [DetailDepartmentController::class, 'create'])->name('detail.department.create');
-    Route::post('/detail-department/store', [DetailDepartmentController::class, 'store'])->name('detail.department.store');
-    Route::get('/detail-department/edit/{id}', [DetailDepartmentController::class, 'edit'])->name('detail.department.edit');
-    Route::post('/detail-department/update/{id}', [DetailDepartmentController::class, 'update'])->name('detail.department.update');
-    Route::delete('/detail-department/delete/{id}', [DetailDepartmentController::class, 'destroy'])->name('detail.department.delete');
-    Route::get('/detail-department/data', [DetailDepartmentController::class, 'detailDepartmentData'])->name('detail.department.data');
+    Route::get('/department-detail', [DetailDepartmentController::class, 'index'])->name('detail.department');
+    Route::get('/department-detail/create', [DetailDepartmentController::class, 'create'])->name('detail.department.create');
+    Route::post('/department-detail/store', [DetailDepartmentController::class, 'store'])->name('detail.department.store');
+    Route::get('/department-detail/edit/{id}', [DetailDepartmentController::class, 'edit'])->name('detail.department.edit');
+    Route::post('/department-detail/update/{id}', [DetailDepartmentController::class, 'update'])->name('detail.department.update');
+    Route::delete('/department-detail/delete/{id}', [DetailDepartmentController::class, 'destroy'])->name('detail.department.delete');
+    Route::get('/department-detail/data', [DetailDepartmentController::class, 'detailDepartmentData'])->name('detail.department.data');
+    Route::post('department-detail/import', [ImportController::class, 'importDetailDepartment'])->name('detail.department.import');
 
     //position
     Route::get('/position', [PositionController::class, 'index'])->name('position');
@@ -131,5 +135,6 @@ Route::middleware('auth')->group(function () {
     Route::post('/position/update/{id}', [PositionController::class, 'update'])->name('position.update');
     Route::delete('/position/delete/{id}', [PositionController::class, 'destroy'])->name('position.delete');
     Route::get('/position/data', [PositionController::class, 'positionData'])->name('position.data');
+    Route::post('position/import', [ImportController::class, 'importPosition'])->name('position.import');
 
 });

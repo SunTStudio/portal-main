@@ -17,6 +17,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
         $schedule->command('tokens:clean')->hourly();
+        $schedule->command('logout:all')->dailyAt('01:00');
     }
 
     /**

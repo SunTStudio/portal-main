@@ -72,7 +72,7 @@
                         <ul class="nav nav-second-level collapse">
                             <li class="{{ Request::is('*department') ? 'active' : '' }}"><a
                                     href="{{ route('department') }}">Departement</a></li>
-                            <li class="{{ Request::is('detail-department') ? 'active' : '' }}"><a
+                            <li class="{{ Request::is('*department-detail') ? 'active' : '' }}"><a
                                     href="{{ route('detail.department') }}">Detail Departement</a></li>
                             <li class="{{ Request::is('position') ? 'active' : '' }}"><a
                                     href="{{ route('position') }}">Position</a></li>

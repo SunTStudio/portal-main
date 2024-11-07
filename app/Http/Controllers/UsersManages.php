@@ -17,12 +17,13 @@ class UsersManages extends Controller
     {
         $departments = Department::all();
         $detail_departements = Detail_departement::all();
-        return view('access-control.users.index',compact('departments','detail_departements'));
+        $positions = Position::all();
+        return view('access-control.users.index',compact('departments','detail_departements','positions'));
     }
 
     public function usersData(Request $request)
     {
-        $data = User::with('department','detailDepartment')->get();
+        $data = User::with('department','detailDepartment','position')->get();
         return DataTables::of($data)->make(true);
     }
 

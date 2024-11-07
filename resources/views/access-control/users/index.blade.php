@@ -56,6 +56,15 @@
                         @endforeach
                     </select>
                 </div>
+                <div class="col-sm-4">
+                    <label class="m-0 p-0">Positions</label>
+                    <select class="form-control m-b" name="account" id="positionFilter">
+                        <option value=" ">Semua</option>
+                        @foreach ($positions as $position)
+                            <option value="{{ $position->id }}">{{ $position->position }}</option>
+                        @endforeach
+                    </select>
+                </div>
             </div>
 
             <div id="tableUsers" class="">
@@ -68,6 +77,7 @@
                             <th>Username</th>
                             <th>Departement</th>
                             <th>Detail Departement</th>
+                            <th>Position</th>
                             <th>Opsi</th>
                         </tr>
                     </thead>
@@ -123,6 +133,14 @@
                         }
                     },
                     {
+                        data: 'position_id',
+                        name: 'position_id',
+                        className: 'text-center',
+                        render: function(data, type, row) {
+                            return row.position ? row.position.position : '-';
+                        }
+                    },
+                    {
                         data: 'id',
                         name: 'id',
                         className: 'text-center',
@@ -162,6 +180,11 @@
             $('#detaildepartmentsFilter').on('change', function() {
                 var selectedDepartments = $(this).val();
                 table.column(4).search(selectedDepartments).draw();
+            });
+
+            $('#positionFilter').on('change', function() {
+                var selectedDepartments = $(this).val();
+                table.column(5).search(selectedDepartments).draw();
             });
 
             new $.fn.dataTable.FixedHeader(table);

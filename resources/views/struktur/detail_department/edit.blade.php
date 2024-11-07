@@ -45,7 +45,7 @@
                             </div>
                             <div class="submit mt-3">
                                 <button type="submit" class="btn btn-primary">Edit Detail Department</button>
-                                <a href="{{ url('/detail-department') }}" class="btn btn-default">Back</a>
+                                <a href="{{ url('/department-detail') }}" class="btn btn-default">Back</a>
                             </div>
                         </div>
                         <hr>

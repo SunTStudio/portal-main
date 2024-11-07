@@ -4,11 +4,32 @@
     #tombolSubWebsite{
         display: flex;
     }
+
+    .product-imitation{
+        height: 10rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .product-imitation img{
+        height:8rem;
+        object-fit: cover;
+    }
 @media (max-width: 767px) {
     /* .tombolSubWebsite{
         font-size: 0.5rem;
     } */
+    .product-imitation{
+        height:7rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
+    .product-imitation img{
+        height:5rem;
+        object-fit: cover;
+    }
     #tombolSubWebsite{
         display: block;
     }
@@ -30,7 +51,7 @@
             <p class="h5 p-2"><strong> PORTAL ASTRA JUOKU INDONESIA </strong></p>
             @if (auth()->user()->hasRole('Admin'))
             <a href="{{ url('sub-website/create') }}" class="btn btn-secondary">Tambah Sub Website</a>
-            <a href="{{ url('sub-website/updateData') }}" class="btn btn-secondary">Update Data</a>
+            <a href="{{ url('sub-website/updateData') }}" class="btn btn-secondary">Update Semua Website</a>
             @endif
         </div>
         <div class="col-12">
@@ -40,7 +61,7 @@
                         <div class="ibox">
                             <div class="ibox-content product-box">
                                 <div class="product-imitation p-3">
-                                    <img src="{{ asset("img/subWebsite/$subWebsite->sampul") }}" class="img-fluid"
+                                    <img src="{{ asset("img/subWebsite/$subWebsite->sampul") }}" class="sampul img-fluid"
                                         alt="">
                                 </div>
                                 <div class="product-desc text-center">
@@ -64,11 +85,12 @@
                                             @endif
 
                                             @hasrole('Admin')
-                                                <a href="{{ route('subWebsite.edit',['id' => $subWebsite->id]) }}" class="btn btn-warning ml-2 mr-2 tombolSubWebsite">Edit</a>
-                                                <form action="{{ route('subWebsite.delete',['id' => $subWebsite->id]) }}" method="POST">
+                                                <a href="{{ route('subWebsite.edit',['id' => $subWebsite->id]) }}" class="btn btn-warning ml-2  tombolSubWebsite"><i class="fa fa-edit"></i></a>
+                                                <a href="{{ route('subWebsite.updateDataSingle',['id' => $subWebsite->id]) }}" class="btn btn-info ml-2 mr-2 tombolSubWebsite"><i class="fa fa-cogs"></i></a>
+                                                <form action="{{ route('subWebsite.delete',['id' => $subWebsite->id]) }}" onsubmit="return confirm('Apakah Anda yakin ingin menghapus Sub Website ini?');" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger tombolSubWebsite">Hapus</button>
+                                                    <button type="submit" class="btn btn-danger tombolSubWebsite" ><i class="fa fa-trash"></i></button>
                                                 </form>
                                             @endhasrole
 

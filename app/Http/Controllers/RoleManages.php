@@ -121,7 +121,6 @@ class RoleManages extends Controller
 
     public function storeRoleToUsers(Request $request, $role)
     {
-        dd($request->all());
         $roleName = Role::findByName($role);
         $userRoleResets = User::all();
         // Ambil ID pengguna dari input

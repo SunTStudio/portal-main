@@ -78,7 +78,7 @@
 
                         <div class="mb-3 col-lg-6 col-10">
                             <label for="dept_id" class="form-label">Department</label>
-                            <select class="form-control" id="dept_id" name="dept_id" required="required">
+                            <select class="form-control" id="dept_id" name="dept_id" required="required" onchange="departmentSelect(this)">
                                 <option value="" selected="selected"> -- Select -- </option>
                                 @foreach ($departments as $department)
                                     <option value="{{ $department->id }}" {{ $oldData->dept_id == $department->id ? 'selected' : '' }}>{{ $department->name }}</option>
@@ -88,7 +88,7 @@
 
                         <div class="mb-3 col-lg-6 col-10">
                             <label for="detail_dept_id" class="form-label">Detail Department</label>
-                            <select class="form-control" id="detail_dept_id" name="detail_dept_id" required="required">
+                            <select class="form-control" id="DetailDepartement" name="detail_dept_id" required="required">
                                 <option value="" selected="selected"> -- Select -- </option>
                                 @foreach ($detail_departements as $detail_departement)
                                     <option value="{{ $detail_departement->id }}" {{ $oldData->detail_dept_id == $detail_departement->id ? 'selected' : '' }}>{{ $detail_departement->name }}</option>
@@ -129,6 +129,33 @@
 
 @section('script')
     <script>
+        function departmentSelect(selectDeparment){
+            selectedDeparment = Array.from(selectDeparment.selectedOptions).map(option => option.value);
+
+            $.ajax({
+                url: "{{ route('sort.struktur') }}",
+                type: "GET",
+                data: {
+                    sortDepartment: selectedDeparment,
+                },
+                success: function(data) {
+                        // Menghapus isi dari elemen dengan ID DetailDepartement
+                        $('#DetailDepartement').empty(); // Memanggil .empty() dengan tanda kurung
+
+                        // Membangun string HTML
+                        $('#DetailDepartement').append('<option value=" " selected="selected"> -- Select -- </option>');
+                        $.each(data.resultDetailDepartments, function(index, detail) {
+                            $('#DetailDepartement').append(
+                                `<option value="${detail.name}">${detail.name}</option>`
+                            );
+                        });
+                },
+                error: function() {
+                    // Tangani kesalahan di sini
+                },
+            });
+        }
+
         var mem = $('#data_1 .input-group.date').datepicker({
             todayBtn: "linked",
             keyboardNavigation: false,

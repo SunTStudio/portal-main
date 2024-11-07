@@ -89,40 +89,39 @@ class DashboardController extends Controller
         $departments = Department::all();
         $queryUsers = User::query();
 
-        if(!in_array('semua',json_decode($oldData->departments)) && !in_array('tidak',json_decode($oldData->departments))){
+        if (!in_array('semua', json_decode($oldData->departments)) && !in_array('tidak', json_decode($oldData->departments))) {
             $department = [];
-            foreach(json_decode($oldData->departments) as $department){
-                $departmentId = Department::where('name',$department)->first();
+            foreach (json_decode($oldData->departments) as $department) {
+                $departmentId = Department::where('name', $department)->first();
                 $departments_list[] = $departmentId->id;
             }
-            $detail_departements = Detail_departement::whereIn('departement_id',$departments_list)->get();
-        }else{
+            $detail_departements = Detail_departement::whereIn('departement_id', $departments_list)->get();
+        } else {
             $detail_departements = Detail_departement::all();
         }
 
-
-        if(!in_array('semua',json_decode($oldData->departments)) && !in_array('tidak',json_decode($oldData->departments))){
-            foreach(json_decode($oldData->departments) as $department){
-                $departmentId = Department::where('name',$department)->first();
+        if (!in_array('semua', json_decode($oldData->departments)) && !in_array('tidak', json_decode($oldData->departments))) {
+            foreach (json_decode($oldData->departments) as $department) {
+                $departmentId = Department::where('name', $department)->first();
                 $departments_list[] = $departmentId->id;
             }
-            $queryUsers->whereIn('dept_id',$departments_list);
+            $queryUsers->whereIn('dept_id', $departments_list);
         }
 
-        if(!in_array('semua',json_decode($oldData->detail_departements)) && !in_array('semua',json_decode($oldData->detail_departements))){
-            foreach(json_decode($oldData->detail_departements) as $detail_departement){
-                $detail_departementId = Detail_departement::where('name',$detail_departement)->first();
+        if (!in_array('semua', json_decode($oldData->detail_departements)) && !in_array('semua', json_decode($oldData->detail_departements))) {
+            foreach (json_decode($oldData->detail_departements) as $detail_departement) {
+                $detail_departementId = Detail_departement::where('name', $detail_departement)->first();
                 $detail_departement_list[] = $detail_departementId->id;
             }
-            $queryUsers->whereIn('detail_dept_id',$detail_departement_list);
+            $queryUsers->whereIn('detail_dept_id', $detail_departement_list);
         }
 
-        if(!in_array('semua',json_decode($oldData->positions)) && !in_array('semua',json_decode($oldData->positions))){
-            foreach(json_decode($oldData->positions) as $position){
-                $positionId = Position::where('position',$position)->first();
+        if (!in_array('semua', json_decode($oldData->positions)) && !in_array('semua', json_decode($oldData->positions))) {
+            foreach (json_decode($oldData->positions) as $position) {
+                $positionId = Position::where('position', $position)->first();
                 $positions_list[] = $positionId->id;
             }
-            $queryUsers->whereIn('position_id',$positions_list);
+            $queryUsers->whereIn('position_id', $positions_list);
         }
 
         $users = $queryUsers->get();
@@ -164,7 +163,7 @@ class DashboardController extends Controller
             $users = ['semua'];
         }
 
-        if ((!in_array('semua', $users)) && !in_array('tidak', $users)) {
+        if (!in_array('semua', $users) && !in_array('tidak', $users)) {
             $role = Str::slug($validateData['name']);
             if ($oldData->role == null) {
                 Role::create(['name' => $role]);
@@ -198,7 +197,6 @@ class DashboardController extends Controller
             $positions = ['semua'];
         }
 
-
         $validateData['departments'] = json_encode($departments);
         $validateData['detail_departements'] = json_encode($detail_departements);
         $validateData['positions'] = json_encode($positions);
@@ -219,11 +217,11 @@ class DashboardController extends Controller
     public function updateDataAll()
     {
         $subWebsites = SubWebsite::all();
-        $UserData = User::withTrashed()->get();
+        $UserData = User::withTrashed()->with('roles')->get();
         $DeptData = Department::all();
         $DetailDeptData = Detail_departement::all();
         $PositionData = Position::all();
-        $allRole = Role::all();
+        $allRole = Role::with('permissions')->get();
         $allPermission = Permission::all();
         // foreach($subWebsites as $subWebsite){
         $client = new Client();
@@ -256,19 +254,74 @@ class DashboardController extends Controller
             'allRole' => $allRole,
             'allPermission' => $allPermission,
         ];
+        try {
+            foreach ($subWebsites as $subWebsite) {
+                // Mengirimkan request POST
+                $response = $client->post($subWebsite->link . '/api/updateDataAPI', [
+                    // $response = $client->post('http://10.14.179.250:3333/api/updateDataAPI', [
+                    'json' => $data, // Menggunakan 'json' untuk otomatis mengatur Content-Type ke application/json
+                ]);
+            }
 
-        foreach ($subWebsites as $subWebsite)
-        {
-        // Mengirimkan request POST
-        $response = $client->post($subWebsite->link.'/api/updateDataAPI', [
-        // $response = $client->post('http://10.14.179.250:3333/api/updateDataAPI', [
-            'json' => $data, // Menggunakan 'json' untuk otomatis mengatur Content-Type ke application/json
-        ]);
+            $data = json_decode($response->getBody()->getContents(), true);
+            return redirect()->route('dashboard')->with($data);
+        } catch (\Exception $e) {
+            return redirect()->route('dashboard')->with('error', $e->getMessage());
         }
+    }
 
-        $data = json_decode($response->getBody()->getContents(), true);
+    public function updateDataSingle($id)
+    {
+        $url = SubWebsite::find($id);
+        $UserData = User::withTrashed()->with('roles')->get();
+        $DeptData = Department::all();
+        $DetailDeptData = Detail_departement::all();
+        $PositionData = Position::all();
+        $allRole = Role::with('permissions')->get();
+        $allPermission = Permission::all();
+        // foreach($subWebsites as $subWebsite){
+        $client = new Client();
+        // Menyiapkan data yang akan dikirimkan
+        $data = [
+            'users' => $UserData->map(function ($user) {
+                return [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                    'npk' => $user->npk,
+                    'username' => $user->username,
+                    'gender' => $user->gender,
+                    'tgl_masuk' => $user->tgl_masuk,
+                    'tgl_lahir' => $user->tgl_lahir,
+                    'dept_id' => $user->dept_id,
+                    'position_id' => $user->position_id,
+                    'detail_dept_id' => $user->detail_dept_id,
+                    'golongan' => $user->golongan,
+                    'email_verified_at' => $user->email_verified_at,
+                    'deleted_at' => $user->deleted_at,
+                    'password' => $user->password, // Pastikan password sudah terenkripsi dengan bcrypt saat update
+                    'role' => $user->roles->pluck('name'), // Asumsikan role diambil dari relasi roles
+                    'permissions' => $user->permissions->pluck('name'), // Asumsikan permissions diambil dari relasi permissions
+                ];
+            }),
+            'departments' => $DeptData,
+            'detail_departments' => $DetailDeptData,
+            'positions' => $PositionData,
+            'allRole' => $allRole,
+            'allPermission' => $allPermission,
+        ];
+        try {
+                // Mengirimkan request POST
+                $response = $client->post($url->link . '/api/updateDataAPI', [
+                    // $response = $client->post('http://10.14.179.250:3333/api/updateDataAPI', [
+                    'json' => $data, // Menggunakan 'json' untuk otomatis mengatur Content-Type ke application/json
+                ]);
 
-        return redirect()->route('dashboard')->with($data);
+            $data = json_decode($response->getBody()->getContents(), true);
+            return redirect()->route('dashboard')->with($data);
+        } catch (\Exception $e) {
+            return redirect()->route('dashboard')->with('error', $e->getMessage());
+        }
     }
 
     public function sortAccess(Request $request)
@@ -320,10 +373,23 @@ class DashboardController extends Controller
             'resultUsers' => $resultUsers,
             'resultDetailDepartments' => $resultDetailDepartments,
         ]);
-
     }
 
+    public function sortStruktur(Request $request)
+    {
+        $sortDepartments = $request->sortDepartment;
+        // Eksekusi queryUsers untuk mendapatkan hasil
+        if (in_array(null, $sortDepartments)) {
+            $resultDetailDepartments = Detail_departement::all();
+        } else {
+            $resultDetailDepartments = Detail_departement::whereIn('departement_id', $sortDepartments)->get();
+        }
 
+        return response()->json([
+            'message' => 'Success',
+            'resultDetailDepartments' => $resultDetailDepartments,
+        ]);
+    }
 
     public function download($filename)
     {

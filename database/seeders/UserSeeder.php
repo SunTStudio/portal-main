@@ -64,6 +64,10 @@ class UserSeeder extends Seeder
             'name' => 'Member',
         ]);
 
+        $guests = Role::create([
+            'name' => 'guest',
+        ]);
+
         $Admin = User::create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
@@ -3679,6 +3683,22 @@ class UserSeeder extends Seeder
         ];
 
         // Member End
+
+        //guest
+        $guest = User::create([
+            'name' => 'guest',
+            'email' => 'guest@gmail.com',
+            'username' => 'guest',
+            'npk' => '00000',
+            'gender' => 'Perempuan',
+            'dept_id' => null,
+            'detail_dept_id' => null,
+            'position_id' => null,
+            'golongan' => '1',
+            'password' => bcrypt('guest123'),
+        ]);
+        $guest->assignRole($guests);
+
 
         $Admin->assignRole($AdminRole);
         // Loop untuk menyimpan setiap pengguna
