@@ -146,7 +146,7 @@
                         $('#DetailDepartement').append('<option value=" " selected="selected"> -- Select -- </option>');
                         $.each(data.resultDetailDepartments, function(index, detail) {
                             $('#DetailDepartement').append(
-                                `<option value="${detail.name}">${detail.name}</option>`
+                                `<option value="${detail.id}">${detail.name}</option>`
                             );
                         });
                 },

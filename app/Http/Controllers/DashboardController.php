@@ -21,11 +21,12 @@ class DashboardController extends Controller
         // $cek = SubWebsite::find(1);
         // $positions = json_decode($cek->positions);
         // dd(in_array('Staff',$positions));
+        $roles = Role::all();
         $departments = Department::all();
         $detail_departements = Detail_departement::all();
         $positions = Position::all();
         $users = User::all();
-        return view('subWebsite.create', compact('users', 'departments', 'detail_departements', 'positions'));
+        return view('subWebsite.create', compact('roles','users', 'departments', 'detail_departements', 'positions'));
     }
 
     public function store(Request $request)

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Struktur;
 use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Models\Detail_departement;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -90,7 +91,14 @@ class DetailDepartmentController extends Controller
             'departement_id' => 'required',
         ]);
 
+        //update user to new Departement
         $oldData->update($validateData);
+        $users = User::where('detail_dept_id',$oldData->id)->get();
+        foreach($users as $user){
+            $user->update([
+                'dept_id' => $validateData['departement_id']
+            ]);
+        }
         return redirect()->route('detail.department')->with('success','Detail Department Berhasil diperbarui!');
     }
 

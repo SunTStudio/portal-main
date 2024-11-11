@@ -47,38 +47,39 @@
                                 class="nav-label">Dashboard</span></a>
                     </li>
                     @if (!Auth::user()->hasRole('Admin'))
-                    <li class="{{ Request::is('profile*') ? 'active' : '' }}">
-                        <a href="{{ url('/profile') }}"><i class="fa fa-user-o"></i><span
-                                class="nav-label">Profile</span></a>
-                    </li>
+                        <li class="{{ Request::is('profile*') ? 'active' : '' }}">
+                            <a href="{{ url('/profile') }}"><i class="fa fa-user-o"></i><span
+                                    class="nav-label">Profile</span></a>
+                        </li>
                     @endif
 
                     @if (Auth::user()->hasRole('Admin'))
-                    <li class="{{ Request::is('*management-akun') ? 'active' : '' }}">
-                        <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Access
-                                Control</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                            <li class="{{ Request::is('Akun') ? 'active' : '' }}"><a
-                                    href="{{ route('users') }}">Users</a></li>
-                            <li class="{{ Request::is('Role') ? 'active' : '' }}"><a
-                                    href="{{ route('roles') }}">Roles</a></li>
-                            <li class="{{ Request::is('Permision') ? 'active' : '' }}"><a
-                                    href="{{ route('permissions') }}">Permisions</a></li>
-                            {{-- <li><a href="carousel.html">Dilaporkan</a></li> --}}
-                        </ul>
-                    </li>
-                    <li class="{{ Request::is('*struktur-management') ? 'active' : '' }}">
-                        <a href="#"><i class="fa fa-cubes"></i> <span class="nav-label">Struktur Manajemen</span><span class="fa arrow"></span></a>
-                        <ul class="nav nav-second-level collapse">
-                            <li class="{{ Request::is('*department') ? 'active' : '' }}"><a
-                                    href="{{ route('department') }}">Departement</a></li>
-                            <li class="{{ Request::is('*department-detail') ? 'active' : '' }}"><a
-                                    href="{{ route('detail.department') }}">Detail Departement</a></li>
-                            <li class="{{ Request::is('position') ? 'active' : '' }}"><a
-                                    href="{{ route('position') }}">Position</a></li>
-                            {{-- <li><a href="carousel.html">Dilaporkan</a></li> --}}
-                        </ul>
-                    </li>
+                        <li class="{{ Request::is('*management-akun') ? 'active' : '' }}">
+                            <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Access
+                                    Control</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li class="{{ Request::is('Akun') ? 'active' : '' }}"><a
+                                        href="{{ route('users') }}">Users</a></li>
+                                <li class="{{ Request::is('Role') ? 'active' : '' }}"><a
+                                        href="{{ route('roles') }}">Roles</a></li>
+                                <li class="{{ Request::is('Permision') ? 'active' : '' }}"><a
+                                        href="{{ route('permissions') }}">Permisions</a></li>
+                                {{-- <li><a href="carousel.html">Dilaporkan</a></li> --}}
+                            </ul>
+                        </li>
+                        <li class="{{ Request::is('*struktur-management') ? 'active' : '' }}">
+                            <a href="#"><i class="fa fa-cubes"></i> <span class="nav-label">Struktur
+                                    Manajemen</span><span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level collapse">
+                                <li class="{{ Request::is('*department') ? 'active' : '' }}"><a
+                                        href="{{ route('department') }}">Departement</a></li>
+                                <li class="{{ Request::is('*department-detail') ? 'active' : '' }}"><a
+                                        href="{{ route('detail.department') }}">Detail Departement</a></li>
+                                <li class="{{ Request::is('position') ? 'active' : '' }}"><a
+                                        href="{{ route('position') }}">Position</a></li>
+                                {{-- <li><a href="carousel.html">Dilaporkan</a></li> --}}
+                            </ul>
+                        </li>
                     @endif
 
                 </ul>
@@ -217,6 +218,43 @@
             }
         });
     </script> --}}
+
+    <script>
+        // Nonaktifkan klik kanan
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Nonaktifkan F12, Ctrl+Shift+I, Ctrl+Shift+J, dan kombinasi lainnya
+        document.onkeydown = function(e) {
+            // F12
+            if (e.keyCode == 123) {
+                return false;
+            }
+            // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+            if (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74) || e.ctrlKey && e.keyCode == 85) {
+                return false;
+            }
+            // Ctrl+Shift+C
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 67) {
+                return false;
+            }
+        };
+    </script>
+    <script>
+        // window.addEventListener('beforeunload', function(e) {
+        //     // Contoh panggilan logout melalui fetch (tidak dijamin selalu dipanggil tergantung browser)
+        //     if (window.location.pathname.startsWith('/')) {
+        //         // Lakukan sesuatu jika kondisi true
+        //     } else {
+        //         fetch('/logout', {
+        //             method: 'POST',
+        //             headers: {
+        //                 'X-CSRF-TOKEN': '{{ csrf_token() }}'
+        //             }
+        //         });
+        //     }
+        // });
+    </script>
+
 </body>
 
 </html>

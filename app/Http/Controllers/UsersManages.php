@@ -37,6 +37,7 @@ class UsersManages extends Controller
 
     public function store(Request $request)
     {
+
         $validateData = $request->validate([
             'name' => 'required|string',
             'email' => 'required|unique:users,email',
