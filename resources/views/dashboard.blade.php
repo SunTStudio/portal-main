@@ -60,11 +60,11 @@
                     <div class="col-lg-3 col-6">
                         <div class="ibox">
                             <div class="ibox-content product-box">
-                                <div class="product-imitation p-3">
+                                <div class="product-imitation p-3 bg-white">
                                     <img src="{{ asset("img/subWebsite/$subWebsite->sampul") }}" class="sampul img-fluid"
                                         alt="">
                                 </div>
-                                <div class="product-desc text-center">
+                                <div class="product-desc text-center border-top">
                                     <div class="text-center">
                                         {{-- <button type="button" class="btn btn-success mb-1 btn-xs">HR</button> --}}
                                     </div>
