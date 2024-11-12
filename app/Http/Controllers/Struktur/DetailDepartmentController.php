@@ -19,6 +19,9 @@ class DetailDepartmentController extends Controller
      */
     public function index()
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
         return view('struktur.detail_department.index');
 
     }
@@ -30,6 +33,9 @@ class DetailDepartmentController extends Controller
      */
     public function create()
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
         $departments = Department::all();
         return view('struktur.detail_department.create',compact('departments'));
 
@@ -76,6 +82,9 @@ class DetailDepartmentController extends Controller
      */
     public function edit($id)
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
         $oldData = Detail_departement::find($id);
         $departments = Department::all();
         return view('struktur.detail_department.edit',compact('departments','oldData'));
@@ -117,6 +126,9 @@ class DetailDepartmentController extends Controller
      */
     public function destroy($id)
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
         $deleteData = Detail_departement::find($id);
         $deleteData->delete();
         $this->sinkron_status();

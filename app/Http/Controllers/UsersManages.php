@@ -21,6 +21,10 @@ class UsersManages extends Controller
 
     public function users()
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
+
         $departments = Department::all();
         $detail_departements = Detail_departement::all();
         $positions = Position::all();
@@ -35,6 +39,10 @@ class UsersManages extends Controller
 
     public function create(Request $request)
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
+
         $departments = Department::all();
         $detail_departements = Detail_departement::all();
         $positions = Position::all();
@@ -72,6 +80,10 @@ class UsersManages extends Controller
 
     public function edit(Request $request, $id)
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
+
         $oldData = User::find($id);
         $departments = Department::all();
         $detail_departements = Detail_departement::all();
@@ -81,6 +93,10 @@ class UsersManages extends Controller
 
     public function userPermissions(Request $request, $id)
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
+
         $user = User::find($id);
 
         return view('access-control.users.userPermission', compact('user'));
@@ -88,6 +104,10 @@ class UsersManages extends Controller
 
     public function userRoles(Request $request, $id)
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
+
         $user = User::find($id);
 
         return view('access-control.users.userRole', compact('user'));
@@ -95,6 +115,10 @@ class UsersManages extends Controller
 
     public function updateRolesUser(Request $request, $id)
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
+
         $user = User::find($id);
         $roles = $request->input('roles');
         $user->syncRoles($roles);
@@ -106,6 +130,10 @@ class UsersManages extends Controller
 
     public function updatePermissionsUser(Request $request, $id)
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
+
         $permissions = $request->input('permissions');
         $user = User::find($id);
         $user->syncPermissions($permissions);
@@ -157,6 +185,10 @@ class UsersManages extends Controller
     }
     public function update(Request $request, $id)
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
+
         $oldData = User::find($id);
         $validateData = $request->validate([
             'name' => 'required|string',
@@ -185,6 +217,10 @@ class UsersManages extends Controller
 
     public function destroy($id)
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
+
         $deleteUser = User::find($id);
         $emailDelete = $deleteUser->npk . $deleteUser->email;
         $usernameDelete = $deleteUser->npk . $deleteUser->username;

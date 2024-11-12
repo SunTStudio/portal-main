@@ -12,7 +12,7 @@ use Spatie\Permission\Models\Role;
 
 class UserController extends Controller
 {
-    
+
     public function index()
     {
         $user = Auth::user()->load('department');

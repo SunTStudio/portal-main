@@ -37,7 +37,11 @@
                             <label for="formFile" class="form-label">Sampul Website</label>
                             <input class="form-control" name="sampul" type="file" id="formFile">
                         </div>
-
+                        <div class="mb-3 col-lg-6 col-10">
+                            <label for="checks" class="form-label">Pilih Jenis Sub Website</label>
+                            <div class="i-checks"><label> <input type="radio" checked="" value="sinkron" name="kategori"> <i></i> Sinkron </label></div>
+                            <div class="i-checks"><label> <input type="radio"  value="non-sinkron" name="kategori"> <i></i> Non Sinkron </label></div>
+                        </div>
                     </div>
                     <div class="hr-line-dashed"></div>
                     <h3>Hak Akses Sub Website <small> (Default "Semua") </small></h3>

@@ -15,6 +15,9 @@ class PermissionsManages extends Controller
         SubWebsite::query()->update(['status' => false]);
     }
     public function permissions(){
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
         return view('access-control.permissions.index');
     }
 
@@ -24,15 +27,24 @@ class PermissionsManages extends Controller
     }
 
     public function detail($id){
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
         $permissionData = Permission::find($id);
         return view('access-control.permissions.detail',compact('permissionData'));
     }
 
     public function create(){
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
         return view('access-control.permissions.create');
     }
 
     public function store(Request $request){
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
         $roles = $request->input('roles');
         $validateData = $request->validate([
             'name' => 'required|unique:permissions,name',
@@ -46,6 +58,9 @@ class PermissionsManages extends Controller
     }
 
     public function edit(Request $request,$id){
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
         $oldData = Permission::find($id);
         return view('access-control.permissions.edit',compact('oldData'));
     }
@@ -65,6 +80,9 @@ class PermissionsManages extends Controller
     }
 
     public function destroy($id){
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
         $deleteData = Permission::find($id);
         $deleteData->delete();
         $this->sinkron_status();

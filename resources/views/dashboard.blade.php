@@ -47,11 +47,11 @@
 @endif
     <div class="row bg-white">
         <div class="col-12  text-center p-3">
-            <img src="{{ asset('logo aji.png') }}" width="8%" alt="img-fluid">
+            <img src="{{ asset('logo aji.png') }}" width="5%" alt="img-fluid">
             <p class="h5 p-2"><strong> PORTAL ASTRA JUOKU INDONESIA </strong></p>
-            @if (auth()->user()->hasRole('Admin'))
+            @if (auth()->user()->hasRole('Admin') && Auth::user()->roles->count() === 1)
             <a href="{{ url('sub-website/create') }}" class="btn btn-secondary">Tambah Sub Website</a>
-            <a href="{{ url('sub-website/updateData') }}" class="btn btn-secondary">Update Semua Website</a>
+            <a href="{{ url('sub-website/updateData') }}" class="btn btn-info">Update Semua Website</a>
             @endif
         </div>
         <div class="col-12">
@@ -68,35 +68,49 @@
                                     <div class="text-center">
                                         {{-- <button type="button" class="btn btn-success mb-1 btn-xs">HR</button> --}}
                                     </div>
-                                    <p class="product-name">{{ $subWebsite->name }}@if ($subWebsite->status == true)
+                                    <p class="product-name">{{ $subWebsite->name }}
+                                    @if ($subWebsite->kategori == 'sinkron')
+                                        @if ($subWebsite->status == true)
                                         <i class="fa fa-chevron-circle-up" style="color: green;" title="Uptodate"></i>
                                         @elseif ($subWebsite->status == false)
                                         <i class="fa fa-chevron-circle-down" style="color: red;" title="Outdated"></i>
-                                    @endif</p>
+                                        @endif
+                                    @else
+                                        <i class="fa fa-external-link-square" title="Pintasan"></i>
+                                    @endif
+                                    </p>
                                     <div class="m-t">
 
                                         <div class="text-center  justify-content-center"  id="tombolSubWebsite">
                                             @if ((((in_array((auth()->user()->position->position ?? '-'), json_decode($subWebsite->positions)) || in_array('semua', json_decode($subWebsite->positions))) && (in_array((auth()->user()->department->name ?? '-'), json_decode($subWebsite->departments)) || in_array('semua', json_decode($subWebsite->departments))) && (in_array((auth()->user()->detailDepartment->name ?? '-'), json_decode($subWebsite->detail_departements)) || in_array('semua', json_decode($subWebsite->detail_departements)))) && (($subWebsite->role == null || auth()->user()->roles->contains('name', $subWebsite->role)) && !in_array('tidak', json_decode($subWebsite->users))
                                             )) || auth()->user()->hasRole('Admin') )
                                                 {{-- <a href="{{ route('loginToExternalSite') }}" class="btn btn-secondary" onclick="">Masuk</a> --}}
-                                                <form id="{{ $subWebsite->id }}" action="{{ $subWebsite->link.'/loginPortalAJI' }}"
-                                                    method="POST">
+                                                @if ($subWebsite->kategori == 'sinkron')
+                                                <form id="{{ $subWebsite->id }}" action="{{ $subWebsite->link.'/loginPortalAJI' }}" method="POST">
+
                                                     <button type="submit" class="btn btn-primary tombolSubWebsite" onclick="ExternalSite(event,{{ $subWebsite->id }})">Masuk</button>
                                                 </form>
+                                                @else
+                                                    <a href="{{ $subWebsite->link }}" class="btn btn-primary">Masuk</a>
+                                                @endif
                                             @else
                                             <button type="button" class="btn btn-primary tombolSubWebsite"
                                                         disabled>Tidak Memiliki Akses</button>
                                             @endif
 
-                                            @hasrole('Admin')
+                                            @if (auth()->user()->hasRole('Admin') && Auth::user()->roles->count() === 1)
                                                 <a href="{{ route('subWebsite.edit',['id' => $subWebsite->id]) }}" class="btn btn-warning ml-2  tombolSubWebsite"><i class="fa fa-edit"></i></a>
-                                                <a href="{{ route('subWebsite.updateDataSingle',['id' => $subWebsite->id]) }}" class="btn btn-info ml-2 mr-2 tombolSubWebsite"><i class="fa fa-cogs"></i></a>
+                                                @if ($subWebsite->kategori == 'sinkron')
+
+                                                <a href="{{ route('subWebsite.updateDataSingle',['id' => $subWebsite->id]) }}" class="btn btn-info ml-2 tombolSubWebsite"><i class="fa fa-cogs"></i></a>
+                                                @endif
+
                                                 <form action="{{ route('subWebsite.delete',['id' => $subWebsite->id]) }}" onsubmit="return confirm('Apakah Anda yakin ingin menghapus Sub Website ini?');" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger tombolSubWebsite" ><i class="fa fa-trash"></i></button>
+                                                    <button type="submit" class="btn btn-danger ml-2 tombolSubWebsite" ><i class="fa fa-trash"></i></button>
                                                 </form>
-                                            @endhasrole
+                                            @endif
 
                                         </div>
 

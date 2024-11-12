@@ -17,6 +17,9 @@ class RoleManages extends Controller
     }
     public function roles()
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
         return view('access-control.roles.index');
     }
 
@@ -28,12 +31,18 @@ class RoleManages extends Controller
 
     public function detail($id)
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
         $roleData = Role::find($id);
         return view('access-control.roles.detail', compact('roleData'));
     }
 
     public function create()
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
         return view('access-control.roles.create');
     }
 
@@ -53,6 +62,9 @@ class RoleManages extends Controller
 
     public function edit(Request $request, $id)
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
         $oldData = Role::find($id);
         return view('access-control.roles.edit', compact('oldData'));
     }
@@ -74,6 +86,9 @@ class RoleManages extends Controller
 
     public function destroy($id)
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
         $deleteData = Role::find($id);
         $deleteData->delete();
         $this->sinkron_status();
@@ -82,6 +97,9 @@ class RoleManages extends Controller
 
     public function rolesDontHavePermission(Request $request, $role)
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
         // Ambil roles yang dimaksud
         $rolesData = Role::findByName($role);
 
@@ -129,6 +147,9 @@ class RoleManages extends Controller
 
     public function storeRoleToUsers(Request $request, $role)
     {
+        if(!auth()->user()->hasRole('Admin')){
+            return back()->with('error','Anda Tidak Mempunyai Akses Halaman Ini!');
+        }
         $roleName = Role::findByName($role);
         $userRoleResets = User::all();
         // Ambil ID pengguna dari input

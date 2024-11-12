@@ -53,7 +53,7 @@
                         </li>
                     @endif
 
-                    @if (Auth::user()->hasRole('Admin'))
+                    @if (Auth::user()->hasRole('Admin') && Auth::user()->roles->count() === 1)
                         <li class="{{ Request::is('*management-akun') ? 'active' : '' }}">
                             <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Access
                                     Control</span><span class="fa arrow"></span></a>

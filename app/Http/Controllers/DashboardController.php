@@ -36,6 +36,7 @@ class DashboardController extends Controller
             'name' => 'required',
             'sampul' => 'required',
             'link' => 'required',
+            'kategori' => 'required',
         ]);
         //move sampul image to public img/subWebsite
         $sampul = $request->file('sampul');
@@ -133,6 +134,7 @@ class DashboardController extends Controller
 
     public function update(Request $request, $id)
     {
+
         $validateData = $request->validate([
             'name' => 'required',
             'link' => 'required',
@@ -204,6 +206,7 @@ class DashboardController extends Controller
         $validateData['positions'] = json_encode($positions);
         $validateData['users'] = json_encode($users);
         $validateData['sampul'] = $sampulName;
+        $validateData['kategori'] = $request->kategori;
 
         $oldData->update($validateData);
         return redirect()->route('dashboard')->with('success', 'Sub Website berhasil di update!');
@@ -258,12 +261,15 @@ class DashboardController extends Controller
         ];
         try {
             foreach ($subWebsites as $subWebsite) {
+                if($subWebsite->kategori == 'sinkron'){
                 // Mengirimkan request POST
-                $response = $client->post($subWebsite->link . '/api/updateDataAPI', [
-                    // $response = $client->post('http://10.14.179.250:3333/api/updateDataAPI', [
-                    'json' => $data, // Menggunakan 'json' untuk otomatis mengatur Content-Type ke application/json
-                ]);
-                $subWebsite->update(['status' => true]);
+                    $response = $client->post($subWebsite->link . '/api/updateDataAPI', [
+                        // $response = $client->post('http://10.14.179.250:3333/api/updateDataAPI', [
+                        'json' => $data, // Menggunakan 'json' untuk otomatis mengatur Content-Type ke application/json
+                    ]);
+                    $subWebsite->update(['status' => true]);
+                }
+
             }
             $data = json_decode($response->getBody()->getContents(), true);
             return redirect()->route('dashboard')->with($data);
