@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\SubWebsite;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
@@ -9,6 +10,10 @@ use Yajra\DataTables\Facades\DataTables;
 
 class PermissionsManages extends Controller
 {
+    private function sinkron_status()
+    {
+        SubWebsite::query()->update(['status' => false]);
+    }
     public function permissions(){
         return view('access-control.permissions.index');
     }
@@ -36,6 +41,7 @@ class PermissionsManages extends Controller
         if($roles != null){
             $newPermission->syncRoles($roles);
         }
+        $this->sinkron_status();
         return redirect()->route('permissions');
     }
 
@@ -54,12 +60,14 @@ class PermissionsManages extends Controller
         if($roles != null){
             $oldData->syncRoles($roles);
         }
+        $this->sinkron_status();
         return redirect()->route('permissions.detail',['id' => $oldData->id]);
     }
 
     public function destroy($id){
         $deleteData = Permission::find($id);
         $deleteData->delete();
+        $this->sinkron_status();
         return redirect()->route('permissions');
     }
 

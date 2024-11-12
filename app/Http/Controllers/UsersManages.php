@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Department;
 use App\Models\Detail_departement;
 use App\Models\Position;
+use App\Models\SubWebsite;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
@@ -13,6 +14,11 @@ use Yajra\DataTables\Facades\DataTables;
 
 class UsersManages extends Controller
 {
+    private function sinkron_status()
+    {
+        SubWebsite::query()->update(['status' => false]);
+    }
+
     public function users()
     {
         $departments = Department::all();
@@ -54,6 +60,7 @@ class UsersManages extends Controller
         ]);
         $validateData['password'] = bcrypt($validateData['password']);
         User::create($validateData);
+        $this->sinkron_status();
         return redirect()->route('users');
     }
 
@@ -91,6 +98,7 @@ class UsersManages extends Controller
         $user = User::find($id);
         $roles = $request->input('roles');
         $user->syncRoles($roles);
+        $this->sinkron_status();
         return redirect()
             ->route('users.roles', ['id' => $user->id])
             ->with('success', 'Role Users berhasil Diperbarui');
@@ -101,6 +109,7 @@ class UsersManages extends Controller
         $permissions = $request->input('permissions');
         $user = User::find($id);
         $user->syncPermissions($permissions);
+        $this->sinkron_status();
         return redirect()
             ->route('users.permissions', ['id' => $user->id])
             ->with('success', 'Permissions Users berhasil Diperbarui');
@@ -165,9 +174,12 @@ class UsersManages extends Controller
         ]);
 
         if ($validateData['password'] == null) {
-            $validateData['password'] = bcrypt($oldData->password);
+            $validateData['password'] = $oldData->password;
+        }else{
+            $validateData['password'] = bcrypt($validateData['password']);
         }
         $oldData->update($validateData);
+        $this->sinkron_status();
         return redirect()->route('users.detail', ['id' => $oldData->id]);
     }
 
@@ -181,6 +193,7 @@ class UsersManages extends Controller
             'username' => $usernameDelete,
         ]);
         $deleteUser->delete();
+        $this->sinkron_status();
         return redirect()->route('users')->with('success','User berhasil dihapus!');
     }
 

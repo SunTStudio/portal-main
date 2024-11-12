@@ -10,6 +10,7 @@ use App\Models\User;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Http;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Str;
@@ -262,8 +263,8 @@ class DashboardController extends Controller
                     // $response = $client->post('http://10.14.179.250:3333/api/updateDataAPI', [
                     'json' => $data, // Menggunakan 'json' untuk otomatis mengatur Content-Type ke application/json
                 ]);
+                $subWebsite->update(['status' => true]);
             }
-
             $data = json_decode($response->getBody()->getContents(), true);
             return redirect()->route('dashboard')->with($data);
         } catch (\Exception $e) {
@@ -319,6 +320,7 @@ class DashboardController extends Controller
                 ]);
 
             $data = json_decode($response->getBody()->getContents(), true);
+            $url->update(['status' => true]);
             return redirect()->route('dashboard')->with($data);
         } catch (\Exception $e) {
             return redirect()->route('dashboard')->with('error', $e->getMessage());
@@ -404,4 +406,5 @@ class DashboardController extends Controller
 
         return abort(404, 'File not found.');
     }
+
 }

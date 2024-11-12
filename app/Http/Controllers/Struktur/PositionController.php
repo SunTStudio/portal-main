@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Struktur;
 
 use App\Http\Controllers\Controller;
 use App\Models\Position;
+use App\Models\SubWebsite;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -14,6 +15,10 @@ class PositionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private function sinkron_status()
+    {
+        SubWebsite::query()->update(['status' => false]);
+    }
     public function index()
     {
         return view('struktur.position.index');
@@ -44,6 +49,7 @@ class PositionController extends Controller
         ]);
 
         Position::create($validateData);
+        $this->sinkron_status();
         return redirect()->route('position')->with('success','Posisi Ditambahkan!');
 
     }
@@ -87,6 +93,7 @@ class PositionController extends Controller
             'code' => 'required',
         ]);
         $oldData->update($validateData);
+        $this->sinkron_status();
         return redirect()->route('position')->with('success','Posisi Berhasil diPerbarui!');
 
     }
@@ -101,6 +108,7 @@ class PositionController extends Controller
     {
         $deleteData = Position::find($id);
         $deleteData->delete();
+        $this->sinkron_status();
         return redirect()->route('position')->with('success','Posisi Berhasil diHapus!');
 
     }

@@ -68,14 +68,18 @@
                                     <div class="text-center">
                                         {{-- <button type="button" class="btn btn-success mb-1 btn-xs">HR</button> --}}
                                     </div>
-                                    <p class="product-name">{{ $subWebsite->name }}</p>
+                                    <p class="product-name">{{ $subWebsite->name }}@if ($subWebsite->status == true)
+                                        <i class="fa fa-chevron-circle-up" style="color: green;" title="Uptodate"></i>
+                                        @elseif ($subWebsite->status == false)
+                                        <i class="fa fa-chevron-circle-down" style="color: red;" title="Outdated"></i>
+                                    @endif</p>
                                     <div class="m-t">
 
                                         <div class="text-center  justify-content-center"  id="tombolSubWebsite">
                                             @if ((((in_array((auth()->user()->position->position ?? '-'), json_decode($subWebsite->positions)) || in_array('semua', json_decode($subWebsite->positions))) && (in_array((auth()->user()->department->name ?? '-'), json_decode($subWebsite->departments)) || in_array('semua', json_decode($subWebsite->departments))) && (in_array((auth()->user()->detailDepartment->name ?? '-'), json_decode($subWebsite->detail_departements)) || in_array('semua', json_decode($subWebsite->detail_departements)))) && (($subWebsite->role == null || auth()->user()->roles->contains('name', $subWebsite->role)) && !in_array('tidak', json_decode($subWebsite->users))
                                             )) || auth()->user()->hasRole('Admin') )
                                                 {{-- <a href="{{ route('loginToExternalSite') }}" class="btn btn-secondary" onclick="">Masuk</a> --}}
-                                                <form id="{{ $subWebsite->id }}" action="{{ url($subWebsite->link) }}/loginPortalAJI"
+                                                <form id="{{ $subWebsite->id }}" action="{{ $subWebsite->link.'/loginPortalAJI' }}"
                                                     method="POST">
                                                     <button type="submit" class="btn btn-primary tombolSubWebsite" onclick="ExternalSite(event,{{ $subWebsite->id }})">Masuk</button>
                                                 </form>

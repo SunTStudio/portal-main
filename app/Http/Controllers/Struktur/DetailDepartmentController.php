@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Struktur;
 use App\Http\Controllers\Controller;
 use App\Models\Department;
 use App\Models\Detail_departement;
+use App\Models\SubWebsite;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
@@ -40,6 +41,10 @@ class DetailDepartmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    private function sinkron_status()
+    {
+        SubWebsite::query()->update(['status' => false]);
+    }
     public function store(Request $request)
     {
         $validateData = $request->validate([
@@ -48,6 +53,7 @@ class DetailDepartmentController extends Controller
             'departement_id' => 'required',
         ]);
         Detail_departement::create($validateData);
+        $this->sinkron_status();
         return redirect()->route('detail.department')->with('success','Detail Department Berhasil ditambahkan!');
     }
 
@@ -99,6 +105,7 @@ class DetailDepartmentController extends Controller
                 'dept_id' => $validateData['departement_id']
             ]);
         }
+        $this->sinkron_status();
         return redirect()->route('detail.department')->with('success','Detail Department Berhasil diperbarui!');
     }
 
@@ -112,6 +119,7 @@ class DetailDepartmentController extends Controller
     {
         $deleteData = Detail_departement::find($id);
         $deleteData->delete();
+        $this->sinkron_status();
         return redirect()->route('detail.department')->with('success','Detail Department Berhasil dihapus!');;
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Struktur;
 
 use App\Http\Controllers\Controller;
 use App\Models\Department;
+use App\Models\SubWebsite;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -14,6 +15,10 @@ class DepartmentController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    private function sinkron_status()
+    {
+        SubWebsite::query()->update(['status' => false]);
+    }
     public function index()
     {
         return view('struktur.department.index');
@@ -45,6 +50,7 @@ class DepartmentController extends Controller
 
         Department::create($validateData);
 
+        $this->sinkron_status();
         return redirect()->route('department')->with('success','Department Baru berhasil ditambahkan!');
 
     }
@@ -90,6 +96,7 @@ class DepartmentController extends Controller
         ]);
 
         $oldData->update($validateData);
+        $this->sinkron_status();
         return redirect()->route('department')->with('success', 'Data Department Barhasil Diperbarui');
 
     }
@@ -104,6 +111,7 @@ class DepartmentController extends Controller
     {
         $deleteData = Department::find($id);
         $deleteData->delete();
+        $this->sinkron_status();
         return redirect()->route('department')->with('success', 'Data Department Barhasil Dihapus!');
 
     }

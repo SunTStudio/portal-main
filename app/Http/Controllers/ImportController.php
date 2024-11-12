@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Department;
 use App\Models\Detail_departement;
 use App\Models\Position;
+use App\Models\SubWebsite;
 use App\Models\User;
 use Illuminate\Http\Request;
 use PhpOffice\PhpSpreadsheet\IOFactory;
@@ -13,6 +14,10 @@ use Spatie\Permission\Models\Role;
 
 class ImportController extends Controller
 {
+    private function sinkron_status()
+    {
+        SubWebsite::query()->update(['status' => false]);
+    }
     public function importRole(Request $request)
     {
         $request->validate([
@@ -33,7 +38,8 @@ class ImportController extends Controller
                 Role::updateOrCreate(['name' => $row[1]], ['name' => $row[1], 'guard_name' => $row[2]]);
             }
 
-            return back()->with('success', 'Data berhasil diimport!');
+        $this->sinkron_status();
+        return back()->with('success', 'Data berhasil diimport!');
         } catch (\Exception $e) {
             return back()->with('error', 'Terjadi kesalahan saat mengimpor data: ' . $e->getMessage());
         }
@@ -59,7 +65,8 @@ class ImportController extends Controller
                 Permission::updateOrCreate(['name' => $row[1]], ['name' => $row[1], 'guard_name' => $row[2]]);
             }
 
-            return back()->with('success', 'Data berhasil diimport!');
+        $this->sinkron_status();
+        return back()->with('success', 'Data berhasil diimport!');
         } catch (\Exception $e) {
             return back()->with('error', 'Terjadi kesalahan saat mengimpor data: ' . $e->getMessage());
         }
@@ -104,7 +111,8 @@ class ImportController extends Controller
                 );
             }
 
-            return back()->with('success', 'Data berhasil diimport!');
+        $this->sinkron_status();
+        return back()->with('success', 'Data berhasil diimport!');
         } catch (\Exception $e) {
             return back()->with('error', 'Terjadi kesalahan saat mengimpor data: ' . $e->getMessage());
         }
@@ -136,7 +144,8 @@ class ImportController extends Controller
                 );
             }
 
-            return back()->with('success', 'Data berhasil diimport!');
+        $this->sinkron_status();
+        return back()->with('success', 'Data berhasil diimport!');
         } catch (\Exception $e) {
             return back()->with('error', 'Terjadi kesalahan saat mengimpor data: ' . $e->getMessage());
         }
@@ -173,7 +182,8 @@ class ImportController extends Controller
                 }
             }
 
-            return back()->with('success', 'Data berhasil diimport!');
+        $this->sinkron_status();
+        return back()->with('success', 'Data berhasil diimport!');
         } catch (\Exception $e) {
             // Tangkap error dan kembalikan pesan error
             return back()->with('error', 'Terjadi kesalahan saat mengimpor data: ' . $e->getMessage());
@@ -206,7 +216,8 @@ class ImportController extends Controller
                 );
             }
 
-            return back()->with('success', 'Data berhasil diimport!');
+        $this->sinkron_status();
+        return back()->with('success', 'Data berhasil diimport!');
         } catch (\Exception $e) {
             return back()->with('error', 'Terjadi kesalahan saat mengimpor data:' . $e->getMessage());
         }
