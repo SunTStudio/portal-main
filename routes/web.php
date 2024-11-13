@@ -40,6 +40,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [UserController::class, 'profile'])->name('profile');
     Route::post('/profile-new-password', [UserController::class, 'new_password'])->name('profile.new.password');
 
+    //User Monitoring
+    Route::get('/users-monitoring', [DashboardController::class, 'usersMonitoring'])->name('users.monitoring');
+
     // Rute users
     Route::get('/users', [UsersManages::class, 'users'])->name('users');
     Route::get('/users/data', [UsersManages::class, 'usersData'])->name('users.data');

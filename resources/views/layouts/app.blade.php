@@ -2,6 +2,27 @@
 <html>
 
 <head>
+    {{-- script pencegah inspect --}}
+    <script>
+        // Nonaktifkan klik kanan
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Nonaktifkan F12, Ctrl+Shift+I, Ctrl+Shift+J, dan kombinasi lainnya
+        document.onkeydown = function(e) {
+            // F12
+            if (e.keyCode == 123) {
+                return false;
+            }
+            // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+            if (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74) || e.ctrlKey && e.keyCode == 85) {
+                return false;
+            }
+            // Ctrl+Shift+C
+            if (e.ctrlKey && e.shiftKey && e.keyCode == 67) {
+                return false;
+            }
+        };
+    </script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,6 +100,10 @@
                                         href="{{ route('position') }}">Position</a></li>
                                 {{-- <li><a href="carousel.html">Dilaporkan</a></li> --}}
                             </ul>
+                        </li>
+                        <li class="{{ Request::is('users-monitoring*') ? 'active' : '' }}">
+                            <a href="{{ url('/users-monitoring') }}"><i class="fa fa-podcast"></i><span
+                                    class="nav-label">Users Monitoring</span></a>
                         </li>
                     @endif
 
@@ -219,26 +244,7 @@
         });
     </script> --}}
 
-    <script>
-        // Nonaktifkan klik kanan
-        document.addEventListener('contextmenu', event => event.preventDefault());
 
-        // Nonaktifkan F12, Ctrl+Shift+I, Ctrl+Shift+J, dan kombinasi lainnya
-        document.onkeydown = function(e) {
-            // F12
-            if (e.keyCode == 123) {
-                return false;
-            }
-            // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
-            if (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74) || e.ctrlKey && e.keyCode == 85) {
-                return false;
-            }
-            // Ctrl+Shift+C
-            if (e.ctrlKey && e.shiftKey && e.keyCode == 67) {
-                return false;
-            }
-        };
-    </script>
     <script>
         // window.addEventListener('beforeunload', function(e) {
         //     // Contoh panggilan logout melalui fetch (tidak dijamin selalu dipanggil tergantung browser)
