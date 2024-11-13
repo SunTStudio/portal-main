@@ -413,4 +413,9 @@ class DashboardController extends Controller
         return abort(404, 'File not found.');
     }
 
+    public function usersMonitoring(){
+        
+        return view('monitoring.index',compact('users'));
+    }
+
 }
