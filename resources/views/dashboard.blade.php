@@ -50,8 +50,8 @@
             <img src="{{ asset('logo aji.png') }}" width="5%" alt="img-fluid">
             <p class="h5 p-2"><strong> PORTAL ASTRA JUOKU INDONESIA </strong></p>
             @if (auth()->user()->hasRole('Admin') && Auth::user()->roles->count() === 1)
-            <a href="{{ url('sub-website/create') }}" class="btn btn-secondary">Tambah Sub Website</a>
-            <a href="{{ url('sub-website/updateData') }}" class="btn btn-info">Update Semua Website</a>
+            <a href="{{ url('sub-website/create') }}" class="btn btn-secondary m-1">Tambah Sub Website</a>
+            <a href="{{ url('sub-website/updateData') }}" class="btn btn-info m-1">Update Semua Website</a>
             @endif
         </div>
         <div class="col-12">
@@ -69,14 +69,15 @@
                                         {{-- <button type="button" class="btn btn-success mb-1 btn-xs">HR</button> --}}
                                     </div>
                                     <p class="product-name">{{ $subWebsite->name }}
-                                    @if ($subWebsite->kategori == 'sinkron')
+                                    @if ($subWebsite->kategori == 'sinkron' && auth()->user()->hasRole('Admin'))
+                                        <i class="fa fa-database" title="Sinkron"></i>
                                         @if ($subWebsite->status == true)
                                         <i class="fa fa-chevron-circle-up" style="color: green;" title="Uptodate"></i>
                                         @elseif ($subWebsite->status == false)
                                         <i class="fa fa-chevron-circle-down" style="color: red;" title="Outdated"></i>
                                         @endif
-                                    @else
-                                        <i class="fa fa-external-link-square" title="Pintasan"></i>
+                                    @elseif ($subWebsite->kategori == 'non-sinkron' && auth()->user()->hasRole('Admin'))
+                                        <i class="fa fa-external-link-square" title="Pintasan | Non-Sinkron"></i>
                                     @endif
                                     </p>
                                     <div class="m-t">
