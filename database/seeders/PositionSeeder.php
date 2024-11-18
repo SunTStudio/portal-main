@@ -43,7 +43,7 @@ class PositionSeeder extends Seeder
             'position' => 'Foreman',
             'code' => 'FRM',
         ]);
-        
+
         Position::create([
             'position' => 'Leader',
             'code' => 'LEAD',
@@ -57,6 +57,14 @@ class PositionSeeder extends Seeder
         Position::create([
             'position' => 'SUB',
             'code' => 'SUB',
+        ]);
+        Position::create([
+            'position' => 'Deputy Dept Head',
+            'code' => 'DDEPT',
+        ]);
+        Position::create([
+            'position' => 'Deputy BOD',
+            'code' => 'DBOD',
         ]);
     }
 }

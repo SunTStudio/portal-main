@@ -59,7 +59,7 @@
                         <div class="mb-3 col-lg-6 col-10">
                             <label for="gender" class="form-label">Gender</label>
                             <select class="form-control" id="gender" name="gender" required="required">
-                                <option value="" {{ old('gender', $oldData->gender) == '' ? 'selected' : '' }}>{{$oldData->gender}} </option>
+                                <option value="{{ $oldData->gender }}" {{ old('gender', $oldData->gender) == '' ? 'selected' : '' }}>{{$oldData->gender}} </option>
                                 <option value="laki-laki" {{ old('gender', $oldData->gender) == 'laki-laki' ? 'selected' : '' }}>Laki-Laki</option>
                                 <option value="perempuan" {{ old('gender', $oldData->gender) == 'perempuan' ? 'selected' : '' }}>Perempuan</option>
                             </select>

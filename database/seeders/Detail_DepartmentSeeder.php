@@ -129,13 +129,13 @@ class Detail_DepartmentSeeder extends Seeder
         ]);
 
         Detail_departement::create([
-            'departement_id' => 9,
+            'departement_id' => 4,
             'code' => 'PA',
-            'name' => 'Production Asselmbling',
+            'name' => 'Production Assembling',
         ]);
 
         Detail_departement::create([
-            'departement_id' => 9,
+            'departement_id' => 4,
             'code' => 'ASMBLI',
             'name' => 'Assembling',
         ]);
@@ -171,8 +171,8 @@ class Detail_DepartmentSeeder extends Seeder
         ]);
 
         Detail_departement::create([
-            'departement_id' => 14,
-            'code' => 'INJ',
+            'departement_id' => 4,
+            'code' => 'INJSUR',
             'name' => 'Injection Surface',
         ]);
 
@@ -265,11 +265,31 @@ class Detail_DepartmentSeeder extends Seeder
             'name' => 'Quality Rep. Off',
         ]);
 
-        // Detail_departement::create([
-        //     'departement_id' => 14,
-        //     'name' => 'Process Engineering',
-        //     'code' => 'BOD',
-        // ]);
+        Detail_departement::create([
+            'departement_id' => 3,
+            'code' => 'ProdEng',
+            'name' => 'Product Engineering',
+        ]);
+        Detail_departement::create([
+            'departement_id' => 4,
+            'name' => 'Injection',
+            'code' => 'INJ',
+        ]);
+        Detail_departement::create([
+            'departement_id' => 4,
+            'name' => 'Surface',
+            'code' => 'SUR',
+        ]);
+        Detail_departement::create([
+            'departement_id' => 4,
+            'name' => 'Assembling 2W',
+            'code' => 'Assy 2W',
+        ]);
+        Detail_departement::create([
+            'departement_id' => 4,
+            'name' => 'Assembling 4W',
+            'code' => 'Assy 4W',
+        ]);
 
         // Detail_departement::create([
         //     'departement_id' => 14,

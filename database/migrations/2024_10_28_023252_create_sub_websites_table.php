@@ -23,6 +23,8 @@ class CreateSubWebsitesTable extends Migration
             $table->text('positions')->default('semua');
             $table->text('users')->default('semua');
             $table->text('role')->nullable();
+            $table->string('kategori');
+            $table->string('jenis');
             $table->timestamps();
         });
     }

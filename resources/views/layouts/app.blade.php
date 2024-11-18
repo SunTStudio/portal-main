@@ -3,7 +3,7 @@
 
 <head>
     {{-- script pencegah inspect --}}
-    <script>
+    {{-- <script>
         // Nonaktifkan klik kanan
         document.addEventListener('contextmenu', event => event.preventDefault());
 
@@ -22,7 +22,7 @@
                 return false;
             }
         };
-    </script>
+    </script> --}}
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">

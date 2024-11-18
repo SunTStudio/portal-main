@@ -63,3 +63,23 @@ Route::middleware('auth:sanctum')->get('/user-permissions', [RoleController::cla
 
 Route::get('/users', [App\Http\Controllers\API\UserController::class, 'index']);
 Route::get('/handleError', [App\Http\Controllers\API\UserController::class, 'handleError']);
+
+// Route::post('/form-submit', function (Request $request) {
+//     // Dump and Die untuk melihat data yang diterima
+//      // Validasi data
+//      $validated = $request->validate([
+//         'field1' => 'required|string',
+//         'field2' => 'required|string',
+//         // tambahkan validasi untuk field lainnya sesuai kebutuhan
+//     ]);
+
+//     // Menyimpan data ke database
+//     // FormSubmission::create([
+//     //     'field1' => $validated['field1'],
+//     //     'field2' => $validated['field2'],
+//     //     // sesuaikan dengan field lainnya
+//     // ]);
+
+//     // Mengirimkan respon sukses
+//     return response()->json(['message' => 'Data berhasil disimpan'], 200);
+// });

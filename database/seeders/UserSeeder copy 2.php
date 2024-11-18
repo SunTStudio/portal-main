@@ -16,30 +16,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        // $users = Role::where('name', 'user')->first();
-        // $guests = Role::where('name', 'guest')->first();
-        // $admins = Role::where('name', 'admin')->first();
-
-        // $user = User::create([
-        //     'name' => 'John Doe',
-        //     'email' => 'johndoe@example.com',
-        //     'password' => bcrypt('12345678'),
-        // ]);
-        // $user->assignRole($users);
-        // $guest = User::create([
-        //     'name' => 'Jane Doe',
-        //     'email' => 'janedoe@example.com',
-        //     'password' => bcrypt('12345678'),
-        // ]);
-        // $guest->assignRole($guests);
-
-        // $admin = User::create([
-        //     'name' => 'Iqbal',
-        //     'email' => 'iqbal@gmail.com',
-        //     'password' => bcrypt('12345678'),
-        // ]);
-        // $admin->assignRole($admins);
-
         $AdminLSRole = Role::create([
             'name' => 'AdminLS',
         ]);
@@ -54,10 +30,6 @@ class UserSeeder extends Seeder
 
         $DeptHeadEHSRole = Role::create([
             'name' => 'Departement Head EHS',
-        ]);
-
-        $guests = Role::create([
-            'name' => 'guest',
         ]);
 
         $AdminRole = Role::create([
@@ -92,6 +64,10 @@ class UserSeeder extends Seeder
             'name' => 'Member',
         ]);
 
+        $guests = Role::create([
+            'name' => 'guest',
+        ]);
+
         $Admin = User::create([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
@@ -120,35 +96,7 @@ class UserSeeder extends Seeder
                 'detail_dept_id' => 23,
                 'position_id' => 1,
                 'golongan' => 1,
-                'password' => bcrypt('wu123'),
-            ],
-            [
-                'name' => 'Mien Mien Shih',
-                'email' => 'mien@gmail.com',
-                'username' => 'mien.m',
-                'npk' => '0845',
-                'gender' => 'Laki-Laki',
-                'tgl_masuk' => null,
-                'tgl_lahir' => null,
-                'dept_id' => 11,
-                'detail_dept_id' => 23,
-                'position_id' => 1,
-                'golongan' => 1,
-                'password' => bcrypt('mien123'),
-            ],
-            [
-                'name' => 'Chou Mei Fen',
-                'email' => 'chou@gmail.com',
-                'username' => 'chou.m',
-                'npk' => '0843',
-                'gender' => 'Perempuan',
-                'tgl_masuk' => '2024-07-01',
-                'tgl_lahir' => '1968-11-01',
-                'dept_id' => 11,
-                'detail_dept_id' => 23,
-                'position_id' => 1,
-                'golongan' => 1,
-                'password' => bcrypt('chou123'),
+                'password' => bcrypt('wu132'),
             ],
             [
                 'name' => 'Felix Rikantara',
@@ -478,7 +426,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2018-01-24',
                 'tgl_lahir' => '1985-03-30',
                 'dept_id' => 3,
-                'detail_dept_id' => 43,
+                'detail_dept_id' => 25,
                 'position_id' => 4,
                 'golongan' => 4,
                 'password' => bcrypt('syarif123'),
@@ -506,7 +454,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2022-05-24',
                 'tgl_lahir' => '1995-02-17',
                 'dept_id' => 3,
-                'detail_dept_id' => 43,
+                'detail_dept_id' => 25,
                 'position_id' => 4,
                 'golongan' => 4,
                 'password' => bcrypt('surianto123'),
@@ -566,7 +514,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2018-04-23',
                 'tgl_lahir' => '1990-05-12',
                 'dept_id' => 3,
-                'detail_dept_id' => 43,
+                'detail_dept_id' => 25,
                 'position_id' => 5,
                 'golongan' => 5,
                 'password' => bcrypt('lesti123'),
@@ -697,7 +645,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1993-12-12',
                 'dept_id' => 9,
-                'detail_dept_id' => 19,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('galih123'),
@@ -711,7 +659,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2014-01-13',
                 'tgl_lahir' => '1991-05-30',
                 'dept_id' => 9,
-                'detail_dept_id' => 19,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('ade123'),
@@ -725,7 +673,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2017-02-01',
                 'tgl_lahir' => '1994-06-16',
                 'dept_id' => 9,
-                'detail_dept_id' => 17,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('heri123'),
@@ -739,7 +687,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-01-25',
                 'tgl_lahir' => '1995-04-13',
                 'dept_id' => 9,
-                'detail_dept_id' => 19,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('sultonik123'),
@@ -753,7 +701,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-02-09',
                 'tgl_lahir' => '1997-05-02',
                 'dept_id' => 9,
-                'detail_dept_id' => 17,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('hadi123'),
@@ -767,7 +715,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-02-22',
                 'tgl_lahir' => '2002-09-22',
                 'dept_id' => 9,
-                'detail_dept_id' => 17,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('aldi123'),
@@ -781,7 +729,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-07-01',
                 'tgl_lahir' => '1993-09-18',
                 'dept_id' => 9,
-                'detail_dept_id' => 19,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('heri123'),
@@ -794,7 +742,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-09-29',
                 'tgl_lahir' => '2003-03-10',
-                'dept_id' => 4,
+                'dept_id' => 9,
                 'detail_dept_id' => 17,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -823,7 +771,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-12-28',
                 'tgl_lahir' => '1994-04-15',
                 'dept_id' => 9,
-                'detail_dept_id' => 22,
+                'detail_dept_id' => 17,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('risqi123'),
@@ -837,7 +785,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-12-28',
                 'tgl_lahir' => '1997-09-06',
                 'dept_id' => 9,
-                'detail_dept_id' => 19,
+                'detail_dept_id' => 17,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('ekam123'),
@@ -851,7 +799,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-12-28',
                 'tgl_lahir' => '2002-04-09',
                 'dept_id' => 9,
-                'detail_dept_id' => 18,
+                'detail_dept_id' => 17,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('pranata123'),
@@ -864,8 +812,8 @@ class UserSeeder extends Seeder
                 'gender' => 'Perempuan',
                 'tgl_masuk' => '2021-12-28',
                 'tgl_lahir' => '1999-09-08',
-                'dept_id' => 4,
-                'detail_dept_id' => 22,
+                'dept_id' => 9,
+                'detail_dept_id' => 17,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('aulia123'),
@@ -879,7 +827,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-12-28',
                 'tgl_lahir' => '2000-05-06',
                 'dept_id' => 9,
-                'detail_dept_id' => 18,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('ilham123'),
@@ -893,7 +841,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2022-08-01',
                 'tgl_lahir' => '1993-05-17',
                 'dept_id' => 9,
-                'detail_dept_id' => 19,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('nur123'),
@@ -988,7 +936,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'Mohammad Ramdhan',
                 'email' => 'mohammad@gmail.com',
-                'username' => 'ramdhan',
+                'username' => 'mohammad.r',
                 'npk' => '0135',
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2015-02-10',
@@ -997,7 +945,7 @@ class UserSeeder extends Seeder
                 'detail_dept_id' => 19,
                 'position_id' => 7,
                 'golongan' => 7,
-                'password' => bcrypt('ramdhan123'),
+                'password' => bcrypt('mohammad123'),
             ],
         ];
         // SPV PPIC End
@@ -1044,22 +992,6 @@ class UserSeeder extends Seeder
         // Dept Head End
 
         // Production
-        $DHProd = User::create([
-
-            'name' => 'Agus Triwibowo',
-            'email' => 'agustri@gmail.com',
-            'username' => 'agus.t',
-            'npk' => '0222',
-            'gender' => 'Laki-Laki',
-            'tgl_masuk' => '1995-01-03',
-            'tgl_lahir' => '1970-08-01',
-            'dept_id' => 4,
-            'detail_dept_id' => 20,
-            'position_id' => 2,
-            'golongan' => 2,
-            'password' => bcrypt('agus123')
-        ]);
-
         $SPVProd = [
             [
                 'name' => 'Jakaria',
@@ -1069,7 +1001,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2022-03-08',
                 'tgl_lahir' => '1990-03-27',
-                'dept_id' => 4,
+                'dept_id' => 9,
                 'detail_dept_id' => 20,
                 'position_id' => 3,
                 'golongan' => 3,
@@ -1083,8 +1015,8 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2022-05-09',
                 'tgl_lahir' => '1990-06-03',
-                'dept_id' => 4,
-                'detail_dept_id' => 27,
+                'dept_id' => 9,
+                'detail_dept_id' => 20,
                 'position_id' => 3,
                 'golongan' => 3,
                 'password' => bcrypt('imam123'),
@@ -1101,7 +1033,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1983-05-12',
                 'dept_id' => 4,
-                'detail_dept_id' => 46,
+                'detail_dept_id' => 21,
                 'position_id' => 6,
                 'golongan' => 6,
                 'password' => bcrypt('makhfud123')
@@ -1115,7 +1047,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1982-02-18',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 21,
                 'position_id' => 6,
                 'golongan' => 6,
                 'password' => bcrypt('endang123')
@@ -1129,7 +1061,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2014-01-13',
                 'tgl_lahir' => '1990-09-22',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 15,
                 'position_id' => 6,
                 'golongan' => 6,
                 'password' => bcrypt('wasito123')
@@ -1143,7 +1075,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-14',
                 'tgl_lahir' => '1996-03-25',
                 'dept_id' => 4,
-                'detail_dept_id' => 44,
+                'detail_dept_id' => 15,
                 'position_id' => 6,
                 'golongan' => 6,
                 'password' => bcrypt('herma123'),
@@ -1162,7 +1094,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1988-11-21',
                 'dept_id' => 4,
-                'detail_dept_id' => 44,
+                'detail_dept_id' => 22,
                 'position_id' => 7,
                 'golongan' => 7,
                 'password' => bcrypt('ubaidillah123')
@@ -1176,7 +1108,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1990-10-28',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 17,
                 'position_id' => 7,
                 'golongan' => 7,
                 'password' => bcrypt('iskandar123')
@@ -1190,7 +1122,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2014-08-15',
                 'tgl_lahir' => '1991-02-04',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 22,
                 'position_id' => 7,
                 'golongan' => 7,
                 'password' => bcrypt('agil123')
@@ -1204,7 +1136,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2014-12-04',
                 'tgl_lahir' => '1993-09-05',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 17,
                 'position_id' => 7,
                 'golongan' => 7,
                 'password' => bcrypt('novi123')
@@ -1218,7 +1150,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2015-02-24',
                 'tgl_lahir' => '1993-10-21',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 22,
                 'position_id' => 7,
                 'golongan' => 7,
                 'password' => bcrypt('suparlan123')
@@ -1232,7 +1164,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2015-04-30',
                 'tgl_lahir' => '1996-09-10',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 17,
                 'position_id' => 7,
                 'golongan' => 7,
                 'password' => bcrypt('aries123')
@@ -1246,7 +1178,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2016-06-16',
                 'tgl_lahir' => '1994-08-28',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 17,
                 'position_id' => 7,
                 'golongan' => 7,
                 'password' => bcrypt('rifqi123')
@@ -1260,7 +1192,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2017-05-26',
                 'tgl_lahir' => '1995-02-16',
                 'dept_id' => 4,
-                'detail_dept_id' => 44,
+                'detail_dept_id' => 22,
                 'position_id' => 7,
                 'golongan' => 7,
                 'password' => bcrypt('sutanto123')
@@ -1278,7 +1210,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-18',
                 'tgl_lahir' => '2001-06-08',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('yuni123'),
@@ -1292,7 +1224,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-18',
                 'tgl_lahir' => '2001-12-17',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('denisa123'),
@@ -1306,7 +1238,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-18',
                 'tgl_lahir' => '1997-02-14',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('dandi123'),
@@ -1320,7 +1252,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-18',
                 'tgl_lahir' => '1994-05-04',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('raynaldi123'),
@@ -1334,7 +1266,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-18',
                 'tgl_lahir' => '1999-04-22',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('ahmad123'),
@@ -1348,7 +1280,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-24',
                 'tgl_lahir' => '2002-07-14',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('muhammad123'),
@@ -1362,7 +1294,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-24',
                 'tgl_lahir' => '2003-08-01',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('rafki123'),
@@ -1376,7 +1308,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '2003-03-25',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('budian123'),
@@ -1390,7 +1322,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-07-01',
                 'tgl_lahir' => '1995-08-04',
                 'dept_id' => 4,
-                'detail_dept_id' => 44,
+                'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('nurul123'),
@@ -1404,7 +1336,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-07-01',
                 'tgl_lahir' => '1996-01-19',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 18,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('muhammad123'),
@@ -1418,7 +1350,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-07-01',
                 'tgl_lahir' => '1994-05-14',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('riki123'),
@@ -1432,7 +1364,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-07-01',
                 'tgl_lahir' => '1993-08-29',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('rahmat123'),
@@ -1446,7 +1378,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-07-02',
                 'tgl_lahir' => '1997-04-20',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('sumiyati123'),
@@ -1460,10 +1392,24 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-07-02',
                 'tgl_lahir' => '1996-11-17',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('sunarto123'),
+            ],
+            [
+                'name' => 'Agus Triwibowo',
+                'email' => 'agustri@gmail.com',
+                'username' => 'agus.t',
+                'npk' => '0222',
+                'gender' => 'Laki-Laki',
+                'tgl_masuk' => '1995-01-03',
+                'tgl_lahir' => '1970-08-01',
+                'dept_id' => 4,
+                'detail_dept_id' => 22,
+                'position_id' => 8,
+                'golongan' => 8,
+                'password' => bcrypt('agus123')
             ],
             [
                 'name' => 'Umu Toharoh',
@@ -1474,7 +1420,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1989-04-13',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('umu123')
@@ -1488,7 +1434,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1990-11-03',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('muhamad123')
@@ -1502,7 +1448,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1992-04-09',
                 'dept_id' => 4,
-                'detail_dept_id' => 44,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('afrianti123')
@@ -1516,7 +1462,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1988-05-11',
                 'dept_id' => 4,
-                'detail_dept_id' => 44,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('mardi123')
@@ -1530,7 +1476,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2013-02-01',
                 'tgl_lahir' => '1990-06-21',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('ratno123')
@@ -1544,7 +1490,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2013-09-02',
                 'tgl_lahir' => '1985-04-28',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('ari123')
@@ -1558,7 +1504,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2017-10-19',
                 'tgl_lahir' => '1991-03-24',
                 'dept_id' => 4,
-                'detail_dept_id' => 46,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('taopik123')
@@ -1572,7 +1518,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-01-06',
                 'tgl_lahir' => '2000-10-25',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('gigih123')
@@ -1586,7 +1532,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-01-11',
                 'tgl_lahir' => '2001-05-11',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('miftahul123')
@@ -1600,7 +1546,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-01-11',
                 'tgl_lahir' => '2002-06-09',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('iik123')
@@ -1614,7 +1560,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-01-18',
                 'tgl_lahir' => '1998-07-28',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('sarnah123')
@@ -1628,7 +1574,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-01-18',
                 'tgl_lahir' => '1997-04-17',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('sahrul123')
@@ -1642,7 +1588,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-01-25',
                 'tgl_lahir' => '1996-06-05',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('gatot123')
@@ -1656,7 +1602,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-02-09',
                 'tgl_lahir' => '2002-09-04',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('amir123')
@@ -1670,7 +1616,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-02-22',
                 'tgl_lahir' => '2002-07-25',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('rafianas123')
@@ -1684,7 +1630,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-02-24',
                 'tgl_lahir' => '2002-06-24',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('dian123')
@@ -1698,7 +1644,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-02-24',
                 'tgl_lahir' => '2001-05-19',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('akmal123')
@@ -1712,7 +1658,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-03-03',
                 'tgl_lahir' => '2002-02-21',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('aditya123')
@@ -1726,7 +1672,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-03-03',
                 'tgl_lahir' => '2002-05-14',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('muhammad123'),
@@ -1740,7 +1686,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-03-10',
                 'tgl_lahir' => '2001-10-25',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('allesio123'),
@@ -1754,7 +1700,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-03-15',
                 'tgl_lahir' => '2001-10-27',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('toriq123'),
@@ -1768,7 +1714,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-03-15',
                 'tgl_lahir' => '1998-08-14',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('cucu123'),
@@ -1782,7 +1728,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-03-15',
                 'tgl_lahir' => '2000-11-01',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('iis123'),
@@ -1796,7 +1742,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-03-16',
                 'tgl_lahir' => '2002-01-10',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('riski123'),
@@ -1810,7 +1756,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-03-16',
                 'tgl_lahir' => '2002-11-22',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('mochamad123'),
@@ -1824,7 +1770,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-03-16',
                 'tgl_lahir' => '2002-01-17',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('muhammad123'),
@@ -1838,7 +1784,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-03-16',
                 'tgl_lahir' => '2002-02-25',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('yoga123'),
@@ -1852,7 +1798,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-03-16',
                 'tgl_lahir' => '2002-02-03',
                 'dept_id' => 4,
-                'detail_dept_id' => 44,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('rudianto123'),
@@ -1866,7 +1812,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-03-16',
                 'tgl_lahir' => '2002-05-09',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('rifai123'),
@@ -1880,7 +1826,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-03-23',
                 'tgl_lahir' => '2002-04-01',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('paramita123'),
@@ -1894,7 +1840,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-04-22',
                 'tgl_lahir' => '2001-01-18',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('bayu123'),
@@ -1907,7 +1853,7 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-06-10',
                 'tgl_lahir' => '2002-09-02',
-                'dept_id' => 9,
+                'dept_id' => 4,
                 'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
@@ -1922,7 +1868,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-11',
                 'tgl_lahir' => '2003-02-04',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 22,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('subehan123'),
@@ -1936,7 +1882,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-07-02',
                 'tgl_lahir' => '1993-07-26',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('enang123'),
@@ -1950,7 +1896,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-07-02',
                 'tgl_lahir' => '1995-01-18',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('eka123'),
@@ -1964,7 +1910,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1993-11-18',
                 'dept_id' => 4,
-                'detail_dept_id' => 46,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('rian123'),
@@ -1978,7 +1924,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1994-05-19',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('sunandar123'),
@@ -1992,7 +1938,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1992-01-27',
                 'dept_id' => 4,
-                'detail_dept_id' => 46,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('jeni123'),
@@ -2006,7 +1952,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1995-04-14',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('reni123'),
@@ -2020,7 +1966,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1997-11-20',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('siti123'),
@@ -2034,7 +1980,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1996-08-11',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('agustian123'),
@@ -2048,25 +1994,11 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1991-02-08',
                 'dept_id' => 4,
-                'detail_dept_id' => 44,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('ndoko123'),
             ],
-            // [
-            //     'name' => 'M. Miptah Yusron',
-            //     'email' => 'miptah@gmail.com',
-            //     'username' => 'miptah.y',
-            //     'npk' => '0738',
-            //     'gender' => 'Laki-Laki',
-            //     'tgl_masuk' => '2021-09-29',
-            //     'tgl_lahir' => '2003-01-25',
-            //     'dept_id' => 4,
-            //     'detail_dept_id' => 44,
-            //     'position_id' => 8,
-            //     'golongan' => 8,
-            //     'password' => bcrypt('miptah123'),
-            // ],
             [
                 'name' => 'Aji Surya Pratama',
                 'email' => 'aji@gmail.com',
@@ -2076,7 +2008,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1996-12-12',
                 'dept_id' => 4,
-                'detail_dept_id' => 46,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('aji123'),
@@ -2090,7 +2022,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '1993-11-21',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('adang123'),
@@ -2104,7 +2036,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-07-05',
                 'tgl_lahir' => '1994-12-23',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('afifudin123'),
@@ -2118,7 +2050,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-07-06',
                 'tgl_lahir' => '2002-06-19',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('rafif123'),
@@ -2132,7 +2064,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-07-06',
                 'tgl_lahir' => '2002-01-02',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('yusti123'),
@@ -2146,7 +2078,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-07-06',
                 'tgl_lahir' => '2002-02-21',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('suprapto123'),
@@ -2160,7 +2092,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-07-06',
                 'tgl_lahir' => '2001-03-22',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('tomy123'),
@@ -2174,7 +2106,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-09-20',
                 'tgl_lahir' => '2003-04-22',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('nur123'),
@@ -2188,7 +2120,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-09-20',
                 'tgl_lahir' => '2003-05-18',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('tony123'),
@@ -2202,7 +2134,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-09-20',
                 'tgl_lahir' => '2003-02-24',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('ristya123'),
@@ -2216,7 +2148,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-09-27',
                 'tgl_lahir' => '1995-07-12',
                 'dept_id' => 4,
-                'detail_dept_id' => 46,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('nazar123'),
@@ -2224,16 +2156,16 @@ class UserSeeder extends Seeder
             [
                 'name' => 'M. Miftah Yusron',
                 'email' => 'miftah@gmail.com',
-                'username' => 'miftah.y',
+                'username' => 'm.m',
                 'npk' => '0738',
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-09-29',
                 'tgl_lahir' => '2003-01-25',
                 'dept_id' => 4,
-                'detail_dept_id' => 44,
+                'detail_dept_id' => 19,
                 'position_id' => 8,
                 'golongan' => 8,
-                'password' => bcrypt('miftah123'),
+                'password' => bcrypt('m123'),
             ],
             [
                 'name' => 'Ridho Sulistyo',
@@ -2244,9 +2176,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-09-29',
                 'tgl_lahir' => '2003-03-27',
                 'dept_id' => 4,
-                'detail_dept_id' => 44,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('ridho123'),
             ],
             [
@@ -2258,9 +2190,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-10-13',
                 'tgl_lahir' => '2002-04-06',
                 'dept_id' => 4,
-                'detail_dept_id' => 44,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('irfan123'),
             ],
             [
@@ -2272,9 +2204,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-10-13',
                 'tgl_lahir' => '2002-11-23',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('zulva123'),
             ],
             [
@@ -2286,9 +2218,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-10-13',
                 'tgl_lahir' => '2002-12-13',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('renanda123'),
             ],
             [
@@ -2300,9 +2232,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-10-26',
                 'tgl_lahir' => '1997-08-15',
                 'dept_id' => 4,
-                'detail_dept_id' => 44,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('suhendra123'),
             ],
             [
@@ -2314,9 +2246,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-10-27',
                 'tgl_lahir' => '1995-12-15',
                 'dept_id' => 4,
-                'detail_dept_id' => 46,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('nafri123'),
             ],
             [
@@ -2328,9 +2260,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-01',
                 'tgl_lahir' => '1995-06-04',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('ade123'),
             ],
             [
@@ -2342,9 +2274,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-01',
                 'tgl_lahir' => '1994-01-10',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('mohammad123'),
             ],
             [
@@ -2356,9 +2288,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-01',
                 'tgl_lahir' => '1994-02-21',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('dika123'),
             ],
             [
@@ -2370,9 +2302,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-05',
                 'tgl_lahir' => '2003-02-27',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('ratih123'),
             ],
             [
@@ -2384,9 +2316,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-09',
                 'tgl_lahir' => '1998-07-28',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('casmita123'),
             ],
             [
@@ -2398,9 +2330,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-09',
                 'tgl_lahir' => '1998-01-02',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('dede123'),
             ],
             [
@@ -2412,9 +2344,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-11',
                 'tgl_lahir' => '1998-03-23',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('atabiq123'),
             ],
             [
@@ -2426,9 +2358,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-12',
                 'tgl_lahir' => '1995-11-27',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('adhi123'),
             ],
             [
@@ -2440,9 +2372,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-17',
                 'tgl_lahir' => '2003-05-17',
                 'dept_id' => 4,
-                'detail_dept_id' => 44,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('ikmal123'),
             ],
             [
@@ -2454,9 +2386,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-17',
                 'tgl_lahir' => '2003-08-07',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('trio123'),
             ],
             [
@@ -2468,9 +2400,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-17',
                 'tgl_lahir' => '1996-03-08',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('anjar123'),
             ],
             [
@@ -2482,9 +2414,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-22',
                 'tgl_lahir' => '1997-01-10',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('ali123'),
             ],
             [
@@ -2496,9 +2428,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-22',
                 'tgl_lahir' => '1998-08-19',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('hari123'),
             ],
             [
@@ -2510,9 +2442,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-23',
                 'tgl_lahir' => '1996-08-11',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('kasmuri123'),
             ],
             [
@@ -2524,9 +2456,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-26',
                 'tgl_lahir' => '2003-04-15',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('angga123'),
             ],
             [
@@ -2538,9 +2470,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-26',
                 'tgl_lahir' => '2003-07-02',
                 'dept_id' => 4,
-                'detail_dept_id' => 46,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('mulyadi123'),
             ],
             [
@@ -2552,9 +2484,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-26',
                 'tgl_lahir' => '2003-06-02',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('erick123'),
             ],
             [
@@ -2566,9 +2498,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-29',
                 'tgl_lahir' => '1999-03-09',
                 'dept_id' => 4,
-                'detail_dept_id' => 45,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('abdul123'),
             ],
             [
@@ -2580,9 +2512,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-11-30',
                 'tgl_lahir' => '1996-08-21',
                 'dept_id' => 4,
-                'detail_dept_id' => 46,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('hery123'),
             ],
             [
@@ -2594,9 +2526,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-12-06',
                 'tgl_lahir' => '2003-10-03',
                 'dept_id' => 4,
-                'detail_dept_id' => 44,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('oktafiana123'),
             ],
             [
@@ -2608,9 +2540,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-12-08',
                 'tgl_lahir' => '1997-03-04',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('supriyadi123'),
             ],
             [
@@ -2622,9 +2554,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-12-24',
                 'tgl_lahir' => '2001-06-25',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('syifa123'),
             ],
             [
@@ -2636,9 +2568,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-12-28',
                 'tgl_lahir' => '2002-04-26',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('faisal123'),
             ],
             [
@@ -2650,9 +2582,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-12-28',
                 'tgl_lahir' => '1995-10-11',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('yoffi123'),
             ],
             [
@@ -2664,9 +2596,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-12-28',
                 'tgl_lahir' => '1998-10-03',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('saryono123'),
             ],
             [
@@ -2678,9 +2610,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-12-28',
                 'tgl_lahir' => '1997-05-08',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('emin123'),
             ],
             [
@@ -2692,9 +2624,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-12-28',
                 'tgl_lahir' => '1994-04-16',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('ressa123'),
             ],
             [
@@ -2706,9 +2638,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-12-29',
                 'tgl_lahir' => '2000-06-26',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('illa123'),
             ],
             [
@@ -2720,9 +2652,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2022-03-07',
                 'tgl_lahir' => '2001-07-29',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('hermansyah123'),
             ],
             [
@@ -2734,9 +2666,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2022-03-07',
                 'tgl_lahir' => '2003-02-11',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('ibnu123'),
             ],
             [
@@ -2748,9 +2680,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2022-09-01',
                 'tgl_lahir' => '2003-05-05',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('lutfiah123'),
             ],
             [
@@ -2762,9 +2694,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2022-09-01',
                 'tgl_lahir' => '1998-03-17',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('mohamad123'),
             ],
             [
@@ -2776,9 +2708,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2022-09-01',
                 'tgl_lahir' => '1998-09-23',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('yogi123'),
             ],
             [
@@ -2790,9 +2722,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2022-09-01',
                 'tgl_lahir' => '1995-05-30',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('asim123'),
             ],
             [
@@ -2804,9 +2736,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2022-09-01',
                 'tgl_lahir' => '1999-07-25',
                 'dept_id' => 4,
-                'detail_dept_id' => 44,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('gugun123'),
             ],
             [
@@ -2818,9 +2750,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2022-09-01',
                 'tgl_lahir' => '2003-03-20',
                 'dept_id' => 4,
-                'detail_dept_id' => 44,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('bagas123'),
             ],
             [
@@ -2832,9 +2764,9 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2023-09-01',
                 'tgl_lahir' => '2001-09-27',
                 'dept_id' => 4,
-                'detail_dept_id' => 44,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('reza123'),
             ],
             [
@@ -2846,24 +2778,24 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2024-07-01',
                 'tgl_lahir' => '2000-06-10',
                 'dept_id' => 4,
-                'detail_dept_id' => 46,
-                'position_id' => 8,
-                'golongan' => 8,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('widya123'),
             ],
             [
                 'name' => 'Mohammad Miftakhul Roza Fazri',
                 'email' => 'miftakhul@gmail.com',
-                'username' => 'Miftakhul.r',
+                'username' => 'mohammad.m',
                 'npk' => '0725',
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2021-07-06',
                 'tgl_lahir' => '2002-09-04',
                 'dept_id' => 4,
-                'detail_dept_id' => 47,
-                'position_id' => 8,
-                'golongan' => 8,
-                'password' => bcrypt('Miftakhul123'),
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
+                'password' => bcrypt('mohammad123'),
             ],
 
         ];
@@ -2879,24 +2811,10 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2002-11-01',
                 'tgl_lahir' => '1981-03-09',
                 'dept_id' => 14,
-                'detail_dept_id' => 28,
+                'detail_dept_id' => 25,
                 'position_id' => 2,
                 'golongan' => 2,
                 'password' => bcrypt('siswanto123'),
-        ]);
-        $DepDeptHeadPEME = User::create([
-            'name' => 'Irfina Febianti',
-            'email' => 'irfina@gmail.com',
-            'username' => 'irfina.f',
-            'npk' => '0060',
-            'gender' => 'Perempuan',
-            'tgl_masuk' => '2013-05-01',
-            'tgl_lahir' => '1990-02-26',
-            'dept_id' => 14,
-            'detail_dept_id' => 28,
-            'position_id' => 10,
-            'golongan' => 10,
-            'password' => bcrypt('irfina123'),
         ]);
 
         $spvPEME = [
@@ -3056,10 +2974,10 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2017-11-28',
                 'tgl_lahir' => '1993-04-11',
-                'dept_id' => 14,
-                'detail_dept_id' => 34,
-                'position_id' => 8,
-                'golongan' => 8,
+                'dept_id' => null,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('doni123'),
             ],
             [
@@ -3070,10 +2988,10 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2015-06-03',
                 'tgl_lahir' => '1992-06-23',
-                'dept_id' => 14,
-                'detail_dept_id' => 34,
-                'position_id' => 8,
-                'golongan' => 8,
+                'dept_id' => null,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('guntur123'),
             ],
             [
@@ -3085,7 +3003,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2015-10-19',
                 'tgl_lahir' => '1990-03-29',
                 'dept_id' => 14,
-                'detail_dept_id' => 34,
+                'detail_dept_id' => 35,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('eri123'),
@@ -3127,7 +3045,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2014-10-06',
                 'tgl_lahir' => '1993-09-21',
                 'dept_id' => 14,
-                'detail_dept_id' => 29,
+                'detail_dept_id' => 30,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('imam123'),
@@ -3141,7 +3059,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2012-12-01',
                 'tgl_lahir' => '1992-06-30',
                 'dept_id' => 14,
-                'detail_dept_id' => 34,
+                'detail_dept_id' => 36,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('arief123'),
@@ -3159,6 +3077,20 @@ class UserSeeder extends Seeder
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('made123'),
+            ],
+            [
+                'name' => 'Irfina Febianti',
+                'email' => 'irfina@gmail.com',
+                'username' => 'irfina.f',
+                'npk' => '0060',
+                'gender' => 'Perempuan',
+                'tgl_masuk' => '2013-05-01',
+                'tgl_lahir' => '1990-02-26',
+                'dept_id' => null,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
+                'password' => bcrypt('irfina123'),
             ],
         ];
         // PEME End
@@ -3322,10 +3254,10 @@ class UserSeeder extends Seeder
                 'gender' => 'Laki-Laki',
                 'tgl_masuk' => '2024-07-01',
                 'tgl_lahir' => '1999-09-29',
-                'dept_id' => 15,
-                'detail_dept_id' => 39,
-                'position_id' => 8,
-                'golongan' => 8,
+                'dept_id' => null,
+                'detail_dept_id' => null,
+                'position_id' => null,
+                'golongan' => null,
                 'password' => bcrypt('dinar123'),
             ],
             [
@@ -3365,7 +3297,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-18',
                 'tgl_lahir' => '2002-12-30',
                 'dept_id' => 15,
-                'detail_dept_id' => 39,
+                'detail_dept_id' => 42,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('alif123'),
@@ -3379,7 +3311,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-06-28',
                 'tgl_lahir' => '2003-04-09',
                 'dept_id' => 15,
-                'detail_dept_id' => 39,
+                'detail_dept_id' => 42,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('endra123'),
@@ -3393,7 +3325,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-07-01',
                 'tgl_lahir' => '1998-06-20',
                 'dept_id' => 15,
-                'detail_dept_id' => 39,
+                'detail_dept_id' => 42,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('reza123'),
@@ -3589,7 +3521,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-12-20',
                 'tgl_lahir' => '1996-04-02',
                 'dept_id' => 15,
-                'detail_dept_id' => 42,
+                'detail_dept_id' => 39,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('kurniawan123'),
@@ -3631,7 +3563,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2015-02-24',
                 'tgl_lahir' => '1992-01-04',
                 'dept_id' => 15,
-                'detail_dept_id' => 42,
+                'detail_dept_id' => 39,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('juju123'),
@@ -3645,7 +3577,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2015-03-09',
                 'tgl_lahir' => '1990-06-21',
                 'dept_id' => 15,
-                'detail_dept_id' => 42,
+                'detail_dept_id' => 39,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('sumarsono123'),
@@ -3687,7 +3619,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-01-06',
                 'tgl_lahir' => '1999-08-07',
                 'dept_id' => 15,
-                'detail_dept_id' => 42,
+                'detail_dept_id' => 41,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('m123'),
@@ -3701,7 +3633,7 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-01-13',
                 'tgl_lahir' => '1999-01-05',
                 'dept_id' => 15,
-                'detail_dept_id' => 39,
+                'detail_dept_id' => 41,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('syahrul123'),
@@ -3743,390 +3675,12 @@ class UserSeeder extends Seeder
                 'tgl_masuk' => '2021-03-16',
                 'tgl_lahir' => '2001-06-20',
                 'dept_id' => 15,
-                'detail_dept_id' => 39,
+                'detail_dept_id' => 42,
                 'position_id' => 8,
                 'golongan' => 8,
                 'password' => bcrypt('indra123'),
             ],
         ];
-
-        // QA End
-
-        // SPV
-
-        // $SPVPEQA = User::create([
-        //     'name' => '[Supervisor PEQA]',
-        //     'email' => 'spvPeQa@gmail.com',
-        //     'username' => 'spvPeQa',
-        //     'npk' => '10010',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 13,
-        //     'detail_dept_id' => 2,
-        //     'position_id' => 2,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('spv123'),
-        // ]);
-
-        // $SPVPPM = User::create([
-        //     'name' => '[Supervisor PRODPPICME]',
-        //     'email' => 'spvPPM@gmail.com',
-        //     'username' => 'spvPPM',
-        //     'npk' => '10012',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 12,
-        //     'detail_dept_id' => 5,
-        //     'position_id' => 2,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('spv123'),
-        // ]);
-
-        // HRGAEI
-
-        // $SPVHRGAEI = User::create([
-        //     'name' => 'Pandu Azaria G',
-        //     'email' => 'pandu@gmail.com',
-        //     'username' => 'spv.pandu.a',
-        //     'npk' => '10013',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 5,
-        //     'detail_dept_id' => 9,
-        //     'position_id' => 2,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('spv123'),
-        // ]);
-        // HRGAEI End
-
-        // $SPVPUR = User::create([
-        //     'name' => '[Supervisor Purchasing]',
-        //     'email' => 'spvPUR@gmail.com',
-        //     'username' => 'spvPUR',
-        //     'npk' => '10014',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 6,
-        //     'detail_dept_id' => 13,
-        //     'position_id' => 2,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('spv123'),
-        // ]);
-
-        // SPV END
-
-        // Staff
-        // $StaffFM = User::create([
-        //     'name' => '[StaffFM]',
-        //     'email' => 'stafffm@gmail.com',
-        //     'username' => 'stafffm',
-        //     'npk' => '32232333225',
-        //     'gender' => 'Perempuan',
-        //     'dept_id' => 5,
-        //     'detail_dept_id' => 10,
-        //     'position_id' => 3,
-        //     'golongan' => '4',
-        //     'password' => bcrypt('123'),
-        // ]);
-
-        // $StaffPEQA = User::create([
-        //     'name' => '[Staff PEQA]',
-        //     'email' => 'staffPeQa@gmail.com',
-        //     'username' => 'staffPeQa',
-        //     'npk' => '10017',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 13,
-        //     'detail_dept_id' => 2,
-        //     'position_id' => 3,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('staff123'),
-        // ]);
-        // $StaffPPM = User::create([
-        //     'name' => '[Staff PRODPPICME]',
-        //     'email' => 'staffPPM@gmail.com',
-        //     'username' => 'staffPPM',
-        //     'npk' => '10019',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 12,
-        //     'detail_dept_id' => 5,
-        //     'position_id' => 3,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('staff123'),
-        // ]);
-
-        // Staff HRGAEI
-
-        // Staff End
-
-        // Foreman
-        // $ForemanMKT = User::create([
-        //     'name' => '[Foreman Marketing]',
-        //     'email' => 'foremanMkt@gmail.com',
-        //     'username' => 'foremanMkt',
-        //     'npk' => '10023',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 1,
-        //     'detail_dept_id' => 1,
-        //     'position_id' => 7,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('foreman123'),
-        // ]);
-        // $ForemanPEQA = User::create([
-        //     'name' => '[Foreman PEQA]',
-        //     'email' => 'foremanPeQa@gmail.com',
-        //     'username' => 'foremanPeQa',
-        //     'npk' => '10024',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 13,
-        //     'detail_dept_id' => 2,
-        //     'position_id' => 7,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('foreman123'),
-        // ]);
-        // $ForemanPRODENG = User::create([
-        //     'name' => '[Foreman Product Engineering]',
-        //     'email' => 'foremanPRODENG@gmail.com',
-        //     'username' => 'foremanPRODENG',
-        //     'npk' => '10025',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 3,
-        //     'detail_dept_id' => 3,
-        //     'position_id' => 7,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('foreman123'),
-        // ]);
-        // $ForemanPPM = User::create([
-        //     'name' => '[Foreman PRODPPICME]',
-        //     'email' => 'foremanPPM@gmail.com',
-        //     'username' => 'foremanPPM',
-        //     'npk' => '10026',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 12,
-        //     'detail_dept_id' => 5,
-        //     'position_id' => 7,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('foreman123'),
-        // ]);
-        // $ForemanHRGAEI = User::create([
-        //     'name' => '[Foreman HRGA EHS IT]',
-        //     'email' => 'foremanHRGAEI@gmail.com',
-        //     'username' => 'foremanHRGAEI',
-        //     'npk' => '10027',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 5,
-        //     'detail_dept_id' => 7,
-        //     'position_id' => 7,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('foreman123'),
-        // ]);
-        // $ForemanPUR = User::create([
-        //     'name' => '[Foreman Purchasing]',
-        //     'email' => 'foremanPUR@gmail.com',
-        //     'username' => 'foremanPUR',
-        //     'npk' => '10028',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 6,
-        //     'detail_dept_id' => 13,
-        //     'position_id' => 7,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('foreman123'),
-        // ]);
-        // $ForemanFA = User::create([
-        //     'name' => '[Foreman Finance]',
-        //     'email' => 'foremanFA@gmail.com',
-        //     'username' => 'foremanFA',
-        //     'npk' => '10029',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 7,
-        //     'detail_dept_id' => 14,
-        //     'position_id' => 7,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('foreman123'),
-        // ]);
-        // Foreman End
-
-        // Leader
-        // $Leader = User::create([
-        //     'name' => '[Leader]',
-        //     'email' => 'leader@gmail.com',
-        //     'username' => 'leader',
-        //     'npk' => '32232333226',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 5,
-        //     'detail_dept_id' => 10,
-        //     'position_id' => 7,
-        //     'golongan' => '2',
-        //     'password' => bcrypt('123'),
-        // ]);
-
-        // $LeaderMKT = User::create([
-        //     'name' => '[Leader Marketing]',
-        //     'email' => 'leaderMkt@gmail.com',
-        //     'username' => 'leaderMkt',
-        //     'npk' => '10030',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 1,
-        //     'detail_dept_id' => 1,
-        //     'position_id' => 6,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('leader123'),
-        // ]);
-        // $LeaderPEQA = User::create([
-        //     'name' => '[Leader PEQA]',
-        //     'email' => 'leaderPeQa@gmail.com',
-        //     'username' => 'leaderPeQa',
-        //     'npk' => '10031',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 13,
-        //     'detail_dept_id' => 2,
-        //     'position_id' => 6,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('leader123'),
-        // ]);
-        // $LeaderPRODENG = User::create([
-        //     'name' => '[Leader Product Engineering]',
-        //     'email' => 'leaderPRODENG@gmail.com',
-        //     'username' => 'leaderPRODENG',
-        //     'npk' => '10032',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 3,
-        //     'detail_dept_id' => 3,
-        //     'position_id' => 6,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('leader123'),
-        // ]);
-        // $LeaderPPM = User::create([
-        //     'name' => '[Leader PRODPPICME]',
-        //     'email' => 'leaderPPM@gmail.com',
-        //     'username' => 'leaderPPM',
-        //     'npk' => '10033',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 12,
-        //     'detail_dept_id' => 5,
-        //     'position_id' => 6,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('leader123'),
-        // ]);
-        // $LeaderHRGAEI = User::create([
-        //     'name' => '[Leader HRGA EHS IT]',
-        //     'email' => 'leaderHRGAEI@gmail.com',
-        //     'username' => 'leaderHRGAEI',
-        //     'npk' => '10034',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 5,
-        //     'detail_dept_id' => 7,
-        //     'position_id' => 6,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('leader123'),
-        // ]);
-        // $LeaderPUR = User::create([
-        //     'name' => '[Leader Purchasing]',
-        //     'email' => 'leaderPUR@gmail.com',
-        //     'username' => 'leaderPUR',
-        //     'npk' => '10035',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 6,
-        //     'detail_dept_id' => 13,
-        //     'position_id' => 6,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('leader123'),
-        // ]);
-        // $LeaderFA = User::create([
-        //     'name' => '[Leader Finance]',
-        //     'email' => 'leaderFA@gmail.com',
-        //     'username' => 'leaderFA',
-        //     'npk' => '10036',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 7,
-        //     'detail_dept_id' => 14,
-        //     'position_id' => 6,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('leader123'),
-        // ]);
-        // Leader End
-
-        // Member
-        // $Member = User::create([
-        //     'name' => '[Member]',
-        //     'email' => 'member@gmail.com',
-        //     'username' => 'member',
-        //     'npk' => '3223233027',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 2,
-        //     'detail_dept_id' => 2,
-        //     'position_id' => 4,
-        //     'golongan' => '1',
-        //     'password' => bcrypt('123'),
-        // ]);
-
-        // $MemberMKT = User::create([
-        //     'name' => '[Member Marketing]',
-        //     'email' => 'memberMkt@gmail.com',
-        //     'username' => 'memberMkt',
-        //     'npk' => '10037',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 1,
-        //     'detail_dept_id' => 1,
-        //     'position_id' => 8,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('member123'),
-        // ]);
-        // $MemberPEQA = User::create([
-        //     'name' => '[Member PEQA]',
-        //     'email' => 'memberPeQa@gmail.com',
-        //     'username' => 'memberPeQa',
-        //     'npk' => '10038',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 13,
-        //     'detail_dept_id' => 2,
-        //     'position_id' => 8,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('member123'),
-        // ]);
-        // $MemberPRODENG = User::create([
-        //     'name' => '[Member Product Engineering]',
-        //     'email' => 'memberPRODENG@gmail.com',
-        //     'username' => 'memberPRODENG',
-        //     'npk' => '10039',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 3,
-        //     'detail_dept_id' => 3,
-        //     'position_id' => 8,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('member123'),
-        // ]);
-        // $MemberPPM = User::create([
-        //     'name' => '[Member PRODPPICME]',
-        //     'email' => 'memberPPM@gmail.com',
-        //     'username' => 'memberPPM',
-        //     'npk' => '10040',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 12,
-        //     'detail_dept_id' => 5,
-        //     'position_id' => 8,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('member123'),
-        // ]);
-        // $MemberHRGAEI = User::create([
-        //     'name' => '[Member HRGA EHS IT]',
-        //     'email' => 'memberHRGAEI@gmail.com',
-        //     'username' => 'memberHRGAEI',
-        //     'npk' => '10041',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 5,
-        //     'detail_dept_id' => 7,
-        //     'position_id' => 8,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('member123'),
-        // ]);
-        // $MemberPUR = User::create([
-        //     'name' => '[Member Purchasing]',
-        //     'email' => 'memberPUR@gmail.com',
-        //     'username' => 'memberPUR',
-        //     'npk' => '10042',
-        //     'gender' => 'Laki-Laki',
-        //     'dept_id' => 6,
-        //     'detail_dept_id' => 13,
-        //     'position_id' => 8,
-        //     'golongan' => '3',
-        //     'password' => bcrypt('member123'),
-        // ]);
 
         // Member End
 
@@ -4145,6 +3699,7 @@ class UserSeeder extends Seeder
         ]);
         $guest->assignRole($guests);
 
+
         $Admin->assignRole($AdminRole);
         // Loop untuk menyimpan setiap pengguna
         foreach ($BOD as $bod) {
@@ -4156,11 +3711,9 @@ class UserSeeder extends Seeder
         $DeptHeadMKT->assignRole($DeptHeadRole);
         $DeptHeadPPIC->assignRole($DeptHeadRole);
         $DeptHeadPEME->assignRole($DeptHeadRole);
-        $DepDeptHeadPEME->assignRole($DeptHeadRole);
         $DeptHeadQA->assignRole($DeptHeadRole);
         $DeptHeadPRODENG->assignRole($DeptHeadRole);
         $DeptHeadPUR->assignRole($DeptHeadRole);
-        $DHProd->assignRole($DeptHeadRole);
 
         $SPVFA->assignRole($SPVRole);
         $SPVMKT->assignRole($SPVRole);
@@ -4210,8 +3763,7 @@ class UserSeeder extends Seeder
             $user = User::create($userData);
             $user->assignRole($StaffRole); // Assign the 'Staff' role after user creation
         }
-        // $StaffPEQA->assignRole($StaffRole);
-        // $StaffPPM->assignRole($StaffRole);
+
         // Staff PE
         foreach ($staffusersPE as $userData) {
             $user = User::create($userData);
@@ -4233,13 +3785,6 @@ class UserSeeder extends Seeder
             $user->assignRole($StaffRole);
         }
 
-        // $ForemanFA->assignRole($ForemanRole);
-        // $ForemanHRGAEI->assignRole($ForemanRole);
-        // $ForemanMKT->assignRole($ForemanRole);
-        // $ForemanPEQA->assignRole($ForemanRole);
-        // $ForemanPPM->assignRole($ForemanRole);
-        // $ForemanPRODENG->assignRole($ForemanRole);
-        // $ForemanPUR->assignRole($ForemanRole);
         // Foreman PPIC
         foreach ($foremanPPIC as $userData) {
             $user = User::create($userData);
@@ -4261,13 +3806,6 @@ class UserSeeder extends Seeder
             $user->assignRole($ForemanRole);
         }
 
-        // $LeaderFA->assignRole($LeaderRole);
-        // $LeaderHRGAEI->assignRole($LeaderRole);
-        // $LeaderMKT->assignRole($LeaderRole);
-        // $LeaderPEQA->assignRole($LeaderRole);
-        // $LeaderPPM->assignRole($LeaderRole);
-        // $LeaderPRODENG->assignRole($LeaderRole);
-        // $LeaderPUR->assignRole($LeaderRole);
         // Leader Prod
         foreach ($leaderProd as $userData) {
             $user = User::create($userData);
@@ -4278,18 +3816,6 @@ class UserSeeder extends Seeder
             $user = User::create($userData);
             $user->assignRole($LeaderRole);
         }
-        // Leader PPIC
-        foreach ($LeaderPPIC as $userData) {
-            $user = User::create($userData);
-            $user->assignRole($LeaderRole);
-        }
-
-        // $MemberHRGAEI->assignRole($MemberRole);
-        // $MemberMKT->assignRole($MemberRole);
-        // $MemberPEQA->assignRole($MemberRole);
-        // $MemberPPM->assignRole($MemberRole);
-        // $MemberPRODENG->assignRole($MemberRole);
-        // $MemberPUR->assignRole($MemberRole);
 
         // Member FA
         $MemberFA->assignRole($MemberRole);
@@ -4314,18 +3840,5 @@ class UserSeeder extends Seeder
             $user->assignRole($MemberRole);
         }
 
-
-        // $LeaderPEQA->assignRole($LeaderRole);
-        // $LeaderPPM->assignRole($LeaderRole);
-        // $LeaderPRODENG->assignRole($LeaderRole);
-        // $LeaderPUR->assignRole($LeaderRole);
-
-        // $MemberFA->assignRole($MemberRole);
-        // $MemberHRGAEI->assignRole($MemberRole);
-        // $MemberMKT->assignRole($MemberRole);
-        // $MemberPEQA->assignRole($MemberRole);
-        // $MemberPPM->assignRole($MemberRole);
-        // $MemberPRODENG->assignRole($MemberRole);
-        // $MemberPUR->assignRole($MemberRole);
     }
 }

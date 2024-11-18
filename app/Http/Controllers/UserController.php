@@ -16,9 +16,10 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user()->load('department');
-        $subWebsites = SubWebsite::all();
+        $subWebsitesInternal = SubWebsite::where('kategori','internal')->get();
+        $subWebsitesExternal = SubWebsite::where('kategori','external')->get();
 
-        return view('dashboard',compact('subWebsites'));
+        return view('dashboard',compact('subWebsitesInternal','subWebsitesExternal'));
     }
     public function dashboard()
     {
@@ -26,8 +27,10 @@ class UserController extends Controller
         // $permissions = Permission::all();
         // $role = Role::findOrFail($id);
         // return view('roles.assign-permissions', compact('user', 'role', 'permissions'));
-        $subWebsites = SubWebsite::all();
-        return view('dashboard',compact('subWebsites'));
+        // $subWebsites = SubWebsite::all();
+        $subWebsitesInternal = SubWebsite::where('kategori','internal')->get();
+        $subWebsitesExternal = SubWebsite::where('kategori','external')->get();
+        return view('dashboard',compact('subWebsitesInternal','subWebsitesExternal'));
     }
 
     public function profile(){

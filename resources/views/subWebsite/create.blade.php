@@ -29,7 +29,8 @@
 
                         </div>
                         <div class="mb-3 col-lg-6 col-10">
-                            <label for="email" class="form-label">Link Website ("contoh : http://10.14.179.250:1111" tanpa "/" diakhir)</label>
+                            <label for="email" class="form-label">Link Website ("contoh : http://10.14.179.250:1111"
+                                tanpa "/" diakhir)</label>
                             <input value="" type="text" class="form-control" name="link"
                                 placeholder="Link Website" required>
                         </div>
@@ -38,24 +39,38 @@
                             <input class="form-control" name="sampul" type="file" id="formFile">
                         </div>
                         <div class="mb-3 col-lg-6 col-10">
-                            <label for="checks" class="form-label">Pilih Jenis Sub Website</label>
-                            <div class="i-checks"><label> <input type="radio" checked="" value="sinkron" name="kategori"> <i></i> Sinkron </label></div>
-                            <div class="i-checks"><label> <input type="radio"  value="non-sinkron" name="kategori"> <i></i> Non Sinkron </label></div>
+                            <div class="row">
+                                <div class="col-lg-6 col-10">
+                                    <label for="checks-jenis" class="form-label">Pilih Jenis Sub Website</label>
+                                    <div class="i-checks"><label> <input type="radio" checked="" value="sinkron"
+                                                name="jenis"> <i></i> Sinkron </label></div>
+                                    <div class="i-checks"><label> <input type="radio" value="non-sinkron" name="jenis">
+                                            <i></i> Non Sinkron </label></div>
+                                </div>
+                                <div class="col-lg-6 col-10">
+                                    <label for="checks-kategori " class="form-label">Pilih Kategori Sub Website</label>
+                                    <div class="i-checks"><label> <input type="radio" checked="" value="internal"
+                                                name="kategori"> <i></i> Internal </label></div>
+                                    <div class="i-checks"><label> <input type="radio" value="external" name="kategori">
+                                            <i></i> External </label></div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                     <div class="hr-line-dashed"></div>
                     <h3>Hak Akses Sub Website <small> (Default "Semua") </small></h3>
-                    <div id="checkbox" class="d-flex ">
-                        <div class="m-3">
+                    <div id="checkbox" class="d-flex row">
+                        <div class="m-3 col-lg-2">
                             <input type="checkbox" id="ByDepartement"> <span> By Departement</span>
                         </div>
-                        <div class="m-3">
+                        <div class="m-3 col-lg-2">
                             <input type="checkbox" id="ByDetailDepartement"> <span> By Detail Departement</span>
                         </div>
-                        <div class="m-3">
+                        <div class="m-3 col-lg-2">
                             <input type="checkbox" id="ByPosition"> <span> By Position</span>
                         </div>
-                        <div class="m-3">
+                        <div class="m-3 col-lg-2">
                             <input type="checkbox" id="ByUser"> <span> By Users</span>
                         </div>
                     </div>

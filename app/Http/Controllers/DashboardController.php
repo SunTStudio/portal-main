@@ -37,6 +37,7 @@ class DashboardController extends Controller
             'sampul' => 'required',
             'link' => 'required',
             'kategori' => 'required',
+            'jenis' => 'required',
         ]);
         //move sampul image to public img/subWebsite
         $sampul = $request->file('sampul');
@@ -178,7 +179,7 @@ class DashboardController extends Controller
             foreach ($users as $user) {
                 $addRoleToUser = User::where('npk', $user)->first();
                 if (!$addRoleToUser->roles->contains($oldData->role)) {
-                    $addRoleToUser->assignRole($role);
+                    $addRoleToUser->assignRole($validateData['role']);
                 }
             }
         } else {
@@ -207,6 +208,7 @@ class DashboardController extends Controller
         $validateData['users'] = json_encode($users);
         $validateData['sampul'] = $sampulName;
         $validateData['kategori'] = $request->kategori;
+        $validateData['jenis'] = $request->jenis;
 
         $oldData->update($validateData);
         return redirect()->route('dashboard')->with('success', 'Sub Website berhasil di update!');
@@ -261,7 +263,7 @@ class DashboardController extends Controller
         ];
         try {
             foreach ($subWebsites as $subWebsite) {
-                if($subWebsite->kategori == 'sinkron'){
+                if($subWebsite->jenis == 'sinkron'){
                 // Mengirimkan request POST
                     $response = $client->post($subWebsite->link . '/api/updateDataAPI', [
                         // $response = $client->post('http://10.14.179.250:3333/api/updateDataAPI', [
@@ -414,7 +416,7 @@ class DashboardController extends Controller
     }
 
     public function usersMonitoring(){
-        
+
         return view('monitoring.index',compact('users'));
     }
 
