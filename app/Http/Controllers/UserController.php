@@ -37,10 +37,25 @@ class UserController extends Controller
         return view('profile');
     }
 
+    public function update_info_pengguna(Request $request){
+        $validateData = $request->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required',
+        ]);
+
+        $user = Auth::user();
+        $user->update($validateData);
+        return redirect()->back()->with('status', 'Data Pengguna Berhasil Diperbarui!');
+    }
+
     public function new_password(Request $request){
         $validateData = $request->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required',
             'password_lama' => 'required',
-            'password_baru' => 'required',
+            'password_baru' => 'nullable',
         ]);
 
         // Get the authenticated user
@@ -51,11 +66,13 @@ class UserController extends Controller
         return redirect()->back()->with('status', 'Password lama tidak cocok, Periksa kembali!');
     }
     // Update the password
-    $user->password = Hash::make($request->password_baru);
-    $user->save();
+    if($request->password_baru != null){
+        $validateData['password'] = Hash::make($request->password_baru);
+    }
+    $user->update($validateData);
 
     // Redirect with a success message
-    return redirect()->back()->with('status', 'Password berhasil diperbarui!');
+    return redirect()->back()->with('status', 'Data Akun Anda berhasil diperbarui!');
 
     }
 }

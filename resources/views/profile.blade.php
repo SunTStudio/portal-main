@@ -18,7 +18,15 @@
 @endif
 {{-- div content  --}}
 <div class="wrapper wrapper-content animated fadeInRight ecommerce">
-
+    @if ($errors->any())
+    <ul>
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger">
+                {{ $error }}
+            </div>
+        @endforeach
+    </ul>
+    @endif
     <div class="row mb-5">
         <div class="col-lg-12">
             <div class="tabs-container">
@@ -31,37 +39,38 @@
                         {{-- start tab 1 --}}
                         <div id="tab-1" class="tab-pane active">
                             <div class="panel-body">
-
+                                <form action="{{ route('profile.new.password') }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin Memperbarui Data Akun Anda?');">
+                                    @csrf
                                 <fieldset>
                                     <div class="form-group row"><label class="col-sm-2 col-form-label">Nama</label>
-                                        <div class="col-sm-10"><input type="text" class="form-control" placeholder="Nama" value="{{ Auth::user()->name }}" disabled></div>
+                                        <div class="col-sm-10"><input type="text" class="form-control" name="name" placeholder="Nama" value="{{ Auth::user()->name }}" required></div>
                                     </div>
                                     <div class="form-group row"><label class="col-sm-2 col-form-label">Username:</label>
-                                        <div class="col-sm-10"><input type="text" class="form-control" placeholder="Username" value="{{ Auth::user()->username }}" disabled></div>
+                                        <div class="col-sm-10"><input type="text" class="form-control" name="username" placeholder="Username" value="{{ Auth::user()->username }}" required></div>
                                     </div>
                                     <div class="form-group row"><label class="col-sm-2 col-form-label" >Email:</label>
-                                        <div class="col-sm-10"><input type="text" class="form-control" placeholder="Email" value="{{ Auth::user()->email }}" disabled></div>
+                                        <div class="col-sm-10"><input type="text" class="form-control" name="email" placeholder="Email" value="{{ Auth::user()->email }}" required></div>
                                     </div>
 
                                 </fieldset>
-                                <hr>
-                                <form action="{{ route('profile.new.password') }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin Memperbarui Password?');">
-                                    @csrf
-                                <p> <strong>Ubah password</strong> </p>
-                                <div class="form-group row d-flex align-items-center">
-                                    <label class="col-sm-2 col-form-label">Konfirmasi Password Lama</label>
-                                    <div class="col-sm-4">
-                                        <input id="password-lama" name="password_lama" type="password" class="form-control" >
-                                    </div>
-                                </div>
                                 <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Password Baru</label>
+                                    <label class="col-sm-2 col-form-label">Password Baru (Opsional)</label>
                                     <div class="col-sm-4">
                                         <input id="password-baru" name="password_baru" type="password" class="form-control" >
                                     </div>
                                 </div>
+                                <hr>
+
+                                <p> <strong>Wajib diisi untuk Konfirmasi perubahan data (Diisi dengan Password Lama)</strong> </p>
+                                <div class="form-group row d-flex align-items-center">
+                                    <label class="col-sm-2 col-form-label">Konfirmasi Password</label>
+                                    <div class="col-sm-4">
+                                        <input id="password-lama" name="password_lama" type="password" class="form-control" required>
+                                    </div>
+                                </div>
+
                                 <div class="mt-3 bg-black">
-                                <button class="btn btn-warning btn-sm" type="submit">Perbarui Password</button>
+                                <button class="btn btn-warning btn-sm" type="submit">Perbarui Data Anda</button>
                             </div>
                             </form>
                             </div>
