@@ -42,6 +42,8 @@ Route::middleware('auth')->group(function () {
 
     //User Monitoring
     Route::get('/users-monitoring', [DashboardController::class, 'usersMonitoring'])->name('users.monitoring');
+    Route::get('/search-internal', [DashboardController::class, 'searchInternal'])->name('search.internal');
+    Route::get('/search-external', [DashboardController::class, 'searchExternal'])->name('search.external');
 
     // Rute users
     Route::get('/users', [UsersManages::class, 'users'])->name('users');

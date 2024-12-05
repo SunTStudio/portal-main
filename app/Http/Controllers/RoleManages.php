@@ -133,6 +133,8 @@ class RoleManages extends Controller
         $users = User::with('department')->get();
         $roleData = Role::findByName($role);
         if ($request->ajax()) {
+            $users = User::with('department')->get();
+            $roleData = Role::findByName($role);
             // Filter dan tambahkan has_roles
             $usersWithRole = $users->map(function ($user) use ($role) {
                 $user->has_roles = $user->hasRole($role);

@@ -42,7 +42,13 @@
 
                         <div class="mb-3 col-lg-6 col-10">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" class="form-control" name="password" placeholder="Password (Kosongkan jika tidak ingin mengubah)">
+                            <input type="password" class="form-control" name="password" id="password" placeholder="Password (Kosongkan jika tidak ingin mengubah)">
+                            <div class="form-check">
+                                <input class="form-check-input"  type="checkbox" onclick="visiblePass()" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Show Password
+                                </label>
+                              </div>
                         </div>
 
                         <div class="mb-3 col-lg-6 col-10">
@@ -129,6 +135,20 @@
 
 @section('script')
     <script>
+        //visible password
+        let count = 0;
+        function visiblePass(){
+            let pass = document.getElementById('password');
+            if(count == 0){
+                pass.type = "text";
+                count = 1;
+            }else if(count == 1){
+                pass.type = "password";
+                count = 0;
+            }
+
+        }
+
         function departmentSelect(selectDeparment){
             selectedDeparment = Array.from(selectDeparment.selectedOptions).map(option => option.value);
 

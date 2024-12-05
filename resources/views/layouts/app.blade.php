@@ -79,11 +79,11 @@
                             <a href="#"><i class="fa fa-users"></i> <span class="nav-label">Access
                                     Control</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li class="{{ Request::is('Akun') ? 'active' : '' }}"><a
+                                <li class="{{ Request::is('users*') ? 'active' : '' }}"><a
                                         href="{{ route('users') }}">Users</a></li>
-                                <li class="{{ Request::is('Role') ? 'active' : '' }}"><a
+                                <li class="{{ Request::is('roles*') ? 'active' : '' }}"><a
                                         href="{{ route('roles') }}">Roles</a></li>
-                                <li class="{{ Request::is('Permision') ? 'active' : '' }}"><a
+                                <li class="{{ Request::is('permissions*') ? 'active' : '' }}"><a
                                         href="{{ route('permissions') }}">Permisions</a></li>
                                 {{-- <li><a href="carousel.html">Dilaporkan</a></li> --}}
                             </ul>
@@ -92,11 +92,11 @@
                             <a href="#"><i class="fa fa-cubes"></i> <span class="nav-label">Struktur
                                     Manajemen</span><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
-                                <li class="{{ Request::is('*department') ? 'active' : '' }}"><a
+                                <li class="{{ Request::is('department*') ? 'active' : '' }}"><a
                                         href="{{ route('department') }}">Departement</a></li>
-                                <li class="{{ Request::is('*department-detail') ? 'active' : '' }}"><a
+                                <li class="{{ Request::is('department-detail*') ? 'active' : '' }}"><a
                                         href="{{ route('detail.department') }}">Detail Departement</a></li>
-                                <li class="{{ Request::is('position') ? 'active' : '' }}"><a
+                                <li class="{{ Request::is('position*') ? 'active' : '' }}"><a
                                         href="{{ route('position') }}">Position</a></li>
                                 {{-- <li><a href="carousel.html">Dilaporkan</a></li> --}}
                             </ul>
@@ -112,7 +112,7 @@
         </nav>
 
         <div id="page-wrapper" class="gray-bg">
-            <div class="row border-bottom mb-4">
+            <div class="row border-bottom ">
                 <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header">
                         <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i

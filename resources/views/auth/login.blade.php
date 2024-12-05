@@ -41,7 +41,13 @@
                         value="{{ old('name') }}" required>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" name="password" placeholder="Password" required>
+                    <input type="password" id="password" class="form-control" name="password" placeholder="Password" required>
+                    <div class="form-check mt-1 text-left">
+                        <input class="form-check-input"  type="checkbox" onclick="visiblePass()" id="flexCheckDefault">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            Show Password
+                        </label>
+                    </div>
                 </div>
                 <button type="submit" class="btn btn-info block full-width m-b"
                     style="background-color:#225879" id="loginButton">Login</button>
@@ -57,6 +63,18 @@
     <script src={{ asset('js/popper.min.js') }}></script>
     <script src={{ asset('js/bootstrap.js') }}></script>
     <script>
+        let count = 0;
+        function visiblePass(){
+            let pass = document.getElementById('password');
+            if(count == 0){
+                pass.type = "text";
+                count = 1;
+            }else if(count == 1){
+                pass.type = "password";
+                count = 0;
+            }
+
+        }
         document.getElementById('loginForm').addEventListener('submit', function() {
             document.getElementById('loginButton').disabled = true;
         });

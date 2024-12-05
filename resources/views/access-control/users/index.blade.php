@@ -174,17 +174,38 @@
             $('#departmentsFilter').on('change', function() {
                 var selectedDepartments = $(this).val();
                 filterDetailDepartments(selectedDepartments);
-                table.column(3).search(selectedDepartments).draw();
+                if(selectedDepartments == ' '){
+                    table.column(3).search(selectedDepartments).draw();
+                }else{
+                    var regex = '^' + selectedDepartments + '$';
+
+                    // Terapkan pencarian ke kolom
+                    table.column(3).search(regex, true, false).draw();
+                }
             });
 
             $('#detaildepartmentsFilter').on('change', function() {
                 var selectedDepartments = $(this).val();
-                table.column(4).search(selectedDepartments).draw();
+                if(selectedDepartments == ' '){
+                    table.column(4).search(selectedDepartments).draw();
+                }else{
+                    var regex = '^' + selectedDepartments + '$';
+
+                    // Terapkan pencarian ke kolom
+                    table.column(4).search(regex, true, false).draw();
+                }
             });
 
             $('#positionFilter').on('change', function() {
                 var selectedDepartments = $(this).val();
-                table.column(5).search(selectedDepartments).draw();
+                if(selectedDepartments == ' '){
+                    table.column(5).search(selectedDepartments).draw();
+                }else{
+                    var regex = '^' + selectedDepartments + '$';
+
+                    // Terapkan pencarian ke kolom
+                    table.column(5).search(regex, true, false).draw();
+                }
             });
 
             new $.fn.dataTable.FixedHeader(table);

@@ -33,7 +33,7 @@ class DashboardController extends Controller
     public function store(Request $request)
     {
         $validateData = $request->validate([
-            'name' => 'required',
+            'name' => 'required|string|max:21',
             'sampul' => 'required',
             'link' => 'required',
             'kategori' => 'required',
@@ -137,7 +137,7 @@ class DashboardController extends Controller
     {
 
         $validateData = $request->validate([
-            'name' => 'required',
+            'name' => 'required|string|max:21',
             'link' => 'required',
         ]);
 
@@ -209,7 +209,7 @@ class DashboardController extends Controller
         $validateData['sampul'] = $sampulName;
         $validateData['kategori'] = $request->kategori;
         $validateData['jenis'] = $request->jenis;
-
+        $validateData['keterangan'] = $request->keterangan;
         $oldData->update($validateData);
         return redirect()->route('dashboard')->with('success', 'Sub Website berhasil di update!');
     }
@@ -418,6 +418,18 @@ class DashboardController extends Controller
     public function usersMonitoring(){
 
         return view('monitoring.index',compact('users'));
+    }
+
+    public function searchInternal(Request $request){
+        $query = $request->input('query');
+        $data = SubWebsite::where('kategori','internal')->where('name','LIKE','%'.$query.'%')->get();
+        return response()->json($data);
+    }
+
+    public function searchExternal(Request $request){
+        $query = $request->input('query');
+        $data = SubWebsite::where('kategori','external')->where('name','LIKE','%'.$query.'%')->get();
+        return response()->json($data);
     }
 
 }

@@ -23,13 +23,13 @@
                     <div class="row">
 
                         <div class="mb-3 col-lg-6 col-10">
-                            <label for="name" class="form-label">Nama Website :</label>
+                            <label for="name" class="form-label">Nama Website <br><span>("Penamaan Maksimal 20 huruf,termasuk Spasi!")</span></label>
                             <input value="" type="text" class="form-control" name="name" placeholder="Name"
                                 required>
 
                         </div>
                         <div class="mb-3 col-lg-6 col-10">
-                            <label for="email" class="form-label">Link Website ("contoh : http://10.14.179.250:1111"
+                            <label for="email" class="form-label">Link Website <br> ("contoh : http://10.14.179.250:1111"
                                 tanpa "/" diakhir)</label>
                             <input value="" type="text" class="form-control" name="link"
                                 placeholder="Link Website" required>
@@ -56,6 +56,10 @@
                                 </div>
                             </div>
 
+                        </div>
+                        <div class="mb-3 col-lg-6 col-10">
+                            <label for="keterangan" class="form-label">Keterangan Website :</label>
+                            <input type="text" class="form-control" name="keterangan" placeholder="keterangan">
                         </div>
                     </div>
                     <div class="hr-line-dashed"></div>

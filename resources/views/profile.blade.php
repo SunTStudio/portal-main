@@ -55,7 +55,7 @@
                                 </fieldset>
                                 <div class="form-group row">
                                     <label class="col-sm-2 col-form-label">Password Baru (Opsional)</label>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-10">
                                         <input id="password-baru" name="password_baru" type="password" class="form-control" >
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@
                                 <p> <strong>Wajib diisi untuk Konfirmasi perubahan data (Diisi dengan Password Lama)</strong> </p>
                                 <div class="form-group row d-flex align-items-center">
                                     <label class="col-sm-2 col-form-label">Konfirmasi Password</label>
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-10">
                                         <input id="password-lama" name="password_lama" type="password" class="form-control" required>
                                     </div>
                                 </div>

@@ -81,7 +81,7 @@
                         data: 'dept_id',
                         name: 'dept_id',
                         className: 'text-center',
-                        render: function(data,row) {
+                        render: function(data, type, row) {
                             return row.department ? row.department.name : 'Tidak ada';
                         },
                     },
